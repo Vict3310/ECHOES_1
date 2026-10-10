@@ -1,0 +1,30 @@
+{
+  "name": "echoes",
+  "private": true,
+  "version": "0.1.0",
+  "description": "ECHOES — AI-powered cultural discovery, navigation and tourism platform (Lagos, Nigeria).",
+  "type": "module",
+  "workspaces": [
+    "client",
+    "server"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "npm-run-all --parallel dev:server dev:client",
+    "dev:client": "npm --workspace client run dev",
+    "dev:server": "npm --workspace server run dev",
+    "build": "npm --workspace client run build && npm --workspace server run build",
+    "build:client": "npm --workspace client run build",
+    "build:server": "npm --workspace server run build",
+    "typecheck": "npm --workspace server run typecheck && npm --workspace client run typecheck",
+    "test": "npm --workspace server run test && npm --workspace client run test",
+    "lint": "npm --workspace client run lint && npm --workspace server run lint",
+    "db:migrate": "npm --workspace server run db:migrate",
+    "db:seed": "npm --workspace server run db:seed"
+  },
+  "devDependencies": {
+    "npm-run-all": "^4.1.5"
+  }
+}

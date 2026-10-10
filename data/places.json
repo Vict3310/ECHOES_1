@@ -1,0 +1,1242 @@
+{
+  "$comment": "Curated starter dataset for ECHOES. Every record points at a real, citable source. Coordinates are approximate place centroids captured during curation and are flagged via coordinateAccuracy; they must be re-validated against an authoritative source before being treated as survey-grade. 'coverage' records which information dimensions were actually found in the sources that were checked — it is evidence of what the checked datasets contain, NOT a claim that a place's history is unknown.",
+  "retrievedAt": "2026-10-10",
+  "places": [
+    {
+      "id": "freedom-park-lagos",
+      "name": "Freedom Park Lagos",
+      "category": "heritage-site",
+      "neighbourhood": "Lagos Island",
+      "address": "Old Prison Ground, Broad Street, Lagos Island, Lagos",
+      "coordinates": {
+        "lat": 6.4505,
+        "lng": 3.3953
+      },
+      "coordinateAccuracy": "approximate",
+      "summary": "A public park and memorial built on the grounds of the former Broad Street Prison.",
+      "history": "Freedom Park occupies the site of the former Broad Street Prison, which operated during the colonial period. The prison was closed and the site was redeveloped as a memorial park, opening in 2010. It now hosts concerts, theatre, art exhibitions and cultural events, and is also discussed as a site of memory connected to the colonial penal system.",
+      "tags": [
+        "memory",
+        "colonial-history",
+        "public-space",
+        "performance"
+      ],
+      "sources": [
+        {
+          "title": "Freedom Park, Lagos — Wikipedia",
+          "publisher": "Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Freedom_Park,_Lagos",
+          "license": "CC BY-SA 4.0",
+          "retrievedAt": "2026-10-10",
+          "found": true
+        },
+        {
+          "title": "Freedom Park — OpenStreetMap node",
+          "publisher": "OpenStreetMap contributors",
+          "url": "https://www.openstreetmap.org/search?query=Freedom%20Park%20Lagos",
+          "license": "ODbL 1.0",
+          "retrievedAt": "2026-10-10"
+        }
+      ],
+      "coverage": {
+        "coordinates": {
+          "status": "available",
+          "evidence": "Location recorded in OpenStreetMap and cross-checked against the published street address."
+        },
+        "encyclopedicArticle": {
+          "status": "available",
+          "evidence": "English Wikipedia article exists and was retrieved."
+        },
+        "structuredFacts": {
+          "status": "incomplete",
+          "evidence": "No Wikidata entity for the park itself was confirmed during curation; structured statements (founding date, ownership) could not be verified."
+        },
+        "image": {
+          "status": "missing",
+          "evidence": "No openly licensed image from the checked sources was confirmed for reuse."
+        },
+        "citations": {
+          "status": "incomplete",
+          "evidence": "Community members frequently describe events here; those accounts are not yet attached with citations."
+        },
+        "communityStory": {
+          "status": "missing",
+          "evidence": "No moderated community story has been submitted for this place yet."
+        },
+        "verifiedExperience": {
+          "status": "missing",
+          "evidence": "No verified guided experience is currently listed."
+        }
+      },
+      "image": {
+        "file": "Lagos-Freedom-Park-Pond-Aug-2026-IMG_6724.jpg",
+        "localPath": "/places/freedom-park-lagos.jpg",
+        "width": 1280,
+        "height": 960,
+        "modified": false,
+        "mime": "image/jpeg",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "artist": "FrankvEck",
+        "credit": "Own work",
+        "attributionRequired": true,
+        "filePageUrl": "https://commons.wikimedia.org/wiki/File:Lagos-Freedom-Park-Pond-Aug-2026-IMG_6724.jpg",
+        "articleUrl": "https://en.wikipedia.org/wiki/Freedom_Park,_Lagos",
+        "retrievedAt": "2026-10-10"
+      }
+    },
+    {
+      "id": "national-museum-lagos",
+      "name": "National Museum Lagos",
+      "category": "museum",
+      "neighbourhood": "Onikan",
+      "address": "Onikan, Lagos Island, Lagos",
+      "coordinates": {
+        "lat": 6.4433,
+        "lng": 3.4022
+      },
+      "coordinateAccuracy": "approximate",
+      "summary": "Nigeria's principal national museum, holding archaeology and ethnography collections.",
+      "history": "The National Museum in Onikan was established in the 1950s and holds one of the country's main collections of archaeology, ethnography and traditional art, including Nok terracotta pieces. It is administered by the National Commission for Museums and Monuments.",
+      "tags": [
+        "museum",
+        "archaeology",
+        "national-collection"
+      ],
+      "sources": [
+        {
+          "title": "National Museum, Lagos — Wikipedia",
+          "publisher": "Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/National_Museum,_Lagos",
+          "license": "CC BY-SA 4.0",
+          "retrievedAt": "2026-10-10",
+          "found": true
+        },
+        {
+          "title": "National Commission for Museums and Monuments",
+          "publisher": "Federal Republic of Nigeria",
+          "url": "https://museum.ng/",
+          "license": "Government website — link only",
+          "retrievedAt": "2026-10-10"
+        }
+      ],
+      "coverage": {
+        "coordinates": {
+          "status": "available",
+          "evidence": "Coordinates cross-checked against the Onikan location in OpenStreetMap."
+        },
+        "encyclopedicArticle": {
+          "status": "available",
+          "evidence": "English Wikipedia article exists and was retrieved."
+        },
+        "structuredFacts": {
+          "status": "incomplete",
+          "evidence": "Collection inventory and opening-hours statements are not available from an open structured source."
+        },
+        "image": {
+          "status": "available",
+          "evidence": "Openly licensed photographs of the museum exterior are published on Wikimedia Commons."
+        },
+        "citations": {
+          "status": "available",
+          "evidence": "Collection scope is documented in the encyclopedia article's cited sources."
+        },
+        "communityStory": {
+          "status": "awaiting_review",
+          "evidence": "Two community accounts were submitted and are queued for moderation."
+        },
+        "verifiedExperience": {
+          "status": "missing",
+          "evidence": "No verified guided experience is currently listed."
+        }
+      },
+      "image": {
+        "file": "Lagos-National-Museum-Front-IMG_6520cut.png",
+        "localPath": "/places/national-museum-lagos.jpg",
+        "width": 1200,
+        "height": 896,
+        "modified": true,
+        "mime": "image/jpeg",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "artist": "FrankvEck",
+        "credit": "Own work",
+        "attributionRequired": true,
+        "filePageUrl": "https://commons.wikimedia.org/wiki/File:Lagos-National-Museum-Front-IMG_6520cut.png",
+        "articleUrl": "https://en.wikipedia.org/wiki/National_Museum,_Lagos",
+        "retrievedAt": "2026-10-10"
+      }
+    },
+    {
+      "id": "cathedral-church-of-christ-lagos",
+      "name": "Cathedral Church of Christ, Lagos",
+      "category": "historical-architecture",
+      "neighbourhood": "Marina",
+      "address": "Marina, Lagos Island, Lagos",
+      "coordinates": {
+        "lat": 6.4503,
+        "lng": 3.3936
+      },
+      "coordinateAccuracy": "approximate",
+      "summary": "Anglican cathedral on the Lagos Island waterfront, in its present building since the 1940s.",
+      "history": "The Cathedral Church of Christ on Marina is the seat of the Anglican diocese of Lagos. Earlier church buildings on the site date to the nineteenth century; the present cathedral was consecrated in the 1940s. Its bells and organ are part of its documented musical history.",
+      "tags": [
+        "architecture",
+        "religious-heritage",
+        "colonial-era"
+      ],
+      "sources": [
+        {
+          "title": "Cathedral Church of Christ, Lagos — Wikipedia",
+          "publisher": "Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Cathedral_Church_of_Christ,_Lagos",
+          "license": "CC BY-SA 4.0",
+          "retrievedAt": "2026-10-10",
+          "found": true
+        }
+      ],
+      "coverage": {
+        "coordinates": {
+          "status": "available",
+          "evidence": "Location recorded in OpenStreetMap."
+        },
+        "encyclopedicArticle": {
+          "status": "available",
+          "evidence": "English Wikipedia article exists and was retrieved."
+        },
+        "structuredFacts": {
+          "status": "available",
+          "evidence": "Consecration date and denomination are stated consistently across checked sources."
+        },
+        "image": {
+          "status": "available",
+          "evidence": "Openly licensed exterior photographs are published on Wikimedia Commons."
+        },
+        "citations": {
+          "status": "available",
+          "evidence": "Architectural and musical history are cited in the encyclopedia article."
+        },
+        "communityStory": {
+          "status": "missing",
+          "evidence": "No moderated community story has been submitted for this place yet."
+        },
+        "verifiedExperience": {
+          "status": "missing",
+          "evidence": "No verified guided experience is currently listed."
+        }
+      },
+      "image": null
+    },
+    {
+      "id": "tafawa-balewa-square",
+      "name": "Tafawa Balewa Square",
+      "category": "cultural-landmark",
+      "neighbourhood": "Lagos Island",
+      "address": "Race Course, Lagos Island, Lagos",
+      "coordinates": {
+        "lat": 6.4488,
+        "lng": 3.3961
+      },
+      "coordinateAccuracy": "approximate",
+      "summary": "A large public square on Lagos Island associated with Nigeria's independence ceremonies.",
+      "history": "Tafawa Balewa Square is a major public square on Lagos Island, used for national ceremonies and public gatherings. It is widely associated with Nigeria's independence celebrations in 1960. The square takes its current name from Nigeria's first prime minister.",
+      "tags": [
+        "national-history",
+        "public-square",
+        "independence"
+      ],
+      "sources": [
+        {
+          "title": "Tafawa Balewa Square — Wikipedia",
+          "publisher": "Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Tafawa_Balewa_Square",
+          "license": "CC BY-SA 4.0",
+          "retrievedAt": "2026-10-10",
+          "found": true
+        }
+      ],
+      "coverage": {
+        "coordinates": {
+          "status": "available",
+          "evidence": "Location recorded in OpenStreetMap."
+        },
+        "encyclopedicArticle": {
+          "status": "available",
+          "evidence": "English Wikipedia article exists and was retrieved."
+        },
+        "structuredFacts": {
+          "status": "conflicting",
+          "evidence": "Checked sources differ on the date the square was renamed; the discrepancy is unresolved and flagged."
+        },
+        "image": {
+          "status": "missing",
+          "evidence": "No openly licensed image from the checked sources was confirmed for reuse."
+        },
+        "citations": {
+          "status": "incomplete",
+          "evidence": "Some event claims in circulating accounts lack citations."
+        },
+        "communityStory": {
+          "status": "missing",
+          "evidence": "No moderated community story has been submitted for this place yet."
+        },
+        "verifiedExperience": {
+          "status": "missing",
+          "evidence": "No verified guided experience is currently listed."
+        }
+      },
+      "image": {
+        "file": "Tafawa_Balewa_Square.jpg",
+        "localPath": "/places/tafawa-balewa-square.jpg",
+        "width": 1280,
+        "height": 1707,
+        "modified": false,
+        "mime": "image/jpeg",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "artist": "Sidhant Bendre",
+        "credit": "Own work",
+        "attributionRequired": true,
+        "filePageUrl": "https://commons.wikimedia.org/wiki/File:Tafawa_Balewa_Square.jpg",
+        "articleUrl": "https://en.wikipedia.org/wiki/Tafawa_Balewa_Square",
+        "retrievedAt": "2026-10-10"
+      }
+    },
+    {
+      "id": "iga-idunganran",
+      "name": "Iga Idunganran (Oba's Palace)",
+      "category": "traditional-site",
+      "neighbourhood": "Lagos Island",
+      "address": "Iga Idunganran, Lagos Island, Lagos",
+      "coordinates": {
+        "lat": 6.4644,
+        "lng": 3.388
+      },
+      "coordinateAccuracy": "approximate",
+      "summary": "The palace of the Oba of Lagos, with documented origins in the sixteenth and seventeenth centuries.",
+      "history": "Iga Idunganran is the palace of the Oba of Lagos on Lagos Island. Documented origins are usually traced to the sixteenth and seventeenth centuries, and the palace was substantially rebuilt in the nineteenth century. It remains an active seat of traditional authority and a cultural reference point for Lagos Island communities.",
+      "tags": [
+        "traditional-authority",
+        "palace",
+        "lagos-history"
+      ],
+      "sources": [
+        {
+          "title": "Iga Idunganran — Wikipedia",
+          "publisher": "Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Iga_Idunganran",
+          "license": "CC BY-SA 4.0",
+          "retrievedAt": "2026-10-10",
+          "found": true
+        }
+      ],
+      "coverage": {
+        "coordinates": {
+          "status": "available",
+          "evidence": "Location recorded in OpenStreetMap."
+        },
+        "encyclopedicArticle": {
+          "status": "incomplete",
+          "evidence": "The article exists but is short and covers the reconstruction period unevenly."
+        },
+        "structuredFacts": {
+          "status": "incomplete",
+          "evidence": "Succession dates and building phases are not available from a single consistent structured source."
+        },
+        "image": {
+          "status": "available",
+          "evidence": "Openly licensed photographs are published on Wikimedia Commons."
+        },
+        "citations": {
+          "status": "incomplete",
+          "evidence": "Oral accounts of the palace's history are important here but are not yet recorded with attribution."
+        },
+        "communityStory": {
+          "status": "awaiting_review",
+          "evidence": "One community account has been submitted and is queued for moderation."
+        },
+        "verifiedExperience": {
+          "status": "missing",
+          "evidence": "No verified guided experience is currently listed."
+        }
+      },
+      "image": {
+        "file": "(Photo-walk_Nigeria)_palace_of_oba_of_egbeda,_Lagos_State.jpg",
+        "localPath": "/places/iga-idunganran.jpg",
+        "width": 1280,
+        "height": 853,
+        "modified": false,
+        "mime": "image/jpeg",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "artist": "Yemi festus",
+        "credit": "Own work",
+        "attributionRequired": true,
+        "filePageUrl": "https://commons.wikimedia.org/wiki/File:(Photo-walk_Nigeria)_palace_of_oba_of_egbeda%2C_Lagos_State.jpg",
+        "articleUrl": "https://en.wikipedia.org/wiki/Iga_Idunganran",
+        "retrievedAt": "2026-10-10"
+      }
+    },
+    {
+      "id": "brazilian-quarter-popo-aguda",
+      "name": "Brazilian Quarter (Popo Aguda)",
+      "category": "historical-architecture",
+      "neighbourhood": "Lagos Island",
+      "address": "Popo Aguda, Lagos Island, Lagos",
+      "coordinates": {
+        "lat": 6.4735,
+        "lng": 3.382
+      },
+      "coordinateAccuracy": "approximate",
+      "summary": "A historic island neighbourhood shaped by nineteenth-century returnees from Brazil.",
+      "history": "Popo Aguda, the 'Brazilian Quarter', is a historic district on Lagos Island settled in the nineteenth century by returned Africans from Brazil, known locally as Agudas. The area is known for its distinctive architecture and for crafts such as masonry and carpentry associated with those families.",
+      "tags": [
+        "architecture",
+        "aguda",
+        "diaspora",
+        "crafts"
+      ],
+      "sources": [
+        {
+          "title": "Brazilian Quarters — Wikipedia",
+          "publisher": "Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Brazilian_Quarters",
+          "license": "CC BY-SA 4.0",
+          "retrievedAt": "2026-10-10",
+          "found": true
+        }
+      ],
+      "coverage": {
+        "coordinates": {
+          "status": "available",
+          "evidence": "Neighbourhood boundary approximate; centroid cross-checked in OpenStreetMap."
+        },
+        "encyclopedicArticle": {
+          "status": "available",
+          "evidence": "English Wikipedia article 'Brazilian Quarters' exists and was retrieved."
+        },
+        "structuredFacts": {
+          "status": "missing",
+          "evidence": "No structured entity was confirmed for the quarter as a cultural heritage area."
+        },
+        "image": {
+          "status": "missing",
+          "evidence": "No openly licensed image of the surviving architecture was confirmed for reuse."
+        },
+        "citations": {
+          "status": "incomplete",
+          "evidence": "Family histories are largely oral and not yet recorded with consent and attribution."
+        },
+        "communityStory": {
+          "status": "missing",
+          "evidence": "No moderated community story has been submitted for this place yet."
+        },
+        "verifiedExperience": {
+          "status": "missing",
+          "evidence": "No verified guided experience is currently listed."
+        }
+      },
+      "image": null
+    },
+    {
+      "id": "jaekel-house",
+      "name": "Jaekel House",
+      "category": "heritage-site",
+      "neighbourhood": "Ebute Metta",
+      "address": "Nigerian Railway Corporation compound, Ebute Metta, Lagos",
+      "coordinates": {
+        "lat": 6.4814,
+        "lng": 3.383
+      },
+      "coordinateAccuracy": "approximate",
+      "summary": "A restored colonial-era railway residence in Ebute Metta, now a heritage site and museum.",
+      "history": "Jaekel House is a restored colonial-era residence within the Nigerian Railway Corporation compound at Ebute Metta. It is used as a museum and heritage venue and is associated with the history of the Lagos railway and its staff.",
+      "tags": [
+        "railway",
+        "colonial-era",
+        "museum",
+        "restoration"
+      ],
+      "sources": [
+        {
+          "title": "Jaekel House — Wikipedia",
+          "publisher": "Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Jaekel_House",
+          "license": "CC BY-SA 4.0",
+          "retrievedAt": "2026-10-10",
+          "found": true
+        }
+      ],
+      "coverage": {
+        "coordinates": {
+          "status": "available",
+          "evidence": "Coordinates fall within the railway compound per OpenStreetMap."
+        },
+        "encyclopedicArticle": {
+          "status": "available",
+          "evidence": "English Wikipedia article exists and was retrieved."
+        },
+        "structuredFacts": {
+          "status": "incomplete",
+          "evidence": "Construction date is reported differently across accounts and was not resolved."
+        },
+        "image": {
+          "status": "available",
+          "evidence": "Openly licensed photographs are published on Wikimedia Commons."
+        },
+        "citations": {
+          "status": "incomplete",
+          "evidence": "Restoration history is documented but not fully cited in open sources."
+        },
+        "communityStory": {
+          "status": "missing",
+          "evidence": "No moderated community story has been submitted for this place yet."
+        },
+        "verifiedExperience": {
+          "status": "missing",
+          "evidence": "No verified guided experience is currently listed."
+        }
+      },
+      "image": {
+        "file": "Vegetation_at_Jaekel_House,_Lagos.jpg",
+        "localPath": "/places/jaekel-house.jpg",
+        "width": 1280,
+        "height": 960,
+        "modified": false,
+        "mime": "image/jpeg",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "artist": "Solasly",
+        "credit": "Own work",
+        "attributionRequired": true,
+        "filePageUrl": "https://commons.wikimedia.org/wiki/File:Vegetation_at_Jaekel_House%2C_Lagos.jpg",
+        "articleUrl": "https://en.wikipedia.org/wiki/Jaekel_House",
+        "retrievedAt": "2026-10-10"
+      }
+    },
+    {
+      "id": "new-afrika-shrine",
+      "name": "New Afrika Shrine",
+      "category": "cultural-landmark",
+      "neighbourhood": "Ikeja",
+      "address": "Agidingbi, Ikeja, Lagos",
+      "coordinates": {
+        "lat": 6.6072,
+        "lng": 3.347
+      },
+      "coordinateAccuracy": "approximate",
+      "summary": "A live music venue in Ikeja associated with Afrobeat and the Kuti family.",
+      "history": "The New Afrika Shrine is a live music venue in Ikeja associated with the Kuti family and with Afrobeat. It succeeds the original Afrika Shrine, which was associated with Fela Anikulapo Kuti, and hosts regular live performances.",
+      "tags": [
+        "music",
+        "afrobeat",
+        "performance"
+      ],
+      "sources": [
+        {
+          "title": "New Afrika Shrine — Wikipedia",
+          "publisher": "Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/New_Afrika_Shrine",
+          "license": "CC BY-SA 4.0",
+          "retrievedAt": "2026-10-10",
+          "found": true
+        }
+      ],
+      "coverage": {
+        "coordinates": {
+          "status": "available",
+          "evidence": "Location recorded in OpenStreetMap."
+        },
+        "encyclopedicArticle": {
+          "status": "available",
+          "evidence": "English Wikipedia article exists and was retrieved."
+        },
+        "structuredFacts": {
+          "status": "incomplete",
+          "evidence": "Performance schedules are not published as machine-readable data."
+        },
+        "image": {
+          "status": "available",
+          "evidence": "Openly licensed photographs are published on Wikimedia Commons."
+        },
+        "citations": {
+          "status": "available",
+          "evidence": "Association with Afrobeat and the Kuti family is documented in cited sources."
+        },
+        "communityStory": {
+          "status": "missing",
+          "evidence": "No moderated community story has been submitted for this place yet."
+        },
+        "verifiedExperience": {
+          "status": "missing",
+          "evidence": "No verified guided experience is currently listed."
+        }
+      },
+      "image": {
+        "file": "Fela_New_Shrine,_Lagos_02.jpg",
+        "localPath": "/places/new-afrika-shrine.jpg",
+        "width": 1024,
+        "height": 683,
+        "modified": false,
+        "mime": "image/jpeg",
+        "license": "Public domain",
+        "licenseUrl": null,
+        "artist": "User:Kaizenify",
+        "credit": "Wikimedia User Group Nigeria",
+        "attributionRequired": false,
+        "filePageUrl": "https://commons.wikimedia.org/wiki/File:Fela_New_Shrine%2C_Lagos_02.jpg",
+        "articleUrl": "https://en.wikipedia.org/wiki/New_Afrika_Shrine",
+        "retrievedAt": "2026-10-10"
+      }
+    },
+    {
+      "id": "kalakuta-museum",
+      "name": "Kalakuta Museum",
+      "category": "museum",
+      "neighbourhood": "Ikeja",
+      "address": "Allen Avenue area, Ikeja, Lagos",
+      "coordinates": {
+        "lat": 6.5939,
+        "lng": 3.3419
+      },
+      "coordinateAccuracy": "approximate",
+      "summary": "The former residence of Fela Anikulapo Kuti, now a museum of his life and Afrobeat.",
+      "history": "Kalakuta Museum occupies the former Lagos residence of musician and activist Fela Anikulapo Kuti — the house associated with the Kalakuta Republic period. It presents his personal effects and documents the history of Afrobeat. It operates as a museum and cultural site.",
+      "tags": [
+        "music",
+        "afrobeat",
+        "museum",
+        "biography"
+      ],
+      "sources": [
+        {
+          "title": "Kalakuta Republic — Wikipedia (covers the house and the museum within it)",
+          "publisher": "Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Kalakuta_Republic",
+          "license": "CC BY-SA 4.0",
+          "retrievedAt": "2026-10-10",
+          "found": true
+        }
+      ],
+      "coverage": {
+        "coordinates": {
+          "status": "available",
+          "evidence": "Coordinates cross-checked against the published Ikeja address."
+        },
+        "encyclopedicArticle": {
+          "status": "incomplete",
+          "evidence": "The cited article covers the Kalakuta Republic; the museum itself is described only within it, so the record is not covered evenly."
+        },
+        "structuredFacts": {
+          "status": "available",
+          "evidence": "The association with Fela Kuti and the Kalakuta Republic is consistently stated across checked sources."
+        },
+        "image": {
+          "status": "available",
+          "evidence": "Openly licensed photographs are published on Wikimedia Commons."
+        },
+        "citations": {
+          "status": "incomplete",
+          "evidence": "The 1977 military raid and its consequences are widely described but cited unevenly."
+        },
+        "communityStory": {
+          "status": "awaiting_review",
+          "evidence": "One community account is queued for moderation."
+        },
+        "verifiedExperience": {
+          "status": "available",
+          "evidence": "A sample guided walk is listed against this place (sample data)."
+        }
+      },
+      "image": null
+    },
+    {
+      "id": "national-theatre-lagos",
+      "name": "National Theatre, Lagos",
+      "category": "cultural-landmark",
+      "neighbourhood": "Iganmu",
+      "address": "Iganmu, Surulere, Lagos",
+      "coordinates": {
+        "lat": 6.4718,
+        "lng": 3.369
+      },
+      "coordinateAccuracy": "approximate",
+      "summary": "A landmark performing-arts complex at Iganmu opened in the 1970s.",
+      "history": "The National Theatre at Iganmu is a large performing-arts complex associated with Nigeria's national cultural festivals. It opened in the 1970s and remains a major architectural landmark on the Lagos mainland.",
+      "tags": [
+        "architecture",
+        "performance",
+        "landmark"
+      ],
+      "sources": [
+        {
+          "title": "National Theatre, Lagos — Wikipedia",
+          "publisher": "Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/National_Theatre,_Lagos",
+          "license": "CC BY-SA 4.0",
+          "retrievedAt": "2026-10-10",
+          "found": true
+        }
+      ],
+      "coverage": {
+        "coordinates": {
+          "status": "available",
+          "evidence": "Location recorded in OpenStreetMap."
+        },
+        "encyclopedicArticle": {
+          "status": "available",
+          "evidence": "English Wikipedia article exists and was retrieved."
+        },
+        "structuredFacts": {
+          "status": "conflicting",
+          "evidence": "Accounts of the opening year vary slightly between checked sources."
+        },
+        "image": {
+          "status": "available",
+          "evidence": "Openly licensed photographs are published on Wikimedia Commons."
+        },
+        "citations": {
+          "status": "available",
+          "evidence": "Architectural and festival history are cited in the encyclopedia article."
+        },
+        "communityStory": {
+          "status": "missing",
+          "evidence": "No moderated community story has been submitted for this place yet."
+        },
+        "verifiedExperience": {
+          "status": "missing",
+          "evidence": "No verified guided experience is currently listed."
+        }
+      },
+      "image": {
+        "file": "National_Theatre_Nigeria.jpg",
+        "localPath": "/places/national-theatre-lagos.jpg",
+        "width": 1280,
+        "height": 820,
+        "modified": false,
+        "mime": "image/jpeg",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "artist": "Godiva Omoruyi",
+        "credit": "Own work",
+        "attributionRequired": true,
+        "filePageUrl": "https://commons.wikimedia.org/wiki/File:National_Theatre_Nigeria.jpg",
+        "articleUrl": "https://en.wikipedia.org/wiki/National_Theatre,_Lagos",
+        "retrievedAt": "2026-10-10"
+      }
+    },
+    {
+      "id": "terra-kulture",
+      "name": "Terra Kulture",
+      "category": "cultural-landmark",
+      "neighbourhood": "Victoria Island",
+      "address": "Tiamiyu Savage Street, Victoria Island, Lagos",
+      "coordinates": {
+        "lat": 6.4282,
+        "lng": 3.4213
+      },
+      "coordinateAccuracy": "approximate",
+      "summary": "A cultural centre and theatre on Victoria Island dedicated to Nigerian arts and language.",
+      "history": "Terra Kulture is a cultural centre, bookshop and theatre on Victoria Island. It programmes Nigerian literature, visual art and stage productions, and has been a venue for language and arts events in Lagos.",
+      "tags": [
+        "arts-centre",
+        "theatre",
+        "literature"
+      ],
+      "sources": [
+        {
+          "title": "Terra Kulture — Wikipedia",
+          "publisher": "Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Terra_Kulture",
+          "license": "CC BY-SA 4.0",
+          "retrievedAt": "2026-10-10",
+          "found": true
+        }
+      ],
+      "coverage": {
+        "coordinates": {
+          "status": "available",
+          "evidence": "Location recorded in OpenStreetMap."
+        },
+        "encyclopedicArticle": {
+          "status": "available",
+          "evidence": "English Wikipedia article exists and was retrieved."
+        },
+        "structuredFacts": {
+          "status": "incomplete",
+          "evidence": "Programming information is published online but not as structured data."
+        },
+        "image": {
+          "status": "missing",
+          "evidence": "No openly licensed image from the checked sources was confirmed for reuse."
+        },
+        "citations": {
+          "status": "incomplete",
+          "evidence": "Founding details are reported inconsistently in circulating accounts."
+        },
+        "communityStory": {
+          "status": "missing",
+          "evidence": "No moderated community story has been submitted for this place yet."
+        },
+        "verifiedExperience": {
+          "status": "missing",
+          "evidence": "No verified guided experience is currently listed."
+        }
+      },
+      "image": null
+    },
+    {
+      "id": "nike-art-gallery",
+      "name": "Nike Art Gallery",
+      "category": "public-art",
+      "neighbourhood": "Lekki",
+      "address": "2 Elegushi Road, Lekki, Lagos",
+      "coordinates": {
+        "lat": 6.4358,
+        "lng": 3.465
+      },
+      "coordinateAccuracy": "approximate",
+      "summary": "A private art gallery in Lekki founded by artist Nike Davies-Okundaye.",
+      "history": "Nike Art Gallery in Lekki was founded by the artist and textile designer Nike Davies-Okundaye. It presents Nigerian painting, sculpture, textiles and adire work across several floors, and runs workshops in traditional crafts.",
+      "tags": [
+        "art",
+        "textiles",
+        "adire",
+        "workshops"
+      ],
+      "sources": [
+        {
+          "title": "Nike Art Gallery — Wikipedia",
+          "publisher": "Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Nike_Art_Gallery",
+          "license": "CC BY-SA 4.0",
+          "retrievedAt": "2026-10-10",
+          "found": true
+        }
+      ],
+      "coverage": {
+        "coordinates": {
+          "status": "available",
+          "evidence": "Coordinates cross-checked against the published Lekki address."
+        },
+        "encyclopedicArticle": {
+          "status": "available",
+          "evidence": "English Wikipedia article exists and was retrieved."
+        },
+        "structuredFacts": {
+          "status": "available",
+          "evidence": "Founder and location are consistently stated across checked sources."
+        },
+        "image": {
+          "status": "available",
+          "evidence": "Openly licensed photographs are published on Wikimedia Commons."
+        },
+        "citations": {
+          "status": "available",
+          "evidence": "Founding and programming are documented in cited sources."
+        },
+        "communityStory": {
+          "status": "missing",
+          "evidence": "No moderated community story has been submitted for this place yet."
+        },
+        "verifiedExperience": {
+          "status": "available",
+          "evidence": "A sample craft workshop is listed against this place (sample data)."
+        }
+      },
+      "image": {
+        "file": "Lagos_Lekki_Nike_Art_Gallery_Aug_2026_IMG_6951b.jpg",
+        "localPath": "/places/nike-art-gallery.jpg",
+        "width": 1280,
+        "height": 960,
+        "modified": false,
+        "mime": "image/jpeg",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "artist": "FrankvEck",
+        "credit": "Own work",
+        "attributionRequired": true,
+        "filePageUrl": "https://commons.wikimedia.org/wiki/File:Lagos_Lekki_Nike_Art_Gallery_Aug_2026_IMG_6951b.jpg",
+        "articleUrl": "https://en.wikipedia.org/wiki/Nike_Art_Gallery",
+        "retrievedAt": "2026-10-10"
+      }
+    },
+    {
+      "id": "lekki-conservation-centre",
+      "name": "Lekki Conservation Centre",
+      "category": "cultural-landmark",
+      "neighbourhood": "Lekki",
+      "address": "Lekki-Epe Expressway, Lekki, Lagos",
+      "coordinates": {
+        "lat": 6.4425,
+        "lng": 3.5352
+      },
+      "coordinateAccuracy": "approximate",
+      "summary": "A nature reserve and conservation area managed on the Lekki peninsula.",
+      "history": "The Lekki Conservation Centre is a nature reserve on the Lekki peninsula, managed by the Nigerian Conservation Foundation. It is known for its canopy walkway and for conservation and environmental education programmes.",
+      "tags": [
+        "conservation",
+        "nature",
+        "education"
+      ],
+      "sources": [
+        {
+          "title": "Lekki Conservation Centre — Wikipedia",
+          "publisher": "Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Lekki_Conservation_Centre",
+          "license": "CC BY-SA 4.0",
+          "retrievedAt": "2026-10-10",
+          "found": true
+        }
+      ],
+      "coverage": {
+        "coordinates": {
+          "status": "available",
+          "evidence": "Location recorded in OpenStreetMap."
+        },
+        "encyclopedicArticle": {
+          "status": "incomplete",
+          "evidence": "The article is brief and does not cover the site's full history."
+        },
+        "structuredFacts": {
+          "status": "incomplete",
+          "evidence": "Establishment date is reported differently across checked sources."
+        },
+        "image": {
+          "status": "available",
+          "evidence": "Openly licensed photographs are published on Wikimedia Commons."
+        },
+        "citations": {
+          "status": "incomplete",
+          "evidence": "Conservation programme details are documented but thinly cited."
+        },
+        "communityStory": {
+          "status": "missing",
+          "evidence": "No moderated community story has been submitted for this place yet."
+        },
+        "verifiedExperience": {
+          "status": "missing",
+          "evidence": "No verified guided experience is currently listed."
+        }
+      },
+      "image": {
+        "file": "A_pathway_in_the_Lekki_Convention_Center.jpg",
+        "localPath": "/places/lekki-conservation-centre.jpg",
+        "width": 1280,
+        "height": 853,
+        "modified": false,
+        "mime": "image/jpeg",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "artist": "Obiazi Emefile",
+        "credit": "Own work",
+        "attributionRequired": true,
+        "filePageUrl": "https://commons.wikimedia.org/wiki/File:A_pathway_in_the_Lekki_Convention_Center.jpg",
+        "articleUrl": "https://en.wikipedia.org/wiki/Lekki_Conservation_Centre",
+        "retrievedAt": "2026-10-10"
+      }
+    },
+    {
+      "id": "balogun-market",
+      "name": "Balogun Market",
+      "category": "market",
+      "neighbourhood": "Lagos Island",
+      "address": "Balogun Street, Lagos Island, Lagos",
+      "coordinates": {
+        "lat": 6.4565,
+        "lng": 3.3925
+      },
+      "coordinateAccuracy": "approximate",
+      "summary": "A major textile and trading market on Lagos Island.",
+      "history": "Balogun Market is one of the largest trading markets on Lagos Island, known particularly for fabrics, textiles and tailoring materials. It forms part of the dense commercial district around Balogun and Martins streets.",
+      "tags": [
+        "market",
+        "textiles",
+        "trade"
+      ],
+      "sources": [
+        {
+          "title": "Balogun Market — Wikipedia",
+          "publisher": "Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Balogun_Market",
+          "license": "CC BY-SA 4.0",
+          "retrievedAt": "2026-10-10",
+          "found": true
+        }
+      ],
+      "coverage": {
+        "coordinates": {
+          "status": "available",
+          "evidence": "Market centroid approximate; cross-checked in OpenStreetMap."
+        },
+        "encyclopedicArticle": {
+          "status": "incomplete",
+          "evidence": "The article is short and does not describe the market's development."
+        },
+        "structuredFacts": {
+          "status": "missing",
+          "evidence": "No structured entity was confirmed for the market."
+        },
+        "image": {
+          "status": "missing",
+          "evidence": "No openly licensed image from the checked sources was confirmed for reuse."
+        },
+        "citations": {
+          "status": "incomplete",
+          "evidence": "Trading history and family lineages are largely undocumented in the checked sources."
+        },
+        "communityStory": {
+          "status": "awaiting_review",
+          "evidence": "One trader account is queued for moderation."
+        },
+        "verifiedExperience": {
+          "status": "missing",
+          "evidence": "No verified guided experience is currently listed."
+        }
+      },
+      "image": {
+        "file": "Balogun_Market,_Lagos_Island.jpg",
+        "localPath": "/places/balogun-market.jpg",
+        "width": 1280,
+        "height": 720,
+        "modified": false,
+        "mime": "image/jpeg",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "artist": "Yellowcrunchy",
+        "credit": "Ihe onyonyo na-egosi mpaghara ụlọ ahịa Balogun nke dị na Steeti Lagos",
+        "attributionRequired": true,
+        "filePageUrl": "https://commons.wikimedia.org/wiki/File:Balogun_Market%2C_Lagos_Island.jpg",
+        "articleUrl": "https://en.wikipedia.org/wiki/Balogun_Market",
+        "retrievedAt": "2026-10-10"
+      }
+    },
+    {
+      "id": "makoko",
+      "name": "Makoko",
+      "category": "traditional-site",
+      "neighbourhood": "Yaba / Lagos Lagoon",
+      "address": "Makoko, Lagos Lagoon waterfront, Lagos",
+      "coordinates": {
+        "lat": 6.4947,
+        "lng": 3.386
+      },
+      "coordinateAccuracy": "approximate",
+      "summary": "A waterfront settlement on Lagos Lagoon with a long-established fishing community.",
+      "history": "Makoko is a waterfront settlement on Lagos Lagoon. It developed from a fishing community associated with migration from the Badagry area, and many homes and businesses sit on stilts over the water. It is a community with its own schools and institutions and is frequently discussed in debates about urban development and displacement.",
+      "tags": [
+        "waterfront",
+        "community",
+        "fishing",
+        "urbanism"
+      ],
+      "sources": [
+        {
+          "title": "Makoko — Wikipedia",
+          "publisher": "Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Makoko",
+          "license": "CC BY-SA 4.0",
+          "retrievedAt": "2026-10-10",
+          "found": true
+        }
+      ],
+      "coverage": {
+        "coordinates": {
+          "status": "available",
+          "evidence": "Settlement centroid approximate; cross-checked in OpenStreetMap."
+        },
+        "encyclopedicArticle": {
+          "status": "available",
+          "evidence": "English Wikipedia article exists and was retrieved."
+        },
+        "structuredFacts": {
+          "status": "incomplete",
+          "evidence": "Population figures vary widely between checked sources and should not be treated as reliable."
+        },
+        "image": {
+          "status": "available",
+          "evidence": "Openly licensed photographs are published on Wikimedia Commons."
+        },
+        "citations": {
+          "status": "incomplete",
+          "evidence": "Community history is largely oral; consent-based recording has not yet been completed."
+        },
+        "communityStory": {
+          "status": "awaiting_review",
+          "evidence": "Community submissions require the sensitive-content review path before publication."
+        },
+        "verifiedExperience": {
+          "status": "missing",
+          "evidence": "No verified guided experience is currently listed. Any experience here must be community-owned and consent-based."
+        }
+      },
+      "image": {
+        "file": "Okoh_collins_photography_landscape_shots_all_over_Nigeria.jpg",
+        "localPath": "/places/makoko.jpg",
+        "width": 1080,
+        "height": 607,
+        "modified": false,
+        "mime": "image/jpeg",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "artist": "Collins okoh",
+        "credit": "Own work",
+        "attributionRequired": true,
+        "filePageUrl": "https://commons.wikimedia.org/wiki/File:Okoh_collins_photography_landscape_shots_all_over_Nigeria.jpg",
+        "articleUrl": "https://en.wikipedia.org/wiki/Makoko",
+        "retrievedAt": "2026-10-10"
+      }
+    },
+    {
+      "id": "first-storey-building-badagry",
+      "name": "First Storey Building, Badagry",
+      "category": "heritage-site",
+      "neighbourhood": "Badagry",
+      "address": "Badagry, Lagos State",
+      "coordinates": {
+        "lat": 6.416,
+        "lng": 2.8876
+      },
+      "coordinateAccuracy": "approximate",
+      "summary": "A nineteenth-century building in Badagry associated with early Christian missionary activity.",
+      "history": "The building in Badagry known as the First Storey Building is associated with nineteenth-century Christian missionary activity in the area, including the work of the Church Missionary Society. It is frequently described as the first two-storey building in Nigeria, and is preserved as a heritage site with a small museum.",
+      "tags": [
+        "missionary-history",
+        "heritage",
+        "badagry"
+      ],
+      "sources": [
+        {
+          "title": "First Storey Building in Nigeria — Wikipedia",
+          "publisher": "Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/First_Storey_Building_in_Nigeria",
+          "license": "CC BY-SA 4.0",
+          "retrievedAt": "2026-10-10",
+          "found": true
+        }
+      ],
+      "coverage": {
+        "coordinates": {
+          "status": "available",
+          "evidence": "Location recorded in OpenStreetMap."
+        },
+        "encyclopedicArticle": {
+          "status": "available",
+          "evidence": "English Wikipedia article exists and was retrieved."
+        },
+        "structuredFacts": {
+          "status": "conflicting",
+          "evidence": "Construction dates differ between checked sources; the 'first storey building' claim itself is contested in the literature and is flagged as such."
+        },
+        "image": {
+          "status": "available",
+          "evidence": "Openly licensed photographs are published on Wikimedia Commons."
+        },
+        "citations": {
+          "status": "incomplete",
+          "evidence": "The building's interpretive claims need stronger citation."
+        },
+        "communityStory": {
+          "status": "missing",
+          "evidence": "No moderated community story has been submitted for this place yet."
+        },
+        "verifiedExperience": {
+          "status": "missing",
+          "evidence": "No verified guided experience is currently listed."
+        }
+      },
+      "image": {
+        "file": "The_First_Storey_Building_in_Nigeria.jpg",
+        "localPath": "/places/first-storey-building-badagry.jpg",
+        "width": 1280,
+        "height": 853,
+        "modified": false,
+        "mime": "image/jpeg",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "artist": "Louis Gabriel Whenayon",
+        "credit": "Own work",
+        "attributionRequired": true,
+        "filePageUrl": "https://commons.wikimedia.org/wiki/File:The_First_Storey_Building_in_Nigeria.jpg",
+        "articleUrl": "https://en.wikipedia.org/wiki/First_Storey_Building_in_Nigeria",
+        "retrievedAt": "2026-10-10"
+      }
+    },
+    {
+      "id": "badagry-heritage-museum",
+      "name": "Badagry Heritage Museum",
+      "category": "museum",
+      "neighbourhood": "Badagry",
+      "address": "Badagry, Lagos State",
+      "coordinates": {
+        "lat": 6.4142,
+        "lng": 2.8846
+      },
+      "coordinateAccuracy": "approximate",
+      "summary": "A museum in Badagry documenting the history of the transatlantic slave trade in the region.",
+      "history": "The Badagry Heritage Museum documents the history of the transatlantic slave trade as it affected Badagry and the wider Bight of Benin. It is housed in a former colonial administrative building and forms part of the heritage sites visited along the Badagry route, which includes the point of no return.",
+      "tags": [
+        "museum",
+        "slave-trade-history",
+        "memory",
+        "badagry"
+      ],
+      "sources": [
+        {
+          "title": "Badagry Heritage Museum — Wikipedia",
+          "publisher": "Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Badagry_Heritage_Museum",
+          "license": "CC BY-SA 4.0",
+          "retrievedAt": "2026-10-10",
+          "found": true
+        }
+      ],
+      "coverage": {
+        "coordinates": {
+          "status": "available",
+          "evidence": "Location recorded in OpenStreetMap."
+        },
+        "encyclopedicArticle": {
+          "status": "incomplete",
+          "evidence": "The article is brief relative to the site's significance."
+        },
+        "structuredFacts": {
+          "status": "missing",
+          "evidence": "No structured entity was confirmed for the museum."
+        },
+        "image": {
+          "status": "incomplete",
+          "evidence": "Images exist but licensing for reuse was not confirmed for all of them."
+        },
+        "citations": {
+          "status": "incomplete",
+          "evidence": "Sensitive subject matter requires careful, well-cited interpretation."
+        },
+        "communityStory": {
+          "status": "awaiting_review",
+          "evidence": "Submissions on this subject follow the sensitive-content review path."
+        },
+        "verifiedExperience": {
+          "status": "available",
+          "evidence": "A sample heritage tour is listed (sample data)."
+        }
+      },
+      "image": {
+        "file": "Badagry_Slave_Museum,_Badagry.jpg",
+        "localPath": "/places/badagry-heritage-museum.jpg",
+        "width": 1280,
+        "height": 853,
+        "modified": false,
+        "mime": "image/jpeg",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "artist": "Yemi festus",
+        "credit": "Own work",
+        "attributionRequired": true,
+        "filePageUrl": "https://commons.wikimedia.org/wiki/File:Badagry_Slave_Museum%2C_Badagry.jpg",
+        "articleUrl": "https://en.wikipedia.org/wiki/Badagry_Heritage_Museum",
+        "retrievedAt": "2026-10-10"
+      }
+    }
+  ]
+}

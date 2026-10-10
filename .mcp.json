@@ -1,0 +1,7 @@
+{
+  "mcpServers": {
+    "alatpay": {
+      "url": "https://alatpay-mcp-server-dev.azurewebsites.net/mcp"
+    }
+  }
+}

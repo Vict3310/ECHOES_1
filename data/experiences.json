@@ -1,0 +1,69 @@
+{
+  "$comment": "SAMPLE DATA. These listings exist so the booking and ALATPay payment flow can be exercised end-to-end. They are NOT real operators and must never be sold or presented as genuine experiences. Every record carries isSampleData: true and the UI renders a 'Sample listing' badge. Replace with verified operator records (with written consent) before production.",
+  "experiences": [
+    {
+      "id": "sample-afrobeat-walk",
+      "slug": "sample-afrobeat-walk",
+      "isSampleData": true,
+      "title": "Afrobeat & Memory Walk (sample)",
+      "organizer": "Sample operator — not a real business",
+      "placeId": "kalakuta-museum",
+      "summary": "A guided walk linking the Kalakuta Museum to nearby Afrobeat landmarks, focused on music heritage and the memory of the Kalakuta Republic period.",
+      "meetingPoint": "Kalakuta Museum, Ikeja",
+      "coordinates": { "lat": 6.5939, "lng": 3.3419 },
+      "durationMinutes": 150,
+      "currency": "NGN",
+      "priceMinor": 1500000,
+      "cancellationTerms": "Sample terms: free cancellation up to 24 hours before the start time.",
+      "accessibility": "Sample listing — accessibility information has not been verified.",
+      "languages": ["English"],
+      "schedules": [
+        { "id": "sat-1100", "startsAt": "2026-11-07T11:00:00+01:00", "capacity": 12, "booked": 3 },
+        { "id": "sat-1600", "startsAt": "2026-11-07T16:00:00+01:00", "capacity": 12, "booked": 12 },
+        { "id": "sun-1500", "startsAt": "2026-11-08T15:00:00+01:00", "capacity": 12, "booked": 0 }
+      ]
+    },
+    {
+      "id": "sample-adire-workshop",
+      "slug": "sample-adire-workshop",
+      "isSampleData": true,
+      "title": "Adire Textile Workshop (sample)",
+      "organizer": "Sample operator — not a real business",
+      "placeId": "nike-art-gallery",
+      "summary": "A hands-on introduction to adire resist-dyeing techniques and Nigerian textile traditions, hosted at a gallery in Lekki.",
+      "meetingPoint": "Nike Art Gallery, Lekki",
+      "coordinates": { "lat": 6.4358, "lng": 3.4650 },
+      "durationMinutes": 180,
+      "currency": "NGN",
+      "priceMinor": 2200000,
+      "cancellationTerms": "Sample terms: 50% refund up to 48 hours before the start time.",
+      "accessibility": "Sample listing — step-free access reported but not verified.",
+      "languages": ["English", "Yoruba"],
+      "schedules": [
+        { "id": "fri-1000", "startsAt": "2026-11-06T10:00:00+01:00", "capacity": 8, "booked": 2 },
+        { "id": "sat-1000", "startsAt": "2026-11-07T10:00:00+01:00", "capacity": 8, "booked": 8 }
+      ]
+    },
+    {
+      "id": "sample-badagry-heritage-day",
+      "slug": "sample-badagry-heritage-day",
+      "isSampleData": true,
+      "title": "Badagry Heritage Day (sample)",
+      "organizer": "Sample operator — not a real business",
+      "placeId": "badagry-heritage-museum",
+      "summary": "A full-day visit to the Badagry heritage sites, including the museum and the point of no return, with guided interpretation.",
+      "meetingPoint": "Badagry Heritage Museum, Badagry",
+      "coordinates": { "lat": 6.4142, "lng": 2.8846 },
+      "durationMinutes": 420,
+      "currency": "NGN",
+      "priceMinor": 4500000,
+      "cancellationTerms": "Sample terms: non-refundable within 72 hours of departure.",
+      "accessibility": "Sample listing — accessibility information has not been verified.",
+      "languages": ["English"],
+      "schedules": [
+        { "id": "thu-0800", "startsAt": "2026-11-05T08:00:00+01:00", "capacity": 20, "booked": 5 },
+        { "id": "sat-0800", "startsAt": "2026-11-07T08:00:00+01:00", "capacity": 20, "booked": 20 }
+      ]
+    }
+  ]
+}

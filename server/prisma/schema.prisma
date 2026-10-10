@@ -1,0 +1,158 @@
+// ECHOES — PostgreSQL schema.
+//
+// Design note: curated cultural reference data (places, sources, coverage,
+// experiences) is version-controlled in /data and loaded by the API, so that
+// every change to a historical record is reviewable in a pull request with its
+// provenance intact. User-generated and transactional data — stories, bookings,
+// payments, accounts, audit trail — lives here, in the database.
+//
+// Generate migrations with:  npx prisma migrate dev --name init
+// Apply in production with:  npx prisma migrate deploy
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum UserRole {
+  visitor
+  contributor
+  organizer
+  moderator
+  admin
+}
+
+enum StoryStatus {
+  pending
+  approved
+  rejected
+  needs_correction
+}
+
+enum AttributionPreference {
+  full_name
+  pseudonym
+  anonymous
+}
+
+enum SensitivityLevel {
+  standard
+  sensitive
+  restricted
+}
+
+enum BookingStatus {
+  pending_payment
+  confirmed
+  failed
+  cancelled
+  expired
+}
+
+enum PaymentStatus {
+  initialised
+  pending
+  successful
+  failed
+  cancelled
+  expired
+  mismatched
+}
+
+model User {
+  id           String   @id @default(uuid())
+  email        String   @unique
+  name         String
+  passwordHash String
+  role         UserRole @default(visitor)
+  createdAt    DateTime @default(now())
+  stories      Story[]  @relation("StoryReviewer")
+
+  @@index([role])
+}
+
+model Story {
+  id                String                @id @default(uuid())
+  reference         String                @unique
+  placeId           String?
+  suggestedPlace    String?
+  body              String
+  sourceContext     String
+  period            String?
+  attribution       AttributionPreference
+  contributorName   String?
+  contributorEmail  String?
+  consentPublication Boolean
+  consentTerms      Boolean
+  sensitivity       SensitivityLevel      @default(standard)
+  mediaUrls         String[]              @default([])
+  status            StoryStatus           @default(pending)
+  moderationNote    String?
+  reviewedById      String?
+  reviewedBy        User?                 @relation("StoryReviewer", fields: [reviewedById], references: [id])
+  reviewedAt        DateTime?
+  createdAt         DateTime              @default(now())
+
+  @@index([placeId, status])
+  @@index([status, createdAt])
+}
+
+model Booking {
+  id             String            @id @default(uuid())
+  reference      String            @unique
+  experienceId   String
+  scheduleId     String
+  participants   Int
+  unitPriceMinor Int
+  totalMinor     Int
+  currency       String            @default("NGN")
+  status         BookingStatus     @default(pending_payment)
+  customerName   String
+  customerEmail  String
+  customerPhone  String?
+  notes          String?
+  createdAt      DateTime          @default(now())
+  updatedAt      DateTime          @updatedAt
+  payments       PaymentAttempt[]
+
+  @@index([scheduleId, status])
+  @@index([status, createdAt])
+  @@index([customerEmail])
+}
+
+model PaymentAttempt {
+  id                String        @id @default(uuid())
+  bookingId         String
+  booking           Booking       @relation(fields: [bookingId], references: [id], onDelete: Cascade)
+  reference         String        @unique
+  providerReference String?
+  amountMinor       Int
+  currency          String        @default("NGN")
+  status            PaymentStatus @default(initialised)
+  providerStatus    String?
+  checkoutUrl       String?
+  // Safe reconciliation metadata only. Raw card data is never stored.
+  payload           Json?
+  createdAt         DateTime      @default(now())
+  updatedAt         DateTime      @updatedAt
+
+  @@index([bookingId])
+  @@index([status, createdAt])
+}
+
+model AuditLog {
+  id         String   @id @default(uuid())
+  actor      String
+  action     String
+  entityType String
+  entityId   String
+  details    Json?
+  createdAt  DateTime @default(now())
+
+  @@index([entityType, entityId])
+  @@index([createdAt])
+}
