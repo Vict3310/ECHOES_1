@@ -18,6 +18,24 @@ import { paymentsRouter } from './routes/payments';
 import { placesRouter } from './routes/places';
 import { storiesRouter } from './routes/stories';
 
+function isAllowedCorsOrigin(origin: string): boolean {
+  if (env.corsOrigins.includes(origin)) return true;
+
+  try {
+    const hostname = new URL(origin).hostname.toLowerCase();
+    if (hostname === 'localhost' || hostname === '127.0.0.1' || hostname.endsWith('.localhost')) {
+      return true;
+    }
+    if (hostname === 'echoes-1.vercel.app' || hostname.endsWith('.vercel.app')) {
+      return true;
+    }
+  } catch {
+    return false;
+  }
+
+  return false;
+}
+
 export function createApp() {
   const app = express();
 
@@ -35,9 +53,7 @@ export function createApp() {
     cors({
       origin: (origin, callback) => {
         if (!origin) return callback(null, true); // server-to-server / curl
-        if (env.corsOrigins.includes(origin)) return callback(null, true);
-        // Vite dev servers on other ports during local development.
-        if (!env.isProduction && /^http:\/\/localhost:\d+$/.test(origin)) return callback(null, true);
+        if (isAllowedCorsOrigin(origin)) return callback(null, true);
         return callback(new Error(`Origin ${origin} is not allowed by CORS.`));
       },
       credentials: true,
