@@ -7,6 +7,14 @@ shows **what the checked records are missing** without ever treating a gap as pr
 has no history, calculates **real routes**, and connects visitors to **bookable cultural
 experiences** with server-verified payments.
 
+## Project team
+
+- Flora Adelekan
+- Fashina Omolabake
+- Victor B.
+
+---
+
 ---
 
 ## 1. What actually exists in this repository
