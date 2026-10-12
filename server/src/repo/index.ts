@@ -84,9 +84,36 @@ class HybridRepository implements Repository {
   }
   getUserByEmail: Repository['getUserByEmail'] = (e) => this.store.getUserByEmail(e);
   getUserById: Repository['getUserById'] = (id) => this.store.getUserById(id);
-
+  updateUserPassword: Repository['updateUserPassword'] = (id, hash) =>
+    this.store.updateUserPassword(id, hash);
+  createPasswordReset: Repository['createPasswordReset'] = (i) => this.store.createPasswordReset(i);
+  getPasswordReset: Repository['getPasswordReset'] = (h) => this.store.getPasswordReset(h);
+  consumePasswordReset: Repository['consumePasswordReset'] = (id, userId) =>
+    this.store.consumePasswordReset(id, userId);
+  createGuideProfile: Repository['createGuideProfile'] = (input) => this.reference.createGuideProfile(input);
+  listGuideProfiles: Repository['listGuideProfiles'] = (status) => this.reference.listGuideProfiles(status);
+  getGuideProfile: Repository['getGuideProfile'] = (id) => this.reference.getGuideProfile(id);
+  moderateGuideProfile: Repository['moderateGuideProfile'] = (id, patch) =>
+    this.reference.moderateGuideProfile(id, patch);
   appendAudit: Repository['appendAudit'] = (r) => this.store.appendAudit(r);
   listAudit: Repository['listAudit'] = (l) => this.store.listAudit(l);
+  listUsers: Repository['listUsers'] = (q) => this.store.listUsers(q);
+  updateUserStatus: Repository['updateUserStatus'] = (id, s) => this.store.updateUserStatus(id, s);
+
+  // Analytics follows the transactional store: it is user activity, not
+  // version-controlled reference data.
+  appendAnalyticsEvents: Repository['appendAnalyticsEvents'] = (e) =>
+    this.store.appendAnalyticsEvents(e);
+  listAnalyticsEvents: Repository['listAnalyticsEvents'] = (r) => this.store.listAnalyticsEvents(r);
+  countAnalyticsEvents: Repository['countAnalyticsEvents'] = () => this.store.countAnalyticsEvents();
+  purgeAnalyticsBefore: Repository['purgeAnalyticsBefore'] = (c) => this.store.purgeAnalyticsBefore(c);
+  deleteAnalyticsEventsForVisitor: Repository['deleteAnalyticsEventsForVisitor'] = (v) =>
+    this.store.deleteAnalyticsEventsForVisitor(v);
+  analyticsCoverage: Repository['analyticsCoverage'] = () => this.store.analyticsCoverage();
+  appendAiRequest: Repository['appendAiRequest'] = (r) => this.store.appendAiRequest(r);
+  listAiRequests: Repository['listAiRequests'] = (r) => this.store.listAiRequests(r);
+  recordRequestMetrics: Repository['recordRequestMetrics'] = (r) => this.store.recordRequestMetrics(r);
+  listRequestMetrics: Repository['listRequestMetrics'] = (r) => this.store.listRequestMetrics(r);
 }
 
 function isUniqueViolation(error: unknown): boolean {

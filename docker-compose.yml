@@ -1,0 +1,39 @@
+# Local PostgreSQL + PostGIS for ECHOES.
+#
+# The API runs on an in-memory store when DATABASE_URL is unset, which is fine for
+# browsing the dataset but loses accounts, bookings and guides on restart. This
+# service is what makes the transactional data durable.
+#
+#   docker compose up -d
+#   export DATABASE_URL=postgresql://echoes:echoes@localhost:5432/echoes
+#   npm --workspace server run db:migrate:dev -- --name init
+#   npm --workspace server run db:seed
+#   psql "$DATABASE_URL" -f server/prisma/sql/postgis.sql   # optional geo mirror
+#
+# PostGIS is included because prisma/sql/postgis.sql expects the extension to be
+# available; the plain `postgres` image cannot create it.
+
+services:
+  postgres:
+    image: postgis/postgis:16-3.4
+    container_name: echoes-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: echoes
+      POSTGRES_PASSWORD: echoes
+      POSTGRES_DB: echoes
+    ports:
+      - '5432:5432'
+    volumes:
+      - echoes-postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      # `pg_isready` only proves the process is up; the extra `SELECT 1` proves the
+      # database itself accepts queries, which is what Prisma waits on.
+      test: ['CMD-SHELL', 'pg_isready -U echoes -d echoes && psql -U echoes -d echoes -c "SELECT 1" >/dev/null']
+      interval: 5s
+      timeout: 5s
+      retries: 12
+      start_period: 10s
+
+volumes:
+  echoes-postgres-data:

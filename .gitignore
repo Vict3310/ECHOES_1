@@ -12,3 +12,7 @@ npm-debug.log*
 *.tsbuildinfo
 .vite/
 server/prisma/*.db
+
+# Uploaded images are runtime data, not source. Production needs object storage.
+uploads/
+server/uploads/

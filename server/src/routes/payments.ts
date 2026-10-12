@@ -12,6 +12,7 @@ import {
   type ProviderTransaction,
 } from '../services/payments/alatpay';
 import { applyVerification } from '../services/payments/verify';
+import { recordServerEvent } from '../services/analytics/collect';
 
 export const paymentsRouter = Router();
 
@@ -48,6 +49,25 @@ async function applyFacts(reference: string, facts: ProviderTransaction, actor: 
       applied,
     },
   });
+
+  // `applied` is only true for the transition that actually happened, so a
+  // replayed webhook or a second visit to the return page cannot double-count a
+  // confirmed payment in the funnel.
+  if (outcome.ok && applied && updated.status === 'confirmed') {
+    await recordServerEvent(repo, 'payment_verified', {
+      resourceId: booking.id,
+      path: '/payments/verify',
+      props: { currency: booking.currency },
+    });
+    await recordServerEvent(repo, 'booking_completed', {
+      resourceId: booking.experienceId,
+      path: '/payments/verify',
+      props: {
+        experienceId: booking.experienceId,
+        participants: Math.min(Math.max(booking.participants, 1), 100),
+      },
+    });
+  }
 
   return { outcome, booking: updated, applied };
 }

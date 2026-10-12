@@ -10,6 +10,7 @@ import { createRepository } from '../repo';
 import { askSchema, narrationSchema } from '../schemas';
 import { answerCulturalQuestion, generateNarrationScript } from '../services/gemma/guide';
 import { createGemmaProvider } from '../services/gemma/providers';
+import { logRecordOnlyAnswer, withAiLogging } from '../services/analytics/instrument';
 import { analysePlace } from '../services/knowledge';
 
 export const aiRouter = Router();
@@ -68,7 +69,16 @@ aiRouter.post(
     }
 
     const deps = await groundingDeps();
-    const result = await answerCulturalQuestion(question, deps, placeId ?? null);
+    // The provider is wrapped, not replaced: the guide keeps its own fallback,
+    // and every model call is measured on the way through.
+    const provider = withAiLogging(createGemmaProvider(), 'guide');
+    const started = Date.now();
+    const result = await answerCulturalQuestion(question, { ...deps, provider }, placeId ?? null);
+    if (provider.name === 'offline') {
+      // Answered from ECHOES records with no model involved: still a served
+      // question, and named as such rather than counted as a model call.
+      await logRecordOnlyAnswer('guide', Date.now() - started);
+    }
 
     ok(res, {
       ...result,
@@ -93,7 +103,10 @@ aiRouter.post(
     if (!place) throw ApiError.notFound('No cultural place matches that id.');
 
     const stories = await repo.listStoriesForPlace(place.id, 'approved');
-    const narration = await generateNarrationScript(place, stories);
+    const provider = withAiLogging(createGemmaProvider(), 'guide');
+    const started = Date.now();
+    const narration = await generateNarrationScript(place, stories, provider);
+    if (provider.name === 'offline') await logRecordOnlyAnswer('guide', Date.now() - started);
     const analysis = analysePlace(place);
 
     ok(res, {

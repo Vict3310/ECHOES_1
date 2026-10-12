@@ -1,6 +1,7 @@
 import path from 'node:path';
 import fs from 'node:fs';
 import dotenv from 'dotenv';
+import { EVENT_RETENTION_DAYS } from './domain/analytics';
 
 const candidates = [
   path.resolve(process.cwd(), '.env'),
@@ -40,10 +41,12 @@ export const env = {
   adminApiToken: str('ADMIN_API_TOKEN', ''),
 
   gemma: {
-    provider: str('GEMMA_PROVIDER', 'none') as 'google' | 'ollama' | 'none',
-    model: str('GEMMA_MODEL', 'gemma3:4b'),
+    provider: str('GEMMA_PROVIDER', 'openai') as 'google' | 'ollama' | 'openai' | 'none',
+    model: str('GEMMA_MODEL', 'gpt-4o-mini'),
     googleApiKey: str('GOOGLE_AI_API_KEY', ''),
     googleBaseUrl: str('GOOGLE_AI_BASE_URL', 'https://generativelanguage.googleapis.com/v1beta'),
+    openaiApiKey: str('OPENAI_API_KEY', ''),
+    openaiBaseUrl: str('OPENAI_BASE_URL', 'https://api.openai.com/v1'),
     ollamaBaseUrl: str('OLLAMA_BASE_URL', 'http://127.0.0.1:11434'),
     timeoutMs: int('GEMMA_TIMEOUT_MS', 30_000),
     maxOutputTokens: int('GEMMA_MAX_OUTPUT_TOKENS', 1024),
@@ -53,6 +56,39 @@ export const env = {
     wikipediaApiUrl: str('WIKIPEDIA_API_URL', 'https://en.wikipedia.org/w/api.php'),
     wikidataApiUrl: str('WIKIDATA_API_URL', 'https://www.wikidata.org/w/api.php'),
     userAgent: str('WIKIMEDIA_USER_AGENT', 'ECHOES/0.1 (contact@example.org)'),
+  },
+
+  /**
+   * Outbound email.
+   *
+   * `log` writes the message to the logger so development and tests never need a
+   * provider account; `sendbyte` posts to SendByte's transactional API
+   * (https://api.sendbyte.africa/v1/emails), which is hosted in Africa and priced
+   * in naira; `none` refuses to send and says so.
+   *
+   * There is deliberately no silent "sent" state. A sandbox key is reported as a
+   * sandbox send, never as a delivery, because SendByte captures sandbox mail
+   * instead of delivering it.
+   */
+  email: {
+    transport: str('MAIL_TRANSPORT', 'log') as 'log' | 'sendbyte' | 'none',
+    from: str('EMAIL_FROM', 'ECHOES <no-reply@example.org>'),
+    sendbyteApiKey: str('SENDBYTE_API_KEY', ''),
+    sendbyteBaseUrl: str('SENDBYTE_BASE_URL', 'https://api.sendbyte.africa'),
+  },
+
+  /** Absolute base URL used to build links inside emails. */
+  appBaseUrl: str('APP_BASE_URL', 'http://localhost:5173'),
+
+  /**
+   * Local image storage for guide photographs. Fine for a single instance; a
+   * multi-instance deployment needs object storage, because a file written on one
+   * host is invisible to the others.
+   */
+  uploads: {
+    dir: str('UPLOADS_DIR', 'uploads'),
+    publicPath: str('UPLOADS_PUBLIC_PATH', '/uploads'),
+    maxBytes: int('UPLOADS_MAX_BYTES', 5 * 1024 * 1024),
   },
 
   routing: {
@@ -80,10 +116,45 @@ export const env = {
   },
 
   currency: str('CURRENCY', 'NGN'),
+
+  /**
+   * First-party analytics.
+   *
+   * `timezone` is the zone every day boundary, chart axis and "today" figure is
+   * computed in, so a report does not change meaning depending on where the
+   * reader sits. `requireConsent` makes the browser tracker wait for an explicit
+   * opt-in before it sends anything.
+   */
+  analytics: {
+    timezone: str('ANALYTICS_TIMEZONE', 'Africa/Lagos'),
+    retentionDays: int('ANALYTICS_RETENTION_DAYS', EVENT_RETENTION_DAYS),
+    requireConsent: str('ANALYTICS_REQUIRE_CONSENT', 'false') === 'true',
+  },
+
+  /**
+   * Extra gate on administrative data.
+   *
+   * The shared admin token still works for break-glass access; when this list is
+   * set, an ordinary admin session must also match one of these addresses, so a
+   * stolen admin cookie alone is not enough. Roles themselves are never
+   * self-assignable — registration only ever grants `visitor` or `organizer`.
+   */
+  adminEmails: str('ADMIN_EMAILS', '')
+    .split(',')
+    .map((email) => email.trim().toLowerCase())
+    .filter(Boolean),
+
+  /** Budget guard rails for AI spend, in USD micros (1_000_000 = $1). */
+  aiBudget: {
+    dailyMicros: int('AI_DAILY_BUDGET_MICROS', 5_000_000),
+    monthlyMicros: int('AI_MONTHLY_BUDGET_MICROS', 50_000_000),
+    alertThresholdPercent: int('AI_BUDGET_ALERT_PERCENT', 80),
+  },
 };
 
 export function gemmaConfigured(): boolean {
   if (env.gemma.provider === 'google') return env.gemma.googleApiKey.length > 0;
+  if (env.gemma.provider === 'openai') return env.gemma.openaiApiKey.length > 0;
   if (env.gemma.provider === 'ollama') return env.gemma.ollamaBaseUrl.length > 0;
   return false;
 }

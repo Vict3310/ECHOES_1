@@ -20,7 +20,11 @@ describe('knowledge-gap analysis', () => {
   });
 
   it('classifies each dimension independently and never collapses them into one score', () => {
-    const place = places.find((p) => p.id === 'freedom-park-lagos') as Place;
+    // Uses a place with a citable article but no photograph of its own: Freedom
+    // Park was the original subject here, but it does have a freely licensed
+    // photograph on Commons, so reporting its image dimension as "missing" was
+    // describing the old, wrong data rather than the place.
+    const place = places.find((p) => p.id === 'terra-kulture') as Place;
     const analysis = analysePlace(place);
     expect(analysis.statuses.encyclopedicArticle).toBe('available');
     expect(analysis.statuses.image).toBe('missing');

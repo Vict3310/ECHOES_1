@@ -1,25 +1,38 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 import { ArrowLeft, CheckCircle2, Clock, ExternalLink, Loader2, ShieldCheck, Users } from 'lucide-react';
 import { api, ApiClientError } from '../lib/api';
+import { readStoredSession } from '../lib/auth';
 import { formatDateTime, formatMinutes, formatMoney } from '../lib/format';
 import type { CheckoutResult } from '../lib/types';
 import { Chip, ErrorState, Notice, Skeleton } from '../components/ui';
 import { Reveal } from '../components/layout';
+import UseALATPay from 'react-alatpay';
+
+const ALATPAY_PUBLIC_KEY = import.meta.env.VITE_ALATPAY_PUBLIC_KEY as string | undefined;
+const ALATPAY_BUSINESS_ID = import.meta.env.VITE_ALATPAY_BUSINESS_ID as string | undefined;
 
 export default function ExperienceDetail() {
   const { id = '' } = useParams();
+  const session = readStoredSession();
   const [scheduleId, setScheduleId] = useState('');
   const [participants, setParticipants] = useState(1);
-  const [customerName, setCustomerName] = useState('');
-  const [customerEmail, setCustomerEmail] = useState('');
+  const [customerName, setCustomerName] = useState(session?.user.name ?? '');
+  const [customerEmail, setCustomerEmail] = useState(session?.user.email ?? '');
   const [customerPhone, setCustomerPhone] = useState('');
   const [notes, setNotes] = useState('');
   const [checkout, setCheckout] = useState<CheckoutResult | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [fieldErrors, setFieldErrors] = useState<Array<{ path: string; message: string }>>([]);
+
+  useEffect(() => {
+    if (session) {
+      setCustomerName(session.user.name);
+      setCustomerEmail(session.user.email);
+    }
+  }, [session]);
 
   const query = useQuery({
     queryKey: ['experience', id],
@@ -35,15 +48,24 @@ export default function ExperienceDetail() {
   const selectedSchedule = experience?.schedules.find((schedule) => schedule.scheduleId === scheduleId);
   const totalMinor = experience ? experience.priceMinor * participants : 0;
 
-  async function submit(event: React.FormEvent) {
+  async function submit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setError(null);
     setFieldErrors([]);
     if (!experience) return;
+    if (!session) {
+      setError('Please sign in to book this experience.');
+      return;
+    }
 
     const chosen = scheduleId || availableSchedules[0]?.scheduleId;
     if (!chosen) {
       setError('There is no available date for this experience, so no booking can be created.');
+      return;
+    }
+
+    if (!ALATPAY_PUBLIC_KEY || !ALATPAY_BUSINESS_ID) {
+      setError('ALATPay is not fully configured in the frontend env. Add VITE_ALATPAY_PUBLIC_KEY and VITE_ALATPAY_BUSINESS_ID.');
       return;
     }
 
@@ -59,6 +81,42 @@ export default function ExperienceDetail() {
         notes: notes.trim() || null,
       });
       setCheckout(result);
+
+      if (result.payment.simulated) {
+        setLoading(false);
+        return;
+      }
+
+      const [firstName, ...rest] = customerName.trim().split(/\s+/);
+      const lastName = rest.join(' ') || 'Customer';
+
+      const alatpay = UseALATPay({
+        amount: Number((result.booking.totalMinor / 100).toFixed(2)),
+        apiKey: ALATPAY_PUBLIC_KEY,
+        businessId: ALATPAY_BUSINESS_ID,
+        color: '#0f172a',
+        currency: result.booking.currency,
+        email: customerEmail.trim(),
+        firstName: firstName || 'Customer',
+        lastName,
+        metadata: {
+          bookingReference: result.booking.reference,
+          paymentReference: result.payment.reference,
+          experienceId: experience.id,
+          scheduleId: chosen,
+          participants: String(participants),
+        } as any,
+        phone: customerPhone.trim() || undefined,
+        onClose: () => {
+          setLoading(false);
+        },
+        onTransaction: (response: any) => {
+          console.log('ALATPay transaction response:', response);
+          setLoading(false);
+        },
+      });
+
+      alatpay.submit();
     } catch (bookingError) {
       if (bookingError instanceof ApiClientError) {
         setError(bookingError.message);
@@ -71,6 +129,24 @@ export default function ExperienceDetail() {
     } finally {
       setLoading(false);
     }
+  }
+
+  if (!session) {
+    return (
+      <div className="mx-auto max-w-2xl px-6 pt-40 sm:px-10">
+        <div className="card p-8 text-center">
+          <p className="text-xs uppercase tracking-[0.24em] text-brand-deep">Booking access</p>
+          <h1 className="mt-3 font-display text-4xl tracking-tighter text-ink">Sign in to book</h1>
+          <p className="mt-3 text-base text-black/60">
+            Your booking details and payment status are tied to your traveler account, so sign in before continuing.
+          </p>
+          <div className="mt-6 flex flex-wrap justify-center gap-3">
+            <Link to="/auth" className="btn-primary justify-center">Login to continue</Link>
+            <Link to="/experiences" className="btn-secondary justify-center">Browse experiences</Link>
+          </div>
+        </div>
+      </div>
+    );
   }
 
   if (query.isLoading) {

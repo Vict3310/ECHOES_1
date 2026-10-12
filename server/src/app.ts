@@ -7,16 +7,22 @@ import { logger } from './lib/logger';
 import { errorHandler, notFoundHandler } from './middleware/errors';
 import { generalLimiter } from './middleware/rateLimit';
 import { optionalAuth } from './middleware/auth';
+import { requestMetrics } from './middleware/metrics';
 import { aiRouter } from './routes/ai';
 import { adminRouter } from './routes/admin';
+import { adminAnalyticsRouter } from './routes/adminAnalytics';
+import { trackRouter } from './routes/track';
 import { authRouter } from './routes/auth';
 import { bookingsRouter } from './routes/bookings';
 import { experiencesRouter } from './routes/experiences';
+import { guidesRouter } from './routes/guides';
 import { healthRouter } from './routes/health';
 import { itineraryRouter } from './routes/itinerary';
 import { paymentsRouter } from './routes/payments';
 import { placesRouter } from './routes/places';
 import { storiesRouter } from './routes/stories';
+import { uploadsRouter } from './routes/uploads';
+import { uploadsDirectory } from './services/uploads';
 
 function isAllowedCorsOrigin(origin: string): boolean {
   if (env.corsOrigins.includes(origin)) return true;
@@ -83,6 +89,8 @@ export function createApp() {
   }
 
   app.use(optionalAuth);
+  // Correlation ids and per-minute request aggregates for the health section.
+  app.use(requestMetrics);
   app.use('/api', generalLimiter);
 
   app.get('/', (_req, res) => {
@@ -96,12 +104,16 @@ export function createApp() {
         '/api/places/:id',
         '/api/experiences',
         '/api/stories',
+        '/api/uploads',
         '/api/bookings',
         '/api/payments/webhook',
         '/api/ai/answer',
         '/api/itineraries/plan',
         '/api/directions',
         '/api/admin/overview',
+        '/api/admin/analytics/overview',
+        '/api/analytics/events',
+        '/api/analytics/config',
       ],
     });
   });
@@ -109,13 +121,30 @@ export function createApp() {
   app.use('/api', healthRouter);
   app.use('/api', placesRouter);
   app.use('/api', experiencesRouter);
+  app.use('/api', guidesRouter);
   app.use('/api', storiesRouter);
+  app.use('/api', uploadsRouter);
   app.use('/api', bookingsRouter);
   app.use('/api', paymentsRouter);
   app.use('/api', aiRouter);
   app.use('/api', itineraryRouter);
   app.use('/api', authRouter);
+  app.use('/api', trackRouter);
+  // Mounted before the general admin router so /api/admin/analytics/* is matched
+  // by the analytics router first, including its own authorisation wrapper.
+  app.use('/api/admin/analytics', adminAnalyticsRouter);
   app.use('/api/admin', adminRouter);
+
+  // Uploaded images are served back from the same origin. `dotfiles: 'deny'` and an
+  // explicit index setting keep this from exposing anything but the stored files.
+  app.use(
+    env.uploads.publicPath,
+    express.static(uploadsDirectory(), {
+      dotfiles: 'deny',
+      index: false,
+      maxAge: '7d',
+    }),
+  );
 
   app.use(notFoundHandler);
   app.use(errorHandler);

@@ -1,10 +1,11 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { Loader2, Send, ShieldCheck } from 'lucide-react';
 import { api, ApiClientError } from '../lib/api';
 import { usePlaces } from '../lib/hooks';
 import { Notice, SectionHeading } from '../components/ui';
 import { Reveal } from '../components/layout';
+import { track } from '../lib/tracker';
 
 const ATTRIBUTION_OPTIONS = [
   {
@@ -27,6 +28,10 @@ const ATTRIBUTION_OPTIONS = [
 export default function Contribute() {
   const [params] = useSearchParams();
   const { places } = usePlaces();
+
+  useEffect(() => {
+    track('story_submission_started');
+  }, []);
 
   const [placeId, setPlaceId] = useState(params.get('place') ?? '');
   const [suggestedPlaceName, setSuggestedPlaceName] = useState('');
@@ -74,6 +79,8 @@ export default function Contribute() {
       });
       setReference(result.reference);
       setResponse({ message: result.message, reviewProcess: result.reviewProcess });
+      // The story's text is never sent here — only that a submission happened.
+      track('story_submitted', { hasPlace: Boolean(placeId) }, placeId || null);
     } catch (submissionError) {
       if (submissionError instanceof ApiClientError) {
         setError(submissionError.message);

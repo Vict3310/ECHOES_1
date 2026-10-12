@@ -8,6 +8,8 @@ import type {
   BookingStatus,
   Experience,
   ExperienceSchedule,
+  GuideProfile,
+  GuideStatus,
   PaymentAttempt,
   Place,
   PlaceFilters,
@@ -16,11 +18,22 @@ import type {
 } from '../domain/types';
 import type {
   CreateBookingInput,
+  CreateGuideProfileInput,
   CreatePaymentAttemptInput,
   CreateStoryInput,
+  PasswordResetRecord,
   Repository,
+  RequestMetricRecord,
+  UserListQuery,
+  UserPage,
   UserRecord,
+  UserStatus,
 } from './types';
+import {
+  ANALYTICS_SCAN_LIMIT,
+  type AiRequestRecord,
+  type AnalyticsEventRecord,
+} from '../domain/analytics';
 
 /** Serialises async critical sections so seat reservations cannot race. */
 class Mutex {
@@ -37,15 +50,100 @@ export class MemoryRepository implements Repository {
   private places: Place[];
   private experiences: Experience[];
   private stories: Story[] = [];
+  private guideProfiles: GuideProfile[] = [];
   private bookings: Booking[] = [];
   private payments: PaymentAttempt[] = [];
   private users: UserRecord[] = [];
+  private passwordResets: PasswordResetRecord[] = [];
   private audit: AuditRecord[] = [];
+  private analyticsEvents: AnalyticsEventRecord[] = [];
+  /** Dedupe key for analytics events, so a retried batch is a no-op. */
+  private eventIds = new Set<string>();
+  private aiRequests: AiRequestRecord[] = [];
+  private requestMetrics = new Map<string, RequestMetricRecord>();
   private bookingMutex = new Mutex();
 
   constructor(data?: { places?: Place[]; experiences?: Experience[] }) {
     this.places = data?.places ?? loadPlaces();
     this.experiences = data?.experiences ?? loadExperiences();
+    this.guideProfiles = [
+      {
+        id: 'ada-okafor',
+        email: 'ada@example.com',
+        name: 'Ada Okafor',
+        role: 'Heritage storyteller',
+        city: 'Lagos Island',
+        specialties: ['Colonial history', 'Food routes', 'Walks'],
+        bio: 'Specialises in short, deeply local heritage walks across Marina, Onikan, and the old city core.',
+        availability: 'Tue–Sun',
+        priceFrom: '₦18,000',
+        avatarUrl: null,
+        rating: 4.9,
+        status: 'approved',
+        moderationNote: 'Seeded as an approved city guide.',
+        reviewedBy: 'system',
+        reviewedAt: new Date().toISOString(),
+        createdAt: new Date().toISOString(),
+        updatedAt: new Date().toISOString(),
+      },
+      {
+        id: 'kunle-adebayo',
+        email: 'kunle@example.com',
+        name: 'Kunle Adebayo',
+        role: 'Culture guide',
+        city: 'Yaba',
+        specialties: ['Art', 'Film', 'Night life'],
+        bio: 'Connects travellers to cultural institutions, neighbourhood stories and contemporary Lagos energy.',
+        availability: 'Wed–Mon',
+        priceFrom: '₦16,000',
+        avatarUrl: null,
+        rating: 4.8,
+        status: 'approved',
+        moderationNote: 'Seeded as an approved city guide.',
+        reviewedBy: 'system',
+        reviewedAt: new Date().toISOString(),
+        createdAt: new Date().toISOString(),
+        updatedAt: new Date().toISOString(),
+      },
+      {
+        id: 'bisi-eze',
+        email: 'bisi@example.com',
+        name: 'Bisi Eze',
+        role: 'Food and community host',
+        city: 'Lekki',
+        specialties: ['Street food', 'Cultural dining', 'Market tours'],
+        bio: 'Turns food into a social and historical experience, from market stalls to hidden local favourites.',
+        availability: 'Daily',
+        priceFrom: '₦20,000',
+        avatarUrl: null,
+        rating: 5.0,
+        status: 'approved',
+        moderationNote: 'Seeded as an approved city guide.',
+        reviewedBy: 'system',
+        reviewedAt: new Date().toISOString(),
+        createdAt: new Date().toISOString(),
+        updatedAt: new Date().toISOString(),
+      },
+      {
+        id: 'kehinde-bello',
+        email: 'kehinde@example.com',
+        name: 'Kehinde Bello',
+        role: 'History and faith routes',
+        city: 'Abeokuta',
+        specialties: ['Historical architecture', 'Faith heritage', 'Slow travel'],
+        bio: 'Builds thoughtful pathways through old city spaces, family histories and architecture stories.',
+        availability: 'Thu–Sun',
+        priceFrom: '₦15,000',
+        avatarUrl: null,
+        rating: 4.7,
+        status: 'approved',
+        moderationNote: 'Seeded as an approved city guide.',
+        reviewedBy: 'system',
+        reviewedAt: new Date().toISOString(),
+        createdAt: new Date().toISOString(),
+        updatedAt: new Date().toISOString(),
+      },
+    ];
   }
 
   async listPlaces(filters: PlaceFilters): Promise<Place[]> {
@@ -254,6 +352,61 @@ export class MemoryRepository implements Repository {
     return story;
   }
 
+  async createGuideProfile(input: CreateGuideProfileInput): Promise<GuideProfile> {
+    const now = new Date().toISOString();
+    const slug = input.name
+      .trim()
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/^-+|-+$/g, '') || 'guide';
+
+    const profile: GuideProfile = {
+      id: `${slug}-${Date.now()}`,
+      email: input.email ?? null,
+      name: input.name.trim(),
+      role: input.role.trim(),
+      city: input.city.trim(),
+      specialties: (input.specialties ?? []).slice(0, 6).map((item) => item.trim()).filter(Boolean),
+      bio: input.bio.trim(),
+      availability: input.availability?.trim() ?? 'Flexible',
+      priceFrom: input.priceFrom?.trim() ?? '₦15,000',
+      avatarUrl: input.avatarUrl?.trim() || null,
+      rating: 4.8,
+      status: input.status ?? 'pending',
+      moderationNote: null,
+      reviewedBy: null,
+      reviewedAt: null,
+      createdAt: now,
+      updatedAt: now,
+    };
+
+    this.guideProfiles.unshift(profile);
+    return profile;
+  }
+
+  async listGuideProfiles(status?: GuideStatus): Promise<GuideProfile[]> {
+    const items = status ? this.guideProfiles.filter((profile) => profile.status === status) : [...this.guideProfiles];
+    return items.sort((a, b) => b.createdAt.localeCompare(a.createdAt));
+  }
+
+  async getGuideProfile(id: string): Promise<GuideProfile | null> {
+    return this.guideProfiles.find((profile) => profile.id === id) ?? null;
+  }
+
+  async moderateGuideProfile(
+    id: string,
+    patch: { status: GuideStatus; moderationNote: string | null; reviewedBy: string },
+  ): Promise<GuideProfile> {
+    const profile = await this.getGuideProfile(id);
+    if (!profile) throw ApiError.notFound('Guide profile not found.');
+    profile.status = patch.status;
+    profile.moderationNote = patch.moderationNote;
+    profile.reviewedBy = patch.reviewedBy;
+    profile.reviewedAt = new Date().toISOString();
+    profile.updatedAt = profile.reviewedAt;
+    return profile;
+  }
+
   async createUser(input: {
     email: string;
     name: string;
@@ -269,6 +422,8 @@ export class MemoryRepository implements Repository {
       name: input.name,
       passwordHash: input.passwordHash,
       role: input.role,
+      status: 'active',
+      suspendedAt: null,
       createdAt: new Date().toISOString(),
     };
     this.users.push(user);
@@ -284,6 +439,74 @@ export class MemoryRepository implements Repository {
     return this.users.find((u) => u.id === id) ?? null;
   }
 
+  async updateUserPassword(userId: string, passwordHash: string): Promise<void> {
+    const user = this.users.find((u) => u.id === userId);
+    if (!user) throw ApiError.notFound('Account not found.');
+    user.passwordHash = passwordHash;
+  }
+
+  async listUsers(query: UserListQuery): Promise<UserPage> {
+    const needle = query.q?.trim().toLowerCase() ?? '';
+    const filtered = this.users.filter((user) => {
+      if (query.role && user.role !== query.role) return false;
+      if (query.status && user.status !== query.status) return false;
+      if (needle) {
+        const haystack = `${user.name} ${user.email}`.toLowerCase();
+        if (!haystack.includes(needle)) return false;
+      }
+      return true;
+    });
+
+    const sort = query.sort ?? 'createdAt';
+    const direction = query.direction === 'asc' ? 1 : -1;
+    const sorted = [...filtered].sort(
+      (a, b) => a[sort].localeCompare(b[sort]) * direction,
+    );
+    return {
+      users: sorted.slice(query.offset, query.offset + query.limit),
+      total: filtered.length,
+    };
+  }
+
+  async updateUserStatus(id: string, status: UserStatus): Promise<UserRecord | null> {
+    const user = this.users.find((u) => u.id === id);
+    if (!user) return null;
+    user.status = status;
+    user.suspendedAt = status === 'suspended' ? new Date().toISOString() : null;
+    return user;
+  }
+
+  async createPasswordReset(input: {
+    userId: string;
+    tokenHash: string;
+    expiresAt: string;
+  }): Promise<PasswordResetRecord> {
+    const record: PasswordResetRecord = {
+      id: uuid(),
+      userId: input.userId,
+      tokenHash: input.tokenHash,
+      expiresAt: input.expiresAt,
+      usedAt: null,
+      createdAt: new Date().toISOString(),
+    };
+    this.passwordResets.push(record);
+    return record;
+  }
+
+  async getPasswordReset(tokenHash: string): Promise<PasswordResetRecord | null> {
+    return this.passwordResets.find((reset) => reset.tokenHash === tokenHash) ?? null;
+  }
+
+  async consumePasswordReset(id: string, userId: string): Promise<void> {
+    const usedAt = new Date().toISOString();
+    for (const reset of this.passwordResets) {
+      // Consuming one link invalidates every other outstanding link for that user.
+      if (reset.id === id || (reset.userId === userId && reset.usedAt === null)) {
+        reset.usedAt = usedAt;
+      }
+    }
+  }
+
   async appendAudit(record: Omit<AuditRecord, 'id' | 'createdAt'>): Promise<AuditRecord> {
     const entry: AuditRecord = { ...record, id: uuid(), createdAt: new Date().toISOString() };
     this.audit.push(entry);
@@ -292,5 +515,96 @@ export class MemoryRepository implements Repository {
 
   async listAudit(limit: number): Promise<AuditRecord[]> {
     return [...this.audit].sort((a, b) => b.createdAt.localeCompare(a.createdAt)).slice(0, limit);
+  }
+
+  // --- Analytics -------------------------------------------------------------
+
+  async appendAnalyticsEvents(events: AnalyticsEventRecord[]): Promise<number> {
+    let written = 0;
+    for (const event of events) {
+      // A retried batch, or the same event sent twice, must not be counted twice.
+      if (this.eventIds.has(event.id)) continue;
+      this.eventIds.add(event.id);
+      this.analyticsEvents.push(event);
+      written += 1;
+    }
+    return written;
+  }
+
+  async listAnalyticsEvents(range: { from: string; to: string }): Promise<AnalyticsEventRecord[]> {
+    return this.analyticsEvents
+      .filter((event) => event.occurredAt >= range.from && event.occurredAt <= range.to)
+      .sort((a, b) => a.occurredAt.localeCompare(b.occurredAt))
+      .slice(0, ANALYTICS_SCAN_LIMIT);
+  }
+
+  async countAnalyticsEvents(): Promise<number> {
+    return this.analyticsEvents.length;
+  }
+
+  async purgeAnalyticsBefore(cutoffIso: string): Promise<number> {
+    const before = this.analyticsEvents.length;
+    this.analyticsEvents = this.analyticsEvents.filter((event) => event.occurredAt >= cutoffIso);
+    this.eventIds = new Set(this.analyticsEvents.map((event) => event.id));
+    for (const [key, row] of this.requestMetrics) {
+      if (row.bucket < cutoffIso) this.requestMetrics.delete(key);
+    }
+    return before - this.analyticsEvents.length;
+  }
+
+  async deleteAnalyticsEventsForVisitor(visitorId: string): Promise<number> {
+    const before = this.analyticsEvents.length;
+    this.analyticsEvents = this.analyticsEvents.filter((event) => event.visitorId !== visitorId);
+    this.eventIds = new Set(this.analyticsEvents.map((event) => event.id));
+    return before - this.analyticsEvents.length;
+  }
+
+  async analyticsCoverage(): Promise<{
+    firstEventAt: string | null;
+    lastEventAt: string | null;
+    total: number;
+  }> {
+    if (this.analyticsEvents.length === 0) {
+      return { firstEventAt: null, lastEventAt: null, total: 0 };
+    }
+    const times = this.analyticsEvents.map((event) => event.occurredAt).sort();
+    return {
+      firstEventAt: times[0] ?? null,
+      lastEventAt: times[times.length - 1] ?? null,
+      total: this.analyticsEvents.length,
+    };
+  }
+
+  async appendAiRequest(record: AiRequestRecord): Promise<void> {
+    this.aiRequests.push(record);
+  }
+
+  async listAiRequests(range: { from: string; to: string }): Promise<AiRequestRecord[]> {
+    return this.aiRequests
+      .filter((row) => row.createdAt >= range.from && row.createdAt <= range.to)
+      .sort((a, b) => a.createdAt.localeCompare(b.createdAt));
+  }
+
+  async recordRequestMetrics(rows: RequestMetricRecord[]): Promise<void> {
+    for (const row of rows) {
+      const key = `${row.bucket}|${row.route}|${row.method}`;
+      const existing = this.requestMetrics.get(key);
+      if (!existing) {
+        this.requestMetrics.set(key, { ...row, histogram: [...row.histogram] });
+        continue;
+      }
+      existing.count += row.count;
+      existing.serverErrors += row.serverErrors;
+      existing.clientErrors += row.clientErrors;
+      existing.latencySumMs += row.latencySumMs;
+      existing.latencyMaxMs = Math.max(existing.latencyMaxMs, row.latencyMaxMs);
+      existing.histogram = existing.histogram.map((value, index) => value + (row.histogram[index] ?? 0));
+    }
+  }
+
+  async listRequestMetrics(range: { from: string; to: string }): Promise<RequestMetricRecord[]> {
+    return [...this.requestMetrics.values()]
+      .filter((row) => row.bucket >= range.from && row.bucket <= range.to)
+      .sort((a, b) => a.bucket.localeCompare(b.bucket));
   }
 }

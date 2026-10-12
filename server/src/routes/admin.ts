@@ -19,7 +19,8 @@ adminRouter.get(
   asyncHandler(async (_req, res) => {
     const repo = createRepository();
     const places = await repo.listPlaces({});
-    const pending = await repo.listStories('pending');
+    const pendingStories = await repo.listStories('pending');
+    const pendingGuides = await repo.listGuideProfiles('pending');
     const bookings = await repo.listBookings();
     const payments = await repo.listPaymentAttempts();
 
@@ -32,7 +33,8 @@ adminRouter.get(
       counts: {
         places: places.length,
         placesNeedingResearch: needingResearch.length,
-        storiesPending: pending.length,
+        storiesPending: pendingStories.length,
+        guidesPending: pendingGuides.length,
         bookings: bookings.length,
         paymentsUnresolved: unresolvedPayments.length,
         probableDuplicates: findPotentialDuplicates(places).length,
@@ -49,6 +51,15 @@ adminRouter.get(
     const status = typeof req.query.status === 'string' ? (req.query.status as never) : undefined;
     const stories = await createRepository().listStories(status);
     ok(res, { stories });
+  }),
+);
+
+adminRouter.get(
+  '/guides',
+  asyncHandler(async (req, res) => {
+    const status = typeof req.query.status === 'string' ? (req.query.status as never) : undefined;
+    const guides = await createRepository().listGuideProfiles(status);
+    ok(res, { guides });
   }),
 );
 
@@ -88,6 +99,38 @@ adminRouter.post(
     });
 
     ok(res, { story: updated });
+  }),
+);
+
+adminRouter.post(
+  '/guides/:id/moderate',
+  validateBody(moderationSchema),
+  asyncHandler(async (req, res) => {
+    const body = req.body as {
+      status: 'approved' | 'rejected' | 'needs_correction' | 'pending';
+      moderationNote?: string | null;
+      reviewedBy?: string;
+    };
+    const repo = createRepository();
+    const guide = await repo.getGuideProfile(req.params.id!);
+    if (!guide) throw ApiError.notFound('No guide profile matches that id.');
+
+    const reviewer = req.user?.email ?? body.reviewedBy ?? 'admin-token';
+    const updated = await repo.moderateGuideProfile(guide.id, {
+      status: body.status,
+      moderationNote: body.moderationNote ?? null,
+      reviewedBy: reviewer,
+    });
+
+    await repo.appendAudit({
+      actor: reviewer,
+      action: `guide.${body.status}`,
+      entityType: 'guide_profile',
+      entityId: updated.id,
+      details: { note: body.moderationNote ?? null, previousStatus: guide.status },
+    });
+
+    ok(res, { guide: updated });
   }),
 );
 

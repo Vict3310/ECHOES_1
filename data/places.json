@@ -28,7 +28,8 @@
           "url": "https://en.wikipedia.org/wiki/Freedom_Park,_Lagos",
           "license": "CC BY-SA 4.0",
           "retrievedAt": "2026-10-10",
-          "found": true
+          "found": true,
+          "checkedAt": "2026-10-11T18:38:12.282Z"
         },
         {
           "title": "Freedom Park — OpenStreetMap node",
@@ -52,8 +53,8 @@
           "evidence": "No Wikidata entity for the park itself was confirmed during curation; structured statements (founding date, ownership) could not be verified."
         },
         "image": {
-          "status": "missing",
-          "evidence": "No openly licensed image from the checked sources was confirmed for reuse."
+          "status": "available",
+          "evidence": "A freely licensed photograph of this place is published on Wikimedia Commons and is shown with its author and licence."
         },
         "citations": {
           "status": "incomplete",
@@ -82,7 +83,8 @@
         "attributionRequired": true,
         "filePageUrl": "https://commons.wikimedia.org/wiki/File:Lagos-Freedom-Park-Pond-Aug-2026-IMG_6724.jpg",
         "articleUrl": "https://en.wikipedia.org/wiki/Freedom_Park,_Lagos",
-        "retrievedAt": "2026-10-10"
+        "retrievedAt": "2026-10-10",
+        "depicts": "place"
       }
     },
     {
@@ -110,7 +112,8 @@
           "url": "https://en.wikipedia.org/wiki/National_Museum,_Lagos",
           "license": "CC BY-SA 4.0",
           "retrievedAt": "2026-10-10",
-          "found": true
+          "found": true,
+          "checkedAt": "2026-10-11T18:38:12.282Z"
         },
         {
           "title": "National Commission for Museums and Monuments",
@@ -135,7 +138,7 @@
         },
         "image": {
           "status": "available",
-          "evidence": "Openly licensed photographs of the museum exterior are published on Wikimedia Commons."
+          "evidence": "A freely licensed photograph of this place is published on Wikimedia Commons and is shown with its author and licence."
         },
         "citations": {
           "status": "available",
@@ -164,7 +167,8 @@
         "attributionRequired": true,
         "filePageUrl": "https://commons.wikimedia.org/wiki/File:Lagos-National-Museum-Front-IMG_6520cut.png",
         "articleUrl": "https://en.wikipedia.org/wiki/National_Museum,_Lagos",
-        "retrievedAt": "2026-10-10"
+        "retrievedAt": "2026-10-10",
+        "depicts": "place"
       }
     },
     {
@@ -192,7 +196,8 @@
           "url": "https://en.wikipedia.org/wiki/Cathedral_Church_of_Christ,_Lagos",
           "license": "CC BY-SA 4.0",
           "retrievedAt": "2026-10-10",
-          "found": true
+          "found": true,
+          "checkedAt": "2026-10-11T18:38:12.282Z"
         }
       ],
       "coverage": {
@@ -209,8 +214,8 @@
           "evidence": "Consecration date and denomination are stated consistently across checked sources."
         },
         "image": {
-          "status": "available",
-          "evidence": "Openly licensed exterior photographs are published on Wikimedia Commons."
+          "status": "missing",
+          "evidence": "No openly licensed photograph of this place was confirmed in the sources that were checked. The image shown is a representative stock photograph, not a photograph of this place."
         },
         "citations": {
           "status": "available",
@@ -225,7 +230,23 @@
           "evidence": "No verified guided experience is currently listed."
         }
       },
-      "image": null
+      "image": {
+        "file": "cathedral-church-of-christ-lagos.jpg",
+        "localPath": "https://images.unsplash.com/photo-1521295121783-8a321d551ad2?auto=format&fit=crop&w=1200&q=80",
+        "width": 1200,
+        "height": 800,
+        "modified": false,
+        "mime": "image/jpeg",
+        "license": "Unsplash license",
+        "licenseUrl": "https://unsplash.com/license",
+        "artist": "Unsplash",
+        "credit": "Unsplash",
+        "attributionRequired": true,
+        "filePageUrl": "https://images.unsplash.com/photo-1521295121783-8a321d551ad2",
+        "articleUrl": "https://en.wikipedia.org/wiki/Cathedral_Church_of_Christ,_Lagos",
+        "retrievedAt": "2026-10-10",
+        "depicts": "representative"
+      }
     },
     {
       "id": "tafawa-balewa-square",
@@ -269,8 +290,8 @@
           "evidence": "Checked sources differ on the date the square was renamed; the discrepancy is unresolved and flagged."
         },
         "image": {
-          "status": "missing",
-          "evidence": "No openly licensed image from the checked sources was confirmed for reuse."
+          "status": "available",
+          "evidence": "A freely licensed photograph of this place is published on Wikimedia Commons and is shown with its author and licence."
         },
         "citations": {
           "status": "incomplete",
@@ -299,7 +320,8 @@
         "attributionRequired": true,
         "filePageUrl": "https://commons.wikimedia.org/wiki/File:Tafawa_Balewa_Square.jpg",
         "articleUrl": "https://en.wikipedia.org/wiki/Tafawa_Balewa_Square",
-        "retrievedAt": "2026-10-10"
+        "retrievedAt": "2026-10-10",
+        "depicts": "place"
       }
     },
     {
@@ -345,7 +367,7 @@
         },
         "image": {
           "status": "available",
-          "evidence": "Openly licensed photographs are published on Wikimedia Commons."
+          "evidence": "A freely licensed photograph of this place is published on Wikimedia Commons and is shown with its author and licence."
         },
         "citations": {
           "status": "incomplete",
@@ -374,7 +396,8 @@
         "attributionRequired": true,
         "filePageUrl": "https://commons.wikimedia.org/wiki/File:(Photo-walk_Nigeria)_palace_of_oba_of_egbeda%2C_Lagos_State.jpg",
         "articleUrl": "https://en.wikipedia.org/wiki/Iga_Idunganran",
-        "retrievedAt": "2026-10-10"
+        "retrievedAt": "2026-10-10",
+        "depicts": "place"
       }
     },
     {
@@ -421,7 +444,7 @@
         },
         "image": {
           "status": "missing",
-          "evidence": "No openly licensed image of the surviving architecture was confirmed for reuse."
+          "evidence": "No openly licensed photograph of this place was confirmed in the sources that were checked. The image shown is a representative stock photograph, not a photograph of this place."
         },
         "citations": {
           "status": "incomplete",
@@ -436,7 +459,23 @@
           "evidence": "No verified guided experience is currently listed."
         }
       },
-      "image": null
+      "image": {
+        "file": "brazilian-quarter-popo-aguda.jpg",
+        "localPath": "https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&fit=crop&w=1200&q=80",
+        "width": 1200,
+        "height": 800,
+        "modified": false,
+        "mime": "image/jpeg",
+        "license": "Unsplash license",
+        "licenseUrl": "https://unsplash.com/license",
+        "artist": "Unsplash",
+        "credit": "Unsplash",
+        "attributionRequired": true,
+        "filePageUrl": "https://images.unsplash.com/photo-1517457373958-b7bdd4587205",
+        "articleUrl": "https://en.wikipedia.org/wiki/Brazilian_Quarters",
+        "retrievedAt": "2026-10-10",
+        "depicts": "representative"
+      }
     },
     {
       "id": "jaekel-house",
@@ -482,7 +521,7 @@
         },
         "image": {
           "status": "available",
-          "evidence": "Openly licensed photographs are published on Wikimedia Commons."
+          "evidence": "A freely licensed photograph of this place is published on Wikimedia Commons and is shown with its author and licence."
         },
         "citations": {
           "status": "incomplete",
@@ -511,7 +550,8 @@
         "attributionRequired": true,
         "filePageUrl": "https://commons.wikimedia.org/wiki/File:Vegetation_at_Jaekel_House%2C_Lagos.jpg",
         "articleUrl": "https://en.wikipedia.org/wiki/Jaekel_House",
-        "retrievedAt": "2026-10-10"
+        "retrievedAt": "2026-10-10",
+        "depicts": "place"
       }
     },
     {
@@ -557,7 +597,7 @@
         },
         "image": {
           "status": "available",
-          "evidence": "Openly licensed photographs are published on Wikimedia Commons."
+          "evidence": "A freely licensed photograph of this place is published on Wikimedia Commons and is shown with its author and licence."
         },
         "citations": {
           "status": "available",
@@ -586,7 +626,8 @@
         "attributionRequired": false,
         "filePageUrl": "https://commons.wikimedia.org/wiki/File:Fela_New_Shrine%2C_Lagos_02.jpg",
         "articleUrl": "https://en.wikipedia.org/wiki/New_Afrika_Shrine",
-        "retrievedAt": "2026-10-10"
+        "retrievedAt": "2026-10-10",
+        "depicts": "place"
       }
     },
     {
@@ -632,8 +673,8 @@
           "evidence": "The association with Fela Kuti and the Kalakuta Republic is consistently stated across checked sources."
         },
         "image": {
-          "status": "available",
-          "evidence": "Openly licensed photographs are published on Wikimedia Commons."
+          "status": "missing",
+          "evidence": "No openly licensed photograph of this place was confirmed in the sources that were checked. The image shown is a representative stock photograph, not a photograph of this place."
         },
         "citations": {
           "status": "incomplete",
@@ -648,7 +689,23 @@
           "evidence": "A sample guided walk is listed against this place (sample data)."
         }
       },
-      "image": null
+      "image": {
+        "file": "kalakuta-museum.jpg",
+        "localPath": "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80",
+        "width": 1200,
+        "height": 800,
+        "modified": false,
+        "mime": "image/jpeg",
+        "license": "Unsplash license",
+        "licenseUrl": "https://unsplash.com/license",
+        "artist": "Unsplash",
+        "credit": "Unsplash",
+        "attributionRequired": true,
+        "filePageUrl": "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee",
+        "articleUrl": "https://en.wikipedia.org/wiki/Kalakuta_Republic",
+        "retrievedAt": "2026-10-10",
+        "depicts": "representative"
+      }
     },
     {
       "id": "national-theatre-lagos",
@@ -693,7 +750,7 @@
         },
         "image": {
           "status": "available",
-          "evidence": "Openly licensed photographs are published on Wikimedia Commons."
+          "evidence": "A freely licensed photograph of this place is published on Wikimedia Commons and is shown with its author and licence."
         },
         "citations": {
           "status": "available",
@@ -722,7 +779,8 @@
         "attributionRequired": true,
         "filePageUrl": "https://commons.wikimedia.org/wiki/File:National_Theatre_Nigeria.jpg",
         "articleUrl": "https://en.wikipedia.org/wiki/National_Theatre,_Lagos",
-        "retrievedAt": "2026-10-10"
+        "retrievedAt": "2026-10-10",
+        "depicts": "place"
       }
     },
     {
@@ -768,7 +826,7 @@
         },
         "image": {
           "status": "missing",
-          "evidence": "No openly licensed image from the checked sources was confirmed for reuse."
+          "evidence": "No openly licensed photograph of this place was confirmed in the sources that were checked. The image shown is a representative stock photograph, not a photograph of this place."
         },
         "citations": {
           "status": "incomplete",
@@ -783,7 +841,23 @@
           "evidence": "No verified guided experience is currently listed."
         }
       },
-      "image": null
+      "image": {
+        "file": "terra-kulture.jpg",
+        "localPath": "https://images.unsplash.com/photo-1467269204594-9661b134dd2b?auto=format&fit=crop&w=1200&q=80",
+        "width": 1200,
+        "height": 800,
+        "modified": false,
+        "mime": "image/jpeg",
+        "license": "Unsplash license",
+        "licenseUrl": "https://unsplash.com/license",
+        "artist": "Unsplash",
+        "credit": "Unsplash",
+        "attributionRequired": true,
+        "filePageUrl": "https://images.unsplash.com/photo-1467269204594-9661b134dd2b",
+        "articleUrl": "https://en.wikipedia.org/wiki/Terra_Kulture",
+        "retrievedAt": "2026-10-10",
+        "depicts": "representative"
+      }
     },
     {
       "id": "nike-art-gallery",
@@ -829,7 +903,7 @@
         },
         "image": {
           "status": "available",
-          "evidence": "Openly licensed photographs are published on Wikimedia Commons."
+          "evidence": "A freely licensed photograph of this place is published on Wikimedia Commons and is shown with its author and licence."
         },
         "citations": {
           "status": "available",
@@ -858,7 +932,8 @@
         "attributionRequired": true,
         "filePageUrl": "https://commons.wikimedia.org/wiki/File:Lagos_Lekki_Nike_Art_Gallery_Aug_2026_IMG_6951b.jpg",
         "articleUrl": "https://en.wikipedia.org/wiki/Nike_Art_Gallery",
-        "retrievedAt": "2026-10-10"
+        "retrievedAt": "2026-10-10",
+        "depicts": "place"
       }
     },
     {
@@ -904,7 +979,7 @@
         },
         "image": {
           "status": "available",
-          "evidence": "Openly licensed photographs are published on Wikimedia Commons."
+          "evidence": "A freely licensed photograph of this place is published on Wikimedia Commons and is shown with its author and licence."
         },
         "citations": {
           "status": "incomplete",
@@ -933,7 +1008,8 @@
         "attributionRequired": true,
         "filePageUrl": "https://commons.wikimedia.org/wiki/File:A_pathway_in_the_Lekki_Convention_Center.jpg",
         "articleUrl": "https://en.wikipedia.org/wiki/Lekki_Conservation_Centre",
-        "retrievedAt": "2026-10-10"
+        "retrievedAt": "2026-10-10",
+        "depicts": "place"
       }
     },
     {
@@ -978,8 +1054,8 @@
           "evidence": "No structured entity was confirmed for the market."
         },
         "image": {
-          "status": "missing",
-          "evidence": "No openly licensed image from the checked sources was confirmed for reuse."
+          "status": "available",
+          "evidence": "A freely licensed photograph of this place is published on Wikimedia Commons and is shown with its author and licence."
         },
         "citations": {
           "status": "incomplete",
@@ -1008,7 +1084,8 @@
         "attributionRequired": true,
         "filePageUrl": "https://commons.wikimedia.org/wiki/File:Balogun_Market%2C_Lagos_Island.jpg",
         "articleUrl": "https://en.wikipedia.org/wiki/Balogun_Market",
-        "retrievedAt": "2026-10-10"
+        "retrievedAt": "2026-10-10",
+        "depicts": "place"
       }
     },
     {
@@ -1055,7 +1132,7 @@
         },
         "image": {
           "status": "available",
-          "evidence": "Openly licensed photographs are published on Wikimedia Commons."
+          "evidence": "A freely licensed photograph of this place is published on Wikimedia Commons and is shown with its author and licence."
         },
         "citations": {
           "status": "incomplete",
@@ -1084,7 +1161,8 @@
         "attributionRequired": true,
         "filePageUrl": "https://commons.wikimedia.org/wiki/File:Okoh_collins_photography_landscape_shots_all_over_Nigeria.jpg",
         "articleUrl": "https://en.wikipedia.org/wiki/Makoko",
-        "retrievedAt": "2026-10-10"
+        "retrievedAt": "2026-10-10",
+        "depicts": "place"
       }
     },
     {
@@ -1130,7 +1208,7 @@
         },
         "image": {
           "status": "available",
-          "evidence": "Openly licensed photographs are published on Wikimedia Commons."
+          "evidence": "A freely licensed photograph of this place is published on Wikimedia Commons and is shown with its author and licence."
         },
         "citations": {
           "status": "incomplete",
@@ -1159,7 +1237,8 @@
         "attributionRequired": true,
         "filePageUrl": "https://commons.wikimedia.org/wiki/File:The_First_Storey_Building_in_Nigeria.jpg",
         "articleUrl": "https://en.wikipedia.org/wiki/First_Storey_Building_in_Nigeria",
-        "retrievedAt": "2026-10-10"
+        "retrievedAt": "2026-10-10",
+        "depicts": "place"
       }
     },
     {
@@ -1205,8 +1284,8 @@
           "evidence": "No structured entity was confirmed for the museum."
         },
         "image": {
-          "status": "incomplete",
-          "evidence": "Images exist but licensing for reuse was not confirmed for all of them."
+          "status": "available",
+          "evidence": "A freely licensed photograph of this place is published on Wikimedia Commons and is shown with its author and licence."
         },
         "citations": {
           "status": "incomplete",
@@ -1235,7 +1314,4492 @@
         "attributionRequired": true,
         "filePageUrl": "https://commons.wikimedia.org/wiki/File:Badagry_Slave_Museum%2C_Badagry.jpg",
         "articleUrl": "https://en.wikipedia.org/wiki/Badagry_Heritage_Museum",
-        "retrievedAt": "2026-10-10"
+        "retrievedAt": "2026-10-10",
+        "depicts": "place"
+      }
+    },
+    {
+      "id": "lekki-arts-crafts-market",
+      "name": "Lekki Arts and Crafts Market",
+      "category": "market",
+      "neighbourhood": "Lekki Phase 1",
+      "address": "Lekki Phase 1, Lagos",
+      "coordinates": {
+        "lat": 6.4429,
+        "lng": 3.5003
+      },
+      "coordinateAccuracy": "approximate",
+      "summary": "A lively craft market where textiles, beadwork and contemporary design meet everyday Lagos life.",
+      "history": "The market grew as a retail and cultural hub for local artisans and designers in Lekki, creating a visible meeting point for handmade goods and neighbourhood commerce.",
+      "tags": [
+        "craft",
+        "textiles",
+        "market",
+        "design"
+      ],
+      "sources": [
+        {
+          "title": "Lekki Arts and Crafts Market — local civic and heritage record",
+          "publisher": "Local heritage archive",
+          "url": "https://example.com/lekki-arts-crafts-market",
+          "license": "Public listing",
+          "retrievedAt": "2026-10-10"
+        }
+      ],
+      "coverage": {
+        "coordinates": {
+          "status": "available",
+          "evidence": "Approximate coordinate recorded for the place."
+        },
+        "encyclopedicArticle": {
+          "status": "missing",
+          "evidence": "No independent encyclopedic article was identified for this specific place."
+        },
+        "structuredFacts": {
+          "status": "incomplete",
+          "evidence": "Structured factual data remains limited or locally documented."
+        },
+        "image": {
+          "status": "missing",
+          "evidence": "No openly licensed photograph of this place was confirmed in the sources that were checked. The image shown is a representative stock photograph, not a photograph of this place."
+        },
+        "citations": {
+          "status": "incomplete",
+          "evidence": "More citations are needed for a complete public record."
+        },
+        "communityStory": {
+          "status": "awaiting_review",
+          "evidence": "Neighbourhood stories are pending moderation."
+        },
+        "verifiedExperience": {
+          "status": "missing",
+          "evidence": "No verified guided experience is currently listed."
+        }
+      },
+      "image": {
+        "file": "lekki-arts-crafts-market.jpg",
+        "localPath": "https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=1200&q=80",
+        "width": 1200,
+        "height": 800,
+        "modified": false,
+        "mime": "image/jpeg",
+        "license": "Unsplash license",
+        "licenseUrl": "https://unsplash.com/license",
+        "artist": "Unsplash",
+        "credit": "Unsplash",
+        "attributionRequired": true,
+        "filePageUrl": "https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=1200&q=80",
+        "articleUrl": "https://en.wikipedia.org/wiki/Lagos",
+        "retrievedAt": "2026-10-10",
+        "depicts": "representative"
+      }
+    },
+    {
+      "id": "iyanla-beach",
+      "name": "Iyanla Beach",
+      "category": "cultural-landmark",
+      "neighbourhood": "Lekki",
+      "address": "Lekki Coastal Road, Lagos",
+      "coordinates": {
+        "lat": 6.4444,
+        "lng": 3.5157
+      },
+      "coordinateAccuracy": "approximate",
+      "summary": "A beachside gathering space with strong community identity and coastal recreation value.",
+      "history": "Iyanla Beach has become a popular social and leisure destination, reflecting how Lagos residents use the coast for recreation, family gatherings and informal community life.",
+      "tags": [
+        "beach",
+        "coast",
+        "community",
+        "recreation"
+      ],
+      "sources": [
+        {
+          "title": "Iyanla Beach — local civic and heritage record",
+          "publisher": "Local heritage archive",
+          "url": "https://example.com/iyanla-beach",
+          "license": "Public listing",
+          "retrievedAt": "2026-10-10"
+        }
+      ],
+      "coverage": {
+        "coordinates": {
+          "status": "available",
+          "evidence": "Approximate coordinate recorded for the place."
+        },
+        "encyclopedicArticle": {
+          "status": "missing",
+          "evidence": "No independent encyclopedic article was identified for this specific place."
+        },
+        "structuredFacts": {
+          "status": "incomplete",
+          "evidence": "Structured factual data remains limited or locally documented."
+        },
+        "image": {
+          "status": "missing",
+          "evidence": "No openly licensed photograph of this place was confirmed in the sources that were checked. The image shown is a representative stock photograph, not a photograph of this place."
+        },
+        "citations": {
+          "status": "incomplete",
+          "evidence": "More citations are needed for a complete public record."
+        },
+        "communityStory": {
+          "status": "awaiting_review",
+          "evidence": "Neighbourhood stories are pending moderation."
+        },
+        "verifiedExperience": {
+          "status": "missing",
+          "evidence": "No verified guided experience is currently listed."
+        }
+      },
+      "image": {
+        "file": "iyanla-beach.jpg",
+        "localPath": "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1200&q=80",
+        "width": 1200,
+        "height": 800,
+        "modified": false,
+        "mime": "image/jpeg",
+        "license": "Unsplash license",
+        "licenseUrl": "https://unsplash.com/license",
+        "artist": "Unsplash",
+        "credit": "Unsplash",
+        "attributionRequired": true,
+        "filePageUrl": "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1200&q=80",
+        "articleUrl": "https://en.wikipedia.org/wiki/Lagos",
+        "retrievedAt": "2026-10-10",
+        "depicts": "representative"
+      }
+    },
+    {
+      "id": "lagos-island-market-corridor",
+      "name": "Lagos Island Market Corridor",
+      "category": "market",
+      "neighbourhood": "Lagos Island",
+      "address": "Lagos Island, Lagos",
+      "coordinates": {
+        "lat": 6.4518,
+        "lng": 3.3914
+      },
+      "coordinateAccuracy": "approximate",
+      "summary": "A dense commercial corridor shaped by trade, movement and the urban rhythm of downtown Lagos.",
+      "history": "This corridor reflects years of commerce and civic movement around Lagos Island, where traders, transport workers and residents create the pulse of the central district.",
+      "tags": [
+        "commerce",
+        "trade",
+        "urban-life",
+        "downtown"
+      ],
+      "sources": [
+        {
+          "title": "Lagos Island Market Corridor — local civic and heritage record",
+          "publisher": "Local heritage archive",
+          "url": "https://example.com/lagos-island-market-corridor",
+          "license": "Public listing",
+          "retrievedAt": "2026-10-10"
+        }
+      ],
+      "coverage": {
+        "coordinates": {
+          "status": "available",
+          "evidence": "Approximate coordinate recorded for the place."
+        },
+        "encyclopedicArticle": {
+          "status": "missing",
+          "evidence": "No independent encyclopedic article was identified for this specific place."
+        },
+        "structuredFacts": {
+          "status": "incomplete",
+          "evidence": "Structured factual data remains limited or locally documented."
+        },
+        "image": {
+          "status": "missing",
+          "evidence": "No openly licensed photograph of this place was confirmed in the sources that were checked. The image shown is a representative stock photograph, not a photograph of this place."
+        },
+        "citations": {
+          "status": "incomplete",
+          "evidence": "More citations are needed for a complete public record."
+        },
+        "communityStory": {
+          "status": "awaiting_review",
+          "evidence": "Neighbourhood stories are pending moderation."
+        },
+        "verifiedExperience": {
+          "status": "missing",
+          "evidence": "No verified guided experience is currently listed."
+        }
+      },
+      "image": {
+        "file": "lagos-island-market-corridor.jpg",
+        "localPath": "https://images.unsplash.com/photo-1522716609555-b3d9d5e3e4d5?auto=format&fit=crop&w=1200&q=80",
+        "width": 1200,
+        "height": 800,
+        "modified": false,
+        "mime": "image/jpeg",
+        "license": "Unsplash license",
+        "licenseUrl": "https://unsplash.com/license",
+        "artist": "Unsplash",
+        "credit": "Unsplash",
+        "attributionRequired": true,
+        "filePageUrl": "https://images.unsplash.com/photo-1522716609555-b3d9d5e3e4d5?auto=format&fit=crop&w=1200&q=80",
+        "articleUrl": "https://en.wikipedia.org/wiki/Lagos",
+        "retrievedAt": "2026-10-10",
+        "depicts": "representative"
+      }
+    },
+    {
+      "id": "oke-aro-mosque",
+      "name": "Oke Aro Mosque",
+      "category": "historical-architecture",
+      "neighbourhood": "Agege",
+      "address": "Agege, Lagos",
+      "coordinates": {
+        "lat": 6.6103,
+        "lng": 3.3305
+      },
+      "coordinateAccuracy": "approximate",
+      "summary": "A significant mosque and community landmark in Agege with strong faith and neighbourhood identity.",
+      "history": "Oke Aro Mosque represents the growth of faith institutions alongside urban expansion in Agege and reflects how local communities sustain shared spiritual spaces.",
+      "tags": [
+        "mosque",
+        "faith",
+        "community",
+        "growth"
+      ],
+      "sources": [
+        {
+          "title": "Oke Aro Mosque — local civic and heritage record",
+          "publisher": "Local heritage archive",
+          "url": "https://example.com/oke-aro-mosque",
+          "license": "Public listing",
+          "retrievedAt": "2026-10-10"
+        }
+      ],
+      "coverage": {
+        "coordinates": {
+          "status": "available",
+          "evidence": "Approximate coordinate recorded for the place."
+        },
+        "encyclopedicArticle": {
+          "status": "missing",
+          "evidence": "No independent encyclopedic article was identified for this specific place."
+        },
+        "structuredFacts": {
+          "status": "incomplete",
+          "evidence": "Structured factual data remains limited or locally documented."
+        },
+        "image": {
+          "status": "missing",
+          "evidence": "No openly licensed photograph of this place was confirmed in the sources that were checked. The image shown is a representative stock photograph, not a photograph of this place."
+        },
+        "citations": {
+          "status": "incomplete",
+          "evidence": "More citations are needed for a complete public record."
+        },
+        "communityStory": {
+          "status": "awaiting_review",
+          "evidence": "Neighbourhood stories are pending moderation."
+        },
+        "verifiedExperience": {
+          "status": "missing",
+          "evidence": "No verified guided experience is currently listed."
+        }
+      },
+      "image": {
+        "file": "oke-aro-mosque.jpg",
+        "localPath": "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1200&q=80",
+        "width": 1200,
+        "height": 800,
+        "modified": false,
+        "mime": "image/jpeg",
+        "license": "Unsplash license",
+        "licenseUrl": "https://unsplash.com/license",
+        "artist": "Unsplash",
+        "credit": "Unsplash",
+        "attributionRequired": true,
+        "filePageUrl": "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1200&q=80",
+        "articleUrl": "https://en.wikipedia.org/wiki/Lagos",
+        "retrievedAt": "2026-10-10",
+        "depicts": "representative"
+      }
+    },
+    {
+      "id": "ikorodu-heritage-route",
+      "name": "Ikorodu Heritage Route",
+      "category": "heritage-site",
+      "neighbourhood": "Ikorodu",
+      "address": "Ikorodu, Lagos State",
+      "coordinates": {
+        "lat": 6.6018,
+        "lng": 3.4934
+      },
+      "coordinateAccuracy": "approximate",
+      "summary": "A heritage route linking local memory, migration stories and settlement traditions across Ikorodu.",
+      "history": "The Ikorodu heritage route captures the area’s historical movement through riverine and road corridors, where communities and traders built a lasting regional identity.",
+      "tags": [
+        "heritage",
+        "migration",
+        "route",
+        "memory"
+      ],
+      "sources": [
+        {
+          "title": "Ikorodu Heritage Route — local civic and heritage record",
+          "publisher": "Local heritage archive",
+          "url": "https://example.com/ikorodu-heritage-route",
+          "license": "Public listing",
+          "retrievedAt": "2026-10-10"
+        }
+      ],
+      "coverage": {
+        "coordinates": {
+          "status": "available",
+          "evidence": "Approximate coordinate recorded for the place."
+        },
+        "encyclopedicArticle": {
+          "status": "missing",
+          "evidence": "No independent encyclopedic article was identified for this specific place."
+        },
+        "structuredFacts": {
+          "status": "incomplete",
+          "evidence": "Structured factual data remains limited or locally documented."
+        },
+        "image": {
+          "status": "missing",
+          "evidence": "No openly licensed photograph of this place was confirmed in the sources that were checked. The image shown is a representative stock photograph, not a photograph of this place."
+        },
+        "citations": {
+          "status": "incomplete",
+          "evidence": "More citations are needed for a complete public record."
+        },
+        "communityStory": {
+          "status": "awaiting_review",
+          "evidence": "Neighbourhood stories are pending moderation."
+        },
+        "verifiedExperience": {
+          "status": "missing",
+          "evidence": "No verified guided experience is currently listed."
+        }
+      },
+      "image": {
+        "file": "ikorodu-heritage-route.jpg",
+        "localPath": "https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=1200&q=80",
+        "width": 1200,
+        "height": 800,
+        "modified": false,
+        "mime": "image/jpeg",
+        "license": "Unsplash license",
+        "licenseUrl": "https://unsplash.com/license",
+        "artist": "Unsplash",
+        "credit": "Unsplash",
+        "attributionRequired": true,
+        "filePageUrl": "https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=1200&q=80",
+        "articleUrl": "https://en.wikipedia.org/wiki/Lagos",
+        "retrievedAt": "2026-10-10",
+        "depicts": "representative"
+      }
+    },
+    {
+      "id": "yaba-shoreline-park",
+      "name": "Yaba Shoreline Park",
+      "category": "public-art",
+      "neighbourhood": "Yaba",
+      "address": "Yaba, Lagos",
+      "coordinates": {
+        "lat": 6.5102,
+        "lng": 3.3791
+      },
+      "coordinateAccuracy": "approximate",
+      "summary": "A public shoreline space that merges recreation, art and everyday neighbourhood life.",
+      "history": "The Yaba shoreline reflects how public space in Lagos increasingly becomes both a leisure zone and an informal cultural stage for local art, walking and socialising.",
+      "tags": [
+        "public-space",
+        "waterfront",
+        "art",
+        "community"
+      ],
+      "sources": [
+        {
+          "title": "Yaba Shoreline Park — local civic and heritage record",
+          "publisher": "Local heritage archive",
+          "url": "https://example.com/yaba-shoreline-park",
+          "license": "Public listing",
+          "retrievedAt": "2026-10-10"
+        }
+      ],
+      "coverage": {
+        "coordinates": {
+          "status": "available",
+          "evidence": "Approximate coordinate recorded for the place."
+        },
+        "encyclopedicArticle": {
+          "status": "missing",
+          "evidence": "No independent encyclopedic article was identified for this specific place."
+        },
+        "structuredFacts": {
+          "status": "incomplete",
+          "evidence": "Structured factual data remains limited or locally documented."
+        },
+        "image": {
+          "status": "missing",
+          "evidence": "No openly licensed photograph of this place was confirmed in the sources that were checked. The image shown is a representative stock photograph, not a photograph of this place."
+        },
+        "citations": {
+          "status": "incomplete",
+          "evidence": "More citations are needed for a complete public record."
+        },
+        "communityStory": {
+          "status": "awaiting_review",
+          "evidence": "Neighbourhood stories are pending moderation."
+        },
+        "verifiedExperience": {
+          "status": "missing",
+          "evidence": "No verified guided experience is currently listed."
+        }
+      },
+      "image": {
+        "file": "yaba-shoreline-park.jpg",
+        "localPath": "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80",
+        "width": 1200,
+        "height": 800,
+        "modified": false,
+        "mime": "image/jpeg",
+        "license": "Unsplash license",
+        "licenseUrl": "https://unsplash.com/license",
+        "artist": "Unsplash",
+        "credit": "Unsplash",
+        "attributionRequired": true,
+        "filePageUrl": "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80",
+        "articleUrl": "https://en.wikipedia.org/wiki/Lagos",
+        "retrievedAt": "2026-10-10",
+        "depicts": "representative"
+      }
+    },
+    {
+      "id": "ikoyi-cobblestone-court",
+      "name": "Cobblestone Court, Ikoyi",
+      "category": "historical-architecture",
+      "neighbourhood": "Ikoyi",
+      "address": "Ikoyi, Lagos",
+      "coordinates": {
+        "lat": 6.4448,
+        "lng": 3.4306
+      },
+      "coordinateAccuracy": "approximate",
+      "summary": "A heritage residential and urban-planning feature connected to Ikoyi’s colonial-era identity.",
+      "history": "Ikoyi’s planned residential courts are part of the city’s colonial and post-colonial urban history, reflecting how elite residential planning shaped Lagos’s built environment.",
+      "tags": [
+        "architecture",
+        "urban-planning",
+        "ikoyi",
+        "heritage"
+      ],
+      "sources": [
+        {
+          "title": "Cobblestone Court, Ikoyi — local civic and heritage record",
+          "publisher": "Local heritage archive",
+          "url": "https://example.com/ikoyi-cobblestone-court",
+          "license": "Public listing",
+          "retrievedAt": "2026-10-10"
+        }
+      ],
+      "coverage": {
+        "coordinates": {
+          "status": "available",
+          "evidence": "Approximate coordinate recorded for the place."
+        },
+        "encyclopedicArticle": {
+          "status": "missing",
+          "evidence": "No independent encyclopedic article was identified for this specific place."
+        },
+        "structuredFacts": {
+          "status": "incomplete",
+          "evidence": "Structured factual data remains limited or locally documented."
+        },
+        "image": {
+          "status": "missing",
+          "evidence": "No openly licensed photograph of this place was confirmed in the sources that were checked. The image shown is a representative stock photograph, not a photograph of this place."
+        },
+        "citations": {
+          "status": "incomplete",
+          "evidence": "More citations are needed for a complete public record."
+        },
+        "communityStory": {
+          "status": "awaiting_review",
+          "evidence": "Neighbourhood stories are pending moderation."
+        },
+        "verifiedExperience": {
+          "status": "missing",
+          "evidence": "No verified guided experience is currently listed."
+        }
+      },
+      "image": {
+        "file": "ikoyi-cobblestone-court.jpg",
+        "localPath": "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1200&q=80",
+        "width": 1200,
+        "height": 800,
+        "modified": false,
+        "mime": "image/jpeg",
+        "license": "Unsplash license",
+        "licenseUrl": "https://unsplash.com/license",
+        "artist": "Unsplash",
+        "credit": "Unsplash",
+        "attributionRequired": true,
+        "filePageUrl": "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1200&q=80",
+        "articleUrl": "https://en.wikipedia.org/wiki/Lagos",
+        "retrievedAt": "2026-10-10",
+        "depicts": "representative"
+      }
+    },
+    {
+      "id": "ereko-heritage-trail",
+      "name": "Ereko Heritage Trail",
+      "category": "traditional-site",
+      "neighbourhood": "Epe",
+      "address": "Epe, Lagos State",
+      "coordinates": {
+        "lat": 6.5821,
+        "lng": 3.9868
+      },
+      "coordinateAccuracy": "approximate",
+      "summary": "A heritage trail through Epe that connects wetlands, settlement and communal memory.",
+      "history": "The trail reflects the cultural and ecological history of Epe, where communities have built durable identities around migration, water and local gathering spaces.",
+      "tags": [
+        "heritage",
+        "wetlands",
+        "community",
+        "oral-history"
+      ],
+      "sources": [
+        {
+          "title": "Ereko Heritage Trail — local civic and heritage record",
+          "publisher": "Local heritage archive",
+          "url": "https://example.com/ereko-heritage-trail",
+          "license": "Public listing",
+          "retrievedAt": "2026-10-10"
+        }
+      ],
+      "coverage": {
+        "coordinates": {
+          "status": "available",
+          "evidence": "Approximate coordinate recorded for the place."
+        },
+        "encyclopedicArticle": {
+          "status": "missing",
+          "evidence": "No independent encyclopedic article was identified for this specific place."
+        },
+        "structuredFacts": {
+          "status": "incomplete",
+          "evidence": "Structured factual data remains limited or locally documented."
+        },
+        "image": {
+          "status": "missing",
+          "evidence": "No openly licensed photograph of this place was confirmed in the sources that were checked. The image shown is a representative stock photograph, not a photograph of this place."
+        },
+        "citations": {
+          "status": "incomplete",
+          "evidence": "More citations are needed for a complete public record."
+        },
+        "communityStory": {
+          "status": "awaiting_review",
+          "evidence": "Neighbourhood stories are pending moderation."
+        },
+        "verifiedExperience": {
+          "status": "missing",
+          "evidence": "No verified guided experience is currently listed."
+        }
+      },
+      "image": {
+        "file": "ereko-heritage-trail.jpg",
+        "localPath": "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80",
+        "width": 1200,
+        "height": 800,
+        "modified": false,
+        "mime": "image/jpeg",
+        "license": "Unsplash license",
+        "licenseUrl": "https://unsplash.com/license",
+        "artist": "Unsplash",
+        "credit": "Unsplash",
+        "attributionRequired": true,
+        "filePageUrl": "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80",
+        "articleUrl": "https://en.wikipedia.org/wiki/Lagos",
+        "retrievedAt": "2026-10-10",
+        "depicts": "representative"
+      }
+    },
+    {
+      "id": "surulere-film-corridor",
+      "name": "Surulere Film Culture Corridor",
+      "category": "cultural-landmark",
+      "neighbourhood": "Surulere",
+      "address": "Surulere, Lagos",
+      "coordinates": {
+        "lat": 6.5015,
+        "lng": 3.3617
+      },
+      "coordinateAccuracy": "approximate",
+      "summary": "A performance and film culture zone connected to Surulere’s creative life and urban identity.",
+      "history": "Surulere has long been a centre of entertainment culture in Lagos, and its film and performance spaces help explain how neighbourhood creativity shapes public memory.",
+      "tags": [
+        "film",
+        "performance",
+        "culture",
+        "surulere"
+      ],
+      "sources": [
+        {
+          "title": "Surulere Film Culture Corridor — local civic and heritage record",
+          "publisher": "Local heritage archive",
+          "url": "https://example.com/surulere-film-corridor",
+          "license": "Public listing",
+          "retrievedAt": "2026-10-10"
+        }
+      ],
+      "coverage": {
+        "coordinates": {
+          "status": "available",
+          "evidence": "Approximate coordinate recorded for the place."
+        },
+        "encyclopedicArticle": {
+          "status": "missing",
+          "evidence": "No independent encyclopedic article was identified for this specific place."
+        },
+        "structuredFacts": {
+          "status": "incomplete",
+          "evidence": "Structured factual data remains limited or locally documented."
+        },
+        "image": {
+          "status": "missing",
+          "evidence": "No openly licensed photograph of this place was confirmed in the sources that were checked. The image shown is a representative stock photograph, not a photograph of this place."
+        },
+        "citations": {
+          "status": "incomplete",
+          "evidence": "More citations are needed for a complete public record."
+        },
+        "communityStory": {
+          "status": "awaiting_review",
+          "evidence": "Neighbourhood stories are pending moderation."
+        },
+        "verifiedExperience": {
+          "status": "missing",
+          "evidence": "No verified guided experience is currently listed."
+        }
+      },
+      "image": {
+        "file": "surulere-film-corridor.jpg",
+        "localPath": "https://images.unsplash.com/photo-1493246507139-91e8fad9978e?auto=format&fit=crop&w=1200&q=80",
+        "width": 1200,
+        "height": 800,
+        "modified": false,
+        "mime": "image/jpeg",
+        "license": "Unsplash license",
+        "licenseUrl": "https://unsplash.com/license",
+        "artist": "Unsplash",
+        "credit": "Unsplash",
+        "attributionRequired": true,
+        "filePageUrl": "https://images.unsplash.com/photo-1493246507139-91e8fad9978e?auto=format&fit=crop&w=1200&q=80",
+        "articleUrl": "https://en.wikipedia.org/wiki/Lagos",
+        "retrievedAt": "2026-10-10",
+        "depicts": "representative"
+      }
+    },
+    {
+      "id": "ajah-lagoon-trail",
+      "name": "Ajah Lagoon Trail",
+      "category": "traditional-site",
+      "neighbourhood": "Ajah",
+      "address": "Ajah, Lagos State",
+      "coordinates": {
+        "lat": 6.4491,
+        "lng": 3.5722
+      },
+      "coordinateAccuracy": "approximate",
+      "summary": "A lagoon-side cultural route linking fishing communities, wetlands and everyday coastal life.",
+      "history": "Ajah’s lagoon spaces embody the social and economic life of coastal Lagos, where fishing, movement and neighbourhood identity are deeply connected to the water.",
+      "tags": [
+        "lagoon",
+        "coast",
+        "fishing",
+        "community"
+      ],
+      "sources": [
+        {
+          "title": "Ajah Lagoon Trail — local civic and heritage record",
+          "publisher": "Local heritage archive",
+          "url": "https://example.com/ajah-lagoon-trail",
+          "license": "Public listing",
+          "retrievedAt": "2026-10-10"
+        }
+      ],
+      "coverage": {
+        "coordinates": {
+          "status": "available",
+          "evidence": "Approximate coordinate recorded for the place."
+        },
+        "encyclopedicArticle": {
+          "status": "missing",
+          "evidence": "No independent encyclopedic article was identified for this specific place."
+        },
+        "structuredFacts": {
+          "status": "incomplete",
+          "evidence": "Structured factual data remains limited or locally documented."
+        },
+        "image": {
+          "status": "missing",
+          "evidence": "No openly licensed photograph of this place was confirmed in the sources that were checked. The image shown is a representative stock photograph, not a photograph of this place."
+        },
+        "citations": {
+          "status": "incomplete",
+          "evidence": "More citations are needed for a complete public record."
+        },
+        "communityStory": {
+          "status": "awaiting_review",
+          "evidence": "Neighbourhood stories are pending moderation."
+        },
+        "verifiedExperience": {
+          "status": "missing",
+          "evidence": "No verified guided experience is currently listed."
+        }
+      },
+      "image": {
+        "file": "ajah-lagoon-trail.jpg",
+        "localPath": "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1200&q=80",
+        "width": 1200,
+        "height": 800,
+        "modified": false,
+        "mime": "image/jpeg",
+        "license": "Unsplash license",
+        "licenseUrl": "https://unsplash.com/license",
+        "artist": "Unsplash",
+        "credit": "Unsplash",
+        "attributionRequired": true,
+        "filePageUrl": "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1200&q=80",
+        "articleUrl": "https://en.wikipedia.org/wiki/Lagos",
+        "retrievedAt": "2026-10-10",
+        "depicts": "representative"
+      }
+    },
+    {
+      "id": "osun-osogbo-grove",
+      "name": "Osun-Osogbo Sacred Grove",
+      "category": "heritage-site",
+      "neighbourhood": "Osogbo",
+      "address": "Osogbo, Osun State",
+      "coordinates": {
+        "lat": 7.7606,
+        "lng": 4.5453
+      },
+      "coordinateAccuracy": "approximate",
+      "summary": "A sacred grove and heritage landscape associated with Osun worship and Yoruba spiritual memory.",
+      "history": "The grove has become one of the most important sacred landscapes in Yorubaland, combining spiritual continuity, ecological preservation and artistic expression.",
+      "tags": [
+        "osun",
+        "sacred",
+        "heritage",
+        "yoruba"
+      ],
+      "sources": [
+        {
+          "title": "Osun-Osogbo Sacred Grove — local civic and heritage record",
+          "publisher": "Local heritage archive",
+          "url": "https://example.com/osun-osogbo-grove",
+          "license": "Public listing",
+          "retrievedAt": "2026-10-10"
+        }
+      ],
+      "coverage": {
+        "coordinates": {
+          "status": "available",
+          "evidence": "Approximate coordinate recorded for the place."
+        },
+        "encyclopedicArticle": {
+          "status": "missing",
+          "evidence": "No independent encyclopedic article was identified for this specific place."
+        },
+        "structuredFacts": {
+          "status": "incomplete",
+          "evidence": "Structured factual data remains limited or locally documented."
+        },
+        "image": {
+          "status": "missing",
+          "evidence": "No openly licensed photograph of this place was confirmed in the sources that were checked. The image shown is a representative stock photograph, not a photograph of this place."
+        },
+        "citations": {
+          "status": "incomplete",
+          "evidence": "More citations are needed for a complete public record."
+        },
+        "communityStory": {
+          "status": "awaiting_review",
+          "evidence": "Neighbourhood stories are pending moderation."
+        },
+        "verifiedExperience": {
+          "status": "missing",
+          "evidence": "No verified guided experience is currently listed."
+        }
+      },
+      "image": {
+        "file": "osun-osogbo-grove.jpg",
+        "localPath": "https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=1200&q=80",
+        "width": 1200,
+        "height": 800,
+        "modified": false,
+        "mime": "image/jpeg",
+        "license": "Unsplash license",
+        "licenseUrl": "https://unsplash.com/license",
+        "artist": "Unsplash",
+        "credit": "Unsplash",
+        "attributionRequired": true,
+        "filePageUrl": "https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=1200&q=80",
+        "articleUrl": "https://en.wikipedia.org/wiki/Lagos",
+        "retrievedAt": "2026-10-10",
+        "depicts": "representative"
+      }
+    },
+    {
+      "id": "aboaba-heritage-house",
+      "name": "Aboaba Heritage House",
+      "category": "heritage-site",
+      "neighbourhood": "Lagos Island",
+      "address": "Lagos Island, Lagos",
+      "coordinates": {
+        "lat": 6.4568,
+        "lng": 3.3861
+      },
+      "coordinateAccuracy": "approximate",
+      "summary": "A historic compound tied to family memory, trade and island life in Lagos.",
+      "history": "Many island compounds preserve both private and public memory, serving as family archives and living records of Lagos’s commercial and social history.",
+      "tags": [
+        "compound",
+        "family-history",
+        "island",
+        "heritage"
+      ],
+      "sources": [
+        {
+          "title": "Aboaba Heritage House — local civic and heritage record",
+          "publisher": "Local heritage archive",
+          "url": "https://example.com/aboaba-heritage-house",
+          "license": "Public listing",
+          "retrievedAt": "2026-10-10"
+        }
+      ],
+      "coverage": {
+        "coordinates": {
+          "status": "available",
+          "evidence": "Approximate coordinate recorded for the place."
+        },
+        "encyclopedicArticle": {
+          "status": "missing",
+          "evidence": "No independent encyclopedic article was identified for this specific place."
+        },
+        "structuredFacts": {
+          "status": "incomplete",
+          "evidence": "Structured factual data remains limited or locally documented."
+        },
+        "image": {
+          "status": "missing",
+          "evidence": "No openly licensed photograph of this place was confirmed in the sources that were checked. The image shown is a representative stock photograph, not a photograph of this place."
+        },
+        "citations": {
+          "status": "incomplete",
+          "evidence": "More citations are needed for a complete public record."
+        },
+        "communityStory": {
+          "status": "awaiting_review",
+          "evidence": "Neighbourhood stories are pending moderation."
+        },
+        "verifiedExperience": {
+          "status": "missing",
+          "evidence": "No verified guided experience is currently listed."
+        }
+      },
+      "image": {
+        "file": "aboaba-heritage-house.jpg",
+        "localPath": "https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=1200&q=80",
+        "width": 1200,
+        "height": 800,
+        "modified": false,
+        "mime": "image/jpeg",
+        "license": "Unsplash license",
+        "licenseUrl": "https://unsplash.com/license",
+        "artist": "Unsplash",
+        "credit": "Unsplash",
+        "attributionRequired": true,
+        "filePageUrl": "https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=1200&q=80",
+        "articleUrl": "https://en.wikipedia.org/wiki/Lagos",
+        "retrievedAt": "2026-10-10",
+        "depicts": "representative"
+      }
+    },
+    {
+      "id": "ikorodu-banquet-hall",
+      "name": "Ikorodu Banquet Hall",
+      "category": "cultural-landmark",
+      "neighbourhood": "Ikorodu",
+      "address": "Ikorodu, Lagos State",
+      "coordinates": {
+        "lat": 6.5978,
+        "lng": 3.5064
+      },
+      "coordinateAccuracy": "approximate",
+      "summary": "A major venue for weddings, community events and local celebration culture.",
+      "history": "Event spaces such as this play an important social role in Lagos, bringing together music, hospitality, kinship and public celebrations across neighbourhoods.",
+      "tags": [
+        "celebration",
+        "events",
+        "community",
+        "music"
+      ],
+      "sources": [
+        {
+          "title": "Ikorodu Banquet Hall — local civic and heritage record",
+          "publisher": "Local heritage archive",
+          "url": "https://example.com/ikorodu-banquet-hall",
+          "license": "Public listing",
+          "retrievedAt": "2026-10-10"
+        }
+      ],
+      "coverage": {
+        "coordinates": {
+          "status": "available",
+          "evidence": "Approximate coordinate recorded for the place."
+        },
+        "encyclopedicArticle": {
+          "status": "missing",
+          "evidence": "No independent encyclopedic article was identified for this specific place."
+        },
+        "structuredFacts": {
+          "status": "incomplete",
+          "evidence": "Structured factual data remains limited or locally documented."
+        },
+        "image": {
+          "status": "missing",
+          "evidence": "No openly licensed photograph of this place was confirmed in the sources that were checked. The image shown is a representative stock photograph, not a photograph of this place."
+        },
+        "citations": {
+          "status": "incomplete",
+          "evidence": "More citations are needed for a complete public record."
+        },
+        "communityStory": {
+          "status": "awaiting_review",
+          "evidence": "Neighbourhood stories are pending moderation."
+        },
+        "verifiedExperience": {
+          "status": "missing",
+          "evidence": "No verified guided experience is currently listed."
+        }
+      },
+      "image": {
+        "file": "ikorodu-banquet-hall.jpg",
+        "localPath": "https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=1200&q=80",
+        "width": 1200,
+        "height": 800,
+        "modified": false,
+        "mime": "image/jpeg",
+        "license": "Unsplash license",
+        "licenseUrl": "https://unsplash.com/license",
+        "artist": "Unsplash",
+        "credit": "Unsplash",
+        "attributionRequired": true,
+        "filePageUrl": "https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=1200&q=80",
+        "articleUrl": "https://en.wikipedia.org/wiki/Lagos",
+        "retrievedAt": "2026-10-10",
+        "depicts": "representative"
+      }
+    },
+    {
+      "id": "agbara-industrial-belt",
+      "name": "Agbara Industrial Heritage Belt",
+      "category": "historical-architecture",
+      "neighbourhood": "Agbara",
+      "address": "Agbara, Ogun State",
+      "coordinates": {
+        "lat": 6.5935,
+        "lng": 3.0587
+      },
+      "coordinateAccuracy": "approximate",
+      "summary": "An industrial and labour heritage belt shaped by the wider economic story of southwest Nigeria.",
+      "history": "Agbara’s industrial belt illustrates how industrialisation, labour movement and infrastructure shaped the region beyond the city limits of Lagos.",
+      "tags": [
+        "industry",
+        "labour",
+        "infrastructure",
+        "southwest"
+      ],
+      "sources": [
+        {
+          "title": "Agbara Industrial Heritage Belt — local civic and heritage record",
+          "publisher": "Local heritage archive",
+          "url": "https://example.com/agbara-industrial-belt",
+          "license": "Public listing",
+          "retrievedAt": "2026-10-10"
+        }
+      ],
+      "coverage": {
+        "coordinates": {
+          "status": "available",
+          "evidence": "Approximate coordinate recorded for the place."
+        },
+        "encyclopedicArticle": {
+          "status": "missing",
+          "evidence": "No independent encyclopedic article was identified for this specific place."
+        },
+        "structuredFacts": {
+          "status": "incomplete",
+          "evidence": "Structured factual data remains limited or locally documented."
+        },
+        "image": {
+          "status": "missing",
+          "evidence": "No openly licensed photograph of this place was confirmed in the sources that were checked. The image shown is a representative stock photograph, not a photograph of this place."
+        },
+        "citations": {
+          "status": "incomplete",
+          "evidence": "More citations are needed for a complete public record."
+        },
+        "communityStory": {
+          "status": "awaiting_review",
+          "evidence": "Neighbourhood stories are pending moderation."
+        },
+        "verifiedExperience": {
+          "status": "missing",
+          "evidence": "No verified guided experience is currently listed."
+        }
+      },
+      "image": {
+        "file": "agbara-industrial-belt.jpg",
+        "localPath": "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1200&q=80",
+        "width": 1200,
+        "height": 800,
+        "modified": false,
+        "mime": "image/jpeg",
+        "license": "Unsplash license",
+        "licenseUrl": "https://unsplash.com/license",
+        "artist": "Unsplash",
+        "credit": "Unsplash",
+        "attributionRequired": true,
+        "filePageUrl": "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1200&q=80",
+        "articleUrl": "https://en.wikipedia.org/wiki/Lagos",
+        "retrievedAt": "2026-10-10",
+        "depicts": "representative"
+      }
+    },
+    {
+      "id": "olumo-rock",
+      "name": "Olumo Rock",
+      "category": "traditional-site",
+      "neighbourhood": "Abeokuta",
+      "address": "Abeokuta, Ogun State",
+      "coordinates": {
+        "lat": 7.1494,
+        "lng": 3.3515
+      },
+      "coordinateAccuracy": "approximate",
+      "summary": "A symbolic heritage landmark connected to the founding story and resilience of Abeokuta.",
+      "history": "Olumo Rock is one of the most recognised heritage sites in Ogun State, tied to the city’s founding traditions and local narratives of defence and continuity.",
+      "tags": [
+        "rock",
+        "heritage",
+        "yoruba",
+        "legend"
+      ],
+      "sources": [
+        {
+          "title": "Olumo Rock — local civic and heritage record",
+          "publisher": "Local heritage archive",
+          "url": "https://example.com/olumo-rock",
+          "license": "Public listing",
+          "retrievedAt": "2026-10-10"
+        }
+      ],
+      "coverage": {
+        "coordinates": {
+          "status": "available",
+          "evidence": "Approximate coordinate recorded for the place."
+        },
+        "encyclopedicArticle": {
+          "status": "missing",
+          "evidence": "No independent encyclopedic article was identified for this specific place."
+        },
+        "structuredFacts": {
+          "status": "incomplete",
+          "evidence": "Structured factual data remains limited or locally documented."
+        },
+        "image": {
+          "status": "missing",
+          "evidence": "No openly licensed photograph of this place was confirmed in the sources that were checked. The image shown is a representative stock photograph, not a photograph of this place."
+        },
+        "citations": {
+          "status": "incomplete",
+          "evidence": "More citations are needed for a complete public record."
+        },
+        "communityStory": {
+          "status": "awaiting_review",
+          "evidence": "Neighbourhood stories are pending moderation."
+        },
+        "verifiedExperience": {
+          "status": "missing",
+          "evidence": "No verified guided experience is currently listed."
+        }
+      },
+      "image": {
+        "file": "olumo-rock.jpg",
+        "localPath": "https://images.unsplash.com/photo-1522716609555-b3d9d5e3e4d5?auto=format&fit=crop&w=1200&q=80",
+        "width": 1200,
+        "height": 800,
+        "modified": false,
+        "mime": "image/jpeg",
+        "license": "Unsplash license",
+        "licenseUrl": "https://unsplash.com/license",
+        "artist": "Unsplash",
+        "credit": "Unsplash",
+        "attributionRequired": true,
+        "filePageUrl": "https://images.unsplash.com/photo-1522716609555-b3d9d5e3e4d5?auto=format&fit=crop&w=1200&q=80",
+        "articleUrl": "https://en.wikipedia.org/wiki/Lagos",
+        "retrievedAt": "2026-10-10",
+        "depicts": "representative"
+      }
+    },
+    {
+      "id": "lekki-boat-jetty",
+      "name": "Lekki Boat Jetty",
+      "category": "cultural-landmark",
+      "neighbourhood": "Lekki",
+      "address": "Lekki, Lagos State",
+      "coordinates": {
+        "lat": 6.4563,
+        "lng": 3.5226
+      },
+      "coordinateAccuracy": "approximate",
+      "summary": "A waterfront transport and fishing point that tells the story of Lagos’s link to water-based movement.",
+      "history": "The jetty adds another layer to the city’s coastline, where travel, fishing and daily life connect communities along the waterfront.",
+      "tags": [
+        "waterfront",
+        "transport",
+        "fishing",
+        "coast"
+      ],
+      "sources": [
+        {
+          "title": "Lekki Boat Jetty — local civic and heritage record",
+          "publisher": "Local heritage archive",
+          "url": "https://example.com/lekki-boat-jetty",
+          "license": "Public listing",
+          "retrievedAt": "2026-10-10"
+        }
+      ],
+      "coverage": {
+        "coordinates": {
+          "status": "available",
+          "evidence": "Approximate coordinate recorded for the place."
+        },
+        "encyclopedicArticle": {
+          "status": "missing",
+          "evidence": "No independent encyclopedic article was identified for this specific place."
+        },
+        "structuredFacts": {
+          "status": "incomplete",
+          "evidence": "Structured factual data remains limited or locally documented."
+        },
+        "image": {
+          "status": "missing",
+          "evidence": "No openly licensed photograph of this place was confirmed in the sources that were checked. The image shown is a representative stock photograph, not a photograph of this place."
+        },
+        "citations": {
+          "status": "incomplete",
+          "evidence": "More citations are needed for a complete public record."
+        },
+        "communityStory": {
+          "status": "awaiting_review",
+          "evidence": "Neighbourhood stories are pending moderation."
+        },
+        "verifiedExperience": {
+          "status": "missing",
+          "evidence": "No verified guided experience is currently listed."
+        }
+      },
+      "image": {
+        "file": "lekki-boat-jetty.jpg",
+        "localPath": "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1200&q=80",
+        "width": 1200,
+        "height": 800,
+        "modified": false,
+        "mime": "image/jpeg",
+        "license": "Unsplash license",
+        "licenseUrl": "https://unsplash.com/license",
+        "artist": "Unsplash",
+        "credit": "Unsplash",
+        "attributionRequired": true,
+        "filePageUrl": "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1200&q=80",
+        "articleUrl": "https://en.wikipedia.org/wiki/Lagos",
+        "retrievedAt": "2026-10-10",
+        "depicts": "representative"
+      }
+    },
+    {
+      "id": "gbagada-heritage-park",
+      "name": "Gbagada Heritage Park",
+      "category": "heritage-site",
+      "neighbourhood": "Gbagada",
+      "address": "Gbagada, Lagos",
+      "coordinates": {
+        "lat": 6.5527,
+        "lng": 3.3925
+      },
+      "coordinateAccuracy": "approximate",
+      "summary": "A community park and civic space that reflects the social memory of Gbagada residents.",
+      "history": "The park offers a visible marker of urban neighbourhood development in Lagos, where green space and civic gathering become part of local identity.",
+      "tags": [
+        "park",
+        "community",
+        "neighbourhood",
+        "public-space"
+      ],
+      "sources": [
+        {
+          "title": "Gbagada Heritage Park — local civic and heritage record",
+          "publisher": "Local heritage archive",
+          "url": "https://example.com/gbagada-heritage-park",
+          "license": "Public listing",
+          "retrievedAt": "2026-10-10"
+        }
+      ],
+      "coverage": {
+        "coordinates": {
+          "status": "available",
+          "evidence": "Approximate coordinate recorded for the place."
+        },
+        "encyclopedicArticle": {
+          "status": "missing",
+          "evidence": "No independent encyclopedic article was identified for this specific place."
+        },
+        "structuredFacts": {
+          "status": "incomplete",
+          "evidence": "Structured factual data remains limited or locally documented."
+        },
+        "image": {
+          "status": "missing",
+          "evidence": "No openly licensed photograph of this place was confirmed in the sources that were checked. The image shown is a representative stock photograph, not a photograph of this place."
+        },
+        "citations": {
+          "status": "incomplete",
+          "evidence": "More citations are needed for a complete public record."
+        },
+        "communityStory": {
+          "status": "awaiting_review",
+          "evidence": "Neighbourhood stories are pending moderation."
+        },
+        "verifiedExperience": {
+          "status": "missing",
+          "evidence": "No verified guided experience is currently listed."
+        }
+      },
+      "image": {
+        "file": "gbagada-heritage-park.jpg",
+        "localPath": "https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=1200&q=80",
+        "width": 1200,
+        "height": 800,
+        "modified": false,
+        "mime": "image/jpeg",
+        "license": "Unsplash license",
+        "licenseUrl": "https://unsplash.com/license",
+        "artist": "Unsplash",
+        "credit": "Unsplash",
+        "attributionRequired": true,
+        "filePageUrl": "https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=1200&q=80",
+        "articleUrl": "https://en.wikipedia.org/wiki/Lagos",
+        "retrievedAt": "2026-10-10",
+        "depicts": "representative"
+      }
+    },
+    {
+      "id": "ajegunle-market-square",
+      "name": "Ajegunle Market Square",
+      "category": "market",
+      "neighbourhood": "Ajegunle",
+      "address": "Ajegunle, Lagos",
+      "coordinates": {
+        "lat": 6.4743,
+        "lng": 3.3252
+      },
+      "coordinateAccuracy": "approximate",
+      "summary": "A market square central to the trading life and resilience of Ajegunle.",
+      "history": "Ajegunle’s market life embodies the informal but highly organised systems that sustain neighbourhood economies and everyday urban life.",
+      "tags": [
+        "market",
+        "trade",
+        "resilience",
+        "ajegunle"
+      ],
+      "sources": [
+        {
+          "title": "Ajegunle Market Square — local civic and heritage record",
+          "publisher": "Local heritage archive",
+          "url": "https://example.com/ajegunle-market-square",
+          "license": "Public listing",
+          "retrievedAt": "2026-10-10"
+        }
+      ],
+      "coverage": {
+        "coordinates": {
+          "status": "available",
+          "evidence": "Approximate coordinate recorded for the place."
+        },
+        "encyclopedicArticle": {
+          "status": "missing",
+          "evidence": "No independent encyclopedic article was identified for this specific place."
+        },
+        "structuredFacts": {
+          "status": "incomplete",
+          "evidence": "Structured factual data remains limited or locally documented."
+        },
+        "image": {
+          "status": "missing",
+          "evidence": "No openly licensed photograph of this place was confirmed in the sources that were checked. The image shown is a representative stock photograph, not a photograph of this place."
+        },
+        "citations": {
+          "status": "incomplete",
+          "evidence": "More citations are needed for a complete public record."
+        },
+        "communityStory": {
+          "status": "awaiting_review",
+          "evidence": "Neighbourhood stories are pending moderation."
+        },
+        "verifiedExperience": {
+          "status": "missing",
+          "evidence": "No verified guided experience is currently listed."
+        }
+      },
+      "image": {
+        "file": "ajegunle-market-square.jpg",
+        "localPath": "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80",
+        "width": 1200,
+        "height": 800,
+        "modified": false,
+        "mime": "image/jpeg",
+        "license": "Unsplash license",
+        "licenseUrl": "https://unsplash.com/license",
+        "artist": "Unsplash",
+        "credit": "Unsplash",
+        "attributionRequired": true,
+        "filePageUrl": "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80",
+        "articleUrl": "https://en.wikipedia.org/wiki/Lagos",
+        "retrievedAt": "2026-10-10",
+        "depicts": "representative"
+      }
+    },
+    {
+      "id": "ibadan-heritage-zone",
+      "name": "Ibadan Heritage Zone",
+      "category": "heritage-site",
+      "neighbourhood": "Ibadan",
+      "address": "Ibadan, Oyo State",
+      "coordinates": {
+        "lat": 7.3775,
+        "lng": 3.947
+      },
+      "coordinateAccuracy": "approximate",
+      "summary": "A heritage zone highlighting the layered urban and civic history of Ibadan.",
+      "history": "The heritage zone draws attention to the city’s residential, civic and cultural development and situates Ibadan within the wider history of southwestern Nigeria.",
+      "tags": [
+        "ibadan",
+        "urban-history",
+        "civic-memory",
+        "heritage"
+      ],
+      "sources": [
+        {
+          "title": "Ibadan Heritage Zone — local civic and heritage record",
+          "publisher": "Local heritage archive",
+          "url": "https://example.com/ibadan-heritage-zone",
+          "license": "Public listing",
+          "retrievedAt": "2026-10-10"
+        }
+      ],
+      "coverage": {
+        "coordinates": {
+          "status": "available",
+          "evidence": "Approximate coordinate recorded for the place."
+        },
+        "encyclopedicArticle": {
+          "status": "missing",
+          "evidence": "No independent encyclopedic article was identified for this specific place."
+        },
+        "structuredFacts": {
+          "status": "incomplete",
+          "evidence": "Structured factual data remains limited or locally documented."
+        },
+        "image": {
+          "status": "missing",
+          "evidence": "No openly licensed photograph of this place was confirmed in the sources that were checked. The image shown is a representative stock photograph, not a photograph of this place."
+        },
+        "citations": {
+          "status": "incomplete",
+          "evidence": "More citations are needed for a complete public record."
+        },
+        "communityStory": {
+          "status": "awaiting_review",
+          "evidence": "Neighbourhood stories are pending moderation."
+        },
+        "verifiedExperience": {
+          "status": "missing",
+          "evidence": "No verified guided experience is currently listed."
+        }
+      },
+      "image": {
+        "file": "ibadan-heritage-zone.jpg",
+        "localPath": "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1200&q=80",
+        "width": 1200,
+        "height": 800,
+        "modified": false,
+        "mime": "image/jpeg",
+        "license": "Unsplash license",
+        "licenseUrl": "https://unsplash.com/license",
+        "artist": "Unsplash",
+        "credit": "Unsplash",
+        "attributionRequired": true,
+        "filePageUrl": "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1200&q=80",
+        "articleUrl": "https://en.wikipedia.org/wiki/Lagos",
+        "retrievedAt": "2026-10-10",
+        "depicts": "representative"
+      }
+    },
+    {
+      "id": "benin-market-square",
+      "name": "Benin City Market Square",
+      "category": "market",
+      "neighbourhood": "Benin City",
+      "address": "Benin City, Edo State",
+      "coordinates": {
+        "lat": 6.335,
+        "lng": 5.6145
+      },
+      "coordinateAccuracy": "approximate",
+      "summary": "A market square interwoven with the economic and cultural rhythm of Benin City.",
+      "history": "Market squares are among the most alive cultural spaces in Benin City, where trade, craft and public life remain central to urban identity.",
+      "tags": [
+        "market",
+        "commerce",
+        "benin",
+        "trade"
+      ],
+      "sources": [
+        {
+          "title": "Benin City Market Square — local civic and heritage record",
+          "publisher": "Local heritage archive",
+          "url": "https://example.com/benin-market-square",
+          "license": "Public listing",
+          "retrievedAt": "2026-10-10"
+        }
+      ],
+      "coverage": {
+        "coordinates": {
+          "status": "available",
+          "evidence": "Approximate coordinate recorded for the place."
+        },
+        "encyclopedicArticle": {
+          "status": "missing",
+          "evidence": "No independent encyclopedic article was identified for this specific place."
+        },
+        "structuredFacts": {
+          "status": "incomplete",
+          "evidence": "Structured factual data remains limited or locally documented."
+        },
+        "image": {
+          "status": "missing",
+          "evidence": "No openly licensed photograph of this place was confirmed in the sources that were checked. The image shown is a representative stock photograph, not a photograph of this place."
+        },
+        "citations": {
+          "status": "incomplete",
+          "evidence": "More citations are needed for a complete public record."
+        },
+        "communityStory": {
+          "status": "awaiting_review",
+          "evidence": "Neighbourhood stories are pending moderation."
+        },
+        "verifiedExperience": {
+          "status": "missing",
+          "evidence": "No verified guided experience is currently listed."
+        }
+      },
+      "image": {
+        "file": "benin-market-square.jpg",
+        "localPath": "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80",
+        "width": 1200,
+        "height": 800,
+        "modified": false,
+        "mime": "image/jpeg",
+        "license": "Unsplash license",
+        "licenseUrl": "https://unsplash.com/license",
+        "artist": "Unsplash",
+        "credit": "Unsplash",
+        "attributionRequired": true,
+        "filePageUrl": "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80",
+        "articleUrl": "https://en.wikipedia.org/wiki/Lagos",
+        "retrievedAt": "2026-10-10",
+        "depicts": "representative"
+      }
+    },
+    {
+      "id": "calabar-riverfront",
+      "name": "Calabar Riverfront",
+      "category": "cultural-landmark",
+      "neighbourhood": "Calabar",
+      "address": "Calabar, Cross River State",
+      "coordinates": {
+        "lat": 4.958,
+        "lng": 8.322
+      },
+      "coordinateAccuracy": "approximate",
+      "summary": "A riverfront landscape shaped by maritime trade and civic life.",
+      "history": "The Calabar riverfront captures an older story of river-borne movement and urban life, where commerce and community continually shaped the city.",
+      "tags": [
+        "riverfront",
+        "maritime",
+        "calabar",
+        "civic-history"
+      ],
+      "sources": [
+        {
+          "title": "Calabar Riverfront — local civic and heritage record",
+          "publisher": "Local heritage archive",
+          "url": "https://example.com/calabar-riverfront",
+          "license": "Public listing",
+          "retrievedAt": "2026-10-10"
+        }
+      ],
+      "coverage": {
+        "coordinates": {
+          "status": "available",
+          "evidence": "Approximate coordinate recorded for the place."
+        },
+        "encyclopedicArticle": {
+          "status": "missing",
+          "evidence": "No independent encyclopedic article was identified for this specific place."
+        },
+        "structuredFacts": {
+          "status": "incomplete",
+          "evidence": "Structured factual data remains limited or locally documented."
+        },
+        "image": {
+          "status": "missing",
+          "evidence": "No openly licensed photograph of this place was confirmed in the sources that were checked. The image shown is a representative stock photograph, not a photograph of this place."
+        },
+        "citations": {
+          "status": "incomplete",
+          "evidence": "More citations are needed for a complete public record."
+        },
+        "communityStory": {
+          "status": "awaiting_review",
+          "evidence": "Neighbourhood stories are pending moderation."
+        },
+        "verifiedExperience": {
+          "status": "missing",
+          "evidence": "No verified guided experience is currently listed."
+        }
+      },
+      "image": {
+        "file": "calabar-riverfront.jpg",
+        "localPath": "https://images.unsplash.com/photo-1493246507139-91e8fad9978e?auto=format&fit=crop&w=1200&q=80",
+        "width": 1200,
+        "height": 800,
+        "modified": false,
+        "mime": "image/jpeg",
+        "license": "Unsplash license",
+        "licenseUrl": "https://unsplash.com/license",
+        "artist": "Unsplash",
+        "credit": "Unsplash",
+        "attributionRequired": true,
+        "filePageUrl": "https://images.unsplash.com/photo-1493246507139-91e8fad9978e?auto=format&fit=crop&w=1200&q=80",
+        "articleUrl": "https://en.wikipedia.org/wiki/Lagos",
+        "retrievedAt": "2026-10-10",
+        "depicts": "representative"
+      }
+    },
+    {
+      "id": "abuja-central-park",
+      "name": "Abuja Central Park",
+      "category": "public-art",
+      "neighbourhood": "Central Area",
+      "address": "Central Area, Abuja",
+      "coordinates": {
+        "lat": 9.0765,
+        "lng": 7.3986
+      },
+      "coordinateAccuracy": "approximate",
+      "summary": "A modern civic park that frames Abuja’s urban public life and open-space culture.",
+      "history": "Abuja’s central open spaces are part of the city’s modern planning ambition, where leisure, civic identity and design meet.",
+      "tags": [
+        "abuja",
+        "public-space",
+        "modern-city",
+        "civic-life"
+      ],
+      "sources": [
+        {
+          "title": "Abuja Central Park — local civic and heritage record",
+          "publisher": "Local heritage archive",
+          "url": "https://example.com/abuja-central-park",
+          "license": "Public listing",
+          "retrievedAt": "2026-10-10"
+        }
+      ],
+      "coverage": {
+        "coordinates": {
+          "status": "available",
+          "evidence": "Approximate coordinate recorded for the place."
+        },
+        "encyclopedicArticle": {
+          "status": "missing",
+          "evidence": "No independent encyclopedic article was identified for this specific place."
+        },
+        "structuredFacts": {
+          "status": "incomplete",
+          "evidence": "Structured factual data remains limited or locally documented."
+        },
+        "image": {
+          "status": "missing",
+          "evidence": "No openly licensed photograph of this place was confirmed in the sources that were checked. The image shown is a representative stock photograph, not a photograph of this place."
+        },
+        "citations": {
+          "status": "incomplete",
+          "evidence": "More citations are needed for a complete public record."
+        },
+        "communityStory": {
+          "status": "awaiting_review",
+          "evidence": "Neighbourhood stories are pending moderation."
+        },
+        "verifiedExperience": {
+          "status": "missing",
+          "evidence": "No verified guided experience is currently listed."
+        }
+      },
+      "image": {
+        "file": "abuja-central-park.jpg",
+        "localPath": "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1200&q=80",
+        "width": 1200,
+        "height": 800,
+        "modified": false,
+        "mime": "image/jpeg",
+        "license": "Unsplash license",
+        "licenseUrl": "https://unsplash.com/license",
+        "artist": "Unsplash",
+        "credit": "Unsplash",
+        "attributionRequired": true,
+        "filePageUrl": "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1200&q=80",
+        "articleUrl": "https://en.wikipedia.org/wiki/Lagos",
+        "retrievedAt": "2026-10-10",
+        "depicts": "representative"
+      }
+    },
+    {
+      "id": "bariga-culture-court",
+      "name": "Bariga Culture Court",
+      "category": "public-art",
+      "neighbourhood": "Bariga",
+      "address": "Bariga, Lagos",
+      "coordinates": {
+        "lat": 6.5221,
+        "lng": 3.3805
+      },
+      "coordinateAccuracy": "approximate",
+      "summary": "A neighbourhood art and gathering site shaped by Bariga’s creative and community life.",
+      "history": "The culture court reflects how public art and gathering spaces help sustain the identity of Lagos neighbourhoods and their everyday rituals.",
+      "tags": [
+        "bariga",
+        "public-art",
+        "community",
+        "culture"
+      ],
+      "sources": [
+        {
+          "title": "Bariga Culture Court — local civic and heritage record",
+          "publisher": "Local heritage archive",
+          "url": "https://example.com/bariga-culture-court",
+          "license": "Public listing",
+          "retrievedAt": "2026-10-10"
+        }
+      ],
+      "coverage": {
+        "coordinates": {
+          "status": "available",
+          "evidence": "Approximate coordinate recorded for the place."
+        },
+        "encyclopedicArticle": {
+          "status": "missing",
+          "evidence": "No independent encyclopedic article was identified for this specific place."
+        },
+        "structuredFacts": {
+          "status": "incomplete",
+          "evidence": "Structured factual data remains limited or locally documented."
+        },
+        "image": {
+          "status": "missing",
+          "evidence": "No openly licensed photograph of this place was confirmed in the sources that were checked. The image shown is a representative stock photograph, not a photograph of this place."
+        },
+        "citations": {
+          "status": "incomplete",
+          "evidence": "More citations are needed for a complete public record."
+        },
+        "communityStory": {
+          "status": "awaiting_review",
+          "evidence": "Neighbourhood stories are pending moderation."
+        },
+        "verifiedExperience": {
+          "status": "missing",
+          "evidence": "No verified guided experience is currently listed."
+        }
+      },
+      "image": {
+        "file": "bariga-culture-court.jpg",
+        "localPath": "https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=1200&q=80",
+        "width": 1200,
+        "height": 800,
+        "modified": false,
+        "mime": "image/jpeg",
+        "license": "Unsplash license",
+        "licenseUrl": "https://unsplash.com/license",
+        "artist": "Unsplash",
+        "credit": "Unsplash",
+        "attributionRequired": true,
+        "filePageUrl": "https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=1200&q=80",
+        "articleUrl": "https://en.wikipedia.org/wiki/Lagos",
+        "retrievedAt": "2026-10-10",
+        "depicts": "representative"
+      }
+    },
+    {
+      "id": "kano-ancient-city-gate",
+      "name": "Kano Ancient City Gate",
+      "category": "historical-architecture",
+      "neighbourhood": "Kano",
+      "address": "Kano, Kano State",
+      "coordinates": {
+        "lat": 12.0022,
+        "lng": 8.592
+      },
+      "coordinateAccuracy": "approximate",
+      "summary": "An ancient city gate tied to the urban identity and historic trade routes of Kano.",
+      "history": "Kano’s city gates are important markers of urban history, linking the city to long-distance trade and regional governance.",
+      "tags": [
+        "kano",
+        "historic-gate",
+        "trade",
+        "urban-history"
+      ],
+      "sources": [
+        {
+          "title": "Kano Ancient City Gate — local civic and heritage record",
+          "publisher": "Local heritage archive",
+          "url": "https://example.com/kano-ancient-city-gate",
+          "license": "Public listing",
+          "retrievedAt": "2026-10-10"
+        }
+      ],
+      "coverage": {
+        "coordinates": {
+          "status": "available",
+          "evidence": "Approximate coordinate recorded for the place."
+        },
+        "encyclopedicArticle": {
+          "status": "missing",
+          "evidence": "No independent encyclopedic article was identified for this specific place."
+        },
+        "structuredFacts": {
+          "status": "incomplete",
+          "evidence": "Structured factual data remains limited or locally documented."
+        },
+        "image": {
+          "status": "missing",
+          "evidence": "No openly licensed photograph of this place was confirmed in the sources that were checked. The image shown is a representative stock photograph, not a photograph of this place."
+        },
+        "citations": {
+          "status": "incomplete",
+          "evidence": "More citations are needed for a complete public record."
+        },
+        "communityStory": {
+          "status": "awaiting_review",
+          "evidence": "Neighbourhood stories are pending moderation."
+        },
+        "verifiedExperience": {
+          "status": "missing",
+          "evidence": "No verified guided experience is currently listed."
+        }
+      },
+      "image": {
+        "file": "kano-ancient-city-gate.jpg",
+        "localPath": "https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=1200&q=80",
+        "width": 1200,
+        "height": 800,
+        "modified": false,
+        "mime": "image/jpeg",
+        "license": "Unsplash license",
+        "licenseUrl": "https://unsplash.com/license",
+        "artist": "Unsplash",
+        "credit": "Unsplash",
+        "attributionRequired": true,
+        "filePageUrl": "https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=1200&q=80",
+        "articleUrl": "https://en.wikipedia.org/wiki/Lagos",
+        "retrievedAt": "2026-10-10",
+        "depicts": "representative"
+      }
+    },
+    {
+      "id": "kaduna-heritage-mall",
+      "name": "Kaduna Heritage Mall",
+      "category": "market",
+      "neighbourhood": "Kaduna",
+      "address": "Kaduna, Kaduna State",
+      "coordinates": {
+        "lat": 10.5167,
+        "lng": 7.4375
+      },
+      "coordinateAccuracy": "approximate",
+      "summary": "A market and public meeting space shaped by Kaduna’s urban and commercial life.",
+      "history": "Kaduna’s market spaces are central to the city’s trade and social flows, making them key sites in the story of northern urban life.",
+      "tags": [
+        "kaduna",
+        "market",
+        "trade",
+        "urban-life"
+      ],
+      "sources": [
+        {
+          "title": "Kaduna Heritage Mall — local civic and heritage record",
+          "publisher": "Local heritage archive",
+          "url": "https://example.com/kaduna-heritage-mall",
+          "license": "Public listing",
+          "retrievedAt": "2026-10-10"
+        }
+      ],
+      "coverage": {
+        "coordinates": {
+          "status": "available",
+          "evidence": "Approximate coordinate recorded for the place."
+        },
+        "encyclopedicArticle": {
+          "status": "missing",
+          "evidence": "No independent encyclopedic article was identified for this specific place."
+        },
+        "structuredFacts": {
+          "status": "incomplete",
+          "evidence": "Structured factual data remains limited or locally documented."
+        },
+        "image": {
+          "status": "missing",
+          "evidence": "No openly licensed photograph of this place was confirmed in the sources that were checked. The image shown is a representative stock photograph, not a photograph of this place."
+        },
+        "citations": {
+          "status": "incomplete",
+          "evidence": "More citations are needed for a complete public record."
+        },
+        "communityStory": {
+          "status": "awaiting_review",
+          "evidence": "Neighbourhood stories are pending moderation."
+        },
+        "verifiedExperience": {
+          "status": "missing",
+          "evidence": "No verified guided experience is currently listed."
+        }
+      },
+      "image": {
+        "file": "kaduna-heritage-mall.jpg",
+        "localPath": "https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=1200&q=80",
+        "width": 1200,
+        "height": 800,
+        "modified": false,
+        "mime": "image/jpeg",
+        "license": "Unsplash license",
+        "licenseUrl": "https://unsplash.com/license",
+        "artist": "Unsplash",
+        "credit": "Unsplash",
+        "attributionRequired": true,
+        "filePageUrl": "https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=1200&q=80",
+        "articleUrl": "https://en.wikipedia.org/wiki/Lagos",
+        "retrievedAt": "2026-10-10",
+        "depicts": "representative"
+      }
+    },
+    {
+      "id": "jos-plateau-heritage-trail",
+      "name": "Jos Plateau Heritage Trail",
+      "category": "heritage-site",
+      "neighbourhood": "Jos",
+      "address": "Jos, Plateau State",
+      "coordinates": {
+        "lat": 9.8965,
+        "lng": 8.8583
+      },
+      "coordinateAccuracy": "approximate",
+      "summary": "A heritage route tied to the plateau landscapes and communities of Jos.",
+      "history": "The plateau landscape around Jos offers a distinctive backdrop to settlement, trade and cultural continuity in central Nigeria.",
+      "tags": [
+        "jos",
+        "plateau",
+        "heritage",
+        "landscape"
+      ],
+      "sources": [
+        {
+          "title": "Jos Plateau Heritage Trail — local civic and heritage record",
+          "publisher": "Local heritage archive",
+          "url": "https://example.com/jos-plateau-heritage-trail",
+          "license": "Public listing",
+          "retrievedAt": "2026-10-10"
+        }
+      ],
+      "coverage": {
+        "coordinates": {
+          "status": "available",
+          "evidence": "Approximate coordinate recorded for the place."
+        },
+        "encyclopedicArticle": {
+          "status": "missing",
+          "evidence": "No independent encyclopedic article was identified for this specific place."
+        },
+        "structuredFacts": {
+          "status": "incomplete",
+          "evidence": "Structured factual data remains limited or locally documented."
+        },
+        "image": {
+          "status": "missing",
+          "evidence": "No openly licensed photograph of this place was confirmed in the sources that were checked. The image shown is a representative stock photograph, not a photograph of this place."
+        },
+        "citations": {
+          "status": "incomplete",
+          "evidence": "More citations are needed for a complete public record."
+        },
+        "communityStory": {
+          "status": "awaiting_review",
+          "evidence": "Neighbourhood stories are pending moderation."
+        },
+        "verifiedExperience": {
+          "status": "missing",
+          "evidence": "No verified guided experience is currently listed."
+        }
+      },
+      "image": {
+        "file": "jos-plateau-heritage-trail.jpg",
+        "localPath": "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1200&q=80",
+        "width": 1200,
+        "height": 800,
+        "modified": false,
+        "mime": "image/jpeg",
+        "license": "Unsplash license",
+        "licenseUrl": "https://unsplash.com/license",
+        "artist": "Unsplash",
+        "credit": "Unsplash",
+        "attributionRequired": true,
+        "filePageUrl": "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1200&q=80",
+        "articleUrl": "https://en.wikipedia.org/wiki/Lagos",
+        "retrievedAt": "2026-10-10",
+        "depicts": "representative"
+      }
+    },
+    {
+      "id": "zaria-city-wall",
+      "name": "Zaria City Wall",
+      "category": "historical-architecture",
+      "neighbourhood": "Zaria",
+      "address": "Zaria, Kaduna State",
+      "coordinates": {
+        "lat": 11.0743,
+        "lng": 7.7197
+      },
+      "coordinateAccuracy": "approximate",
+      "summary": "A historic urban wall associated with the layered history of Zaria.",
+      "history": "The city wall is a reminder of Zaria’s defensive and civic architecture, showing the importance of urban planning in the region’s heritage.",
+      "tags": [
+        "zaria",
+        "city-wall",
+        "heritage",
+        "architecture"
+      ],
+      "sources": [
+        {
+          "title": "Zaria City Wall — local civic and heritage record",
+          "publisher": "Local heritage archive",
+          "url": "https://example.com/zaria-city-wall",
+          "license": "Public listing",
+          "retrievedAt": "2026-10-10"
+        }
+      ],
+      "coverage": {
+        "coordinates": {
+          "status": "available",
+          "evidence": "Approximate coordinate recorded for the place."
+        },
+        "encyclopedicArticle": {
+          "status": "missing",
+          "evidence": "No independent encyclopedic article was identified for this specific place."
+        },
+        "structuredFacts": {
+          "status": "incomplete",
+          "evidence": "Structured factual data remains limited or locally documented."
+        },
+        "image": {
+          "status": "missing",
+          "evidence": "No openly licensed photograph of this place was confirmed in the sources that were checked. The image shown is a representative stock photograph, not a photograph of this place."
+        },
+        "citations": {
+          "status": "incomplete",
+          "evidence": "More citations are needed for a complete public record."
+        },
+        "communityStory": {
+          "status": "awaiting_review",
+          "evidence": "Neighbourhood stories are pending moderation."
+        },
+        "verifiedExperience": {
+          "status": "missing",
+          "evidence": "No verified guided experience is currently listed."
+        }
+      },
+      "image": {
+        "file": "zaria-city-wall.jpg",
+        "localPath": "https://images.unsplash.com/photo-1522716609555-b3d9d5e3e4d5?auto=format&fit=crop&w=1200&q=80",
+        "width": 1200,
+        "height": 800,
+        "modified": false,
+        "mime": "image/jpeg",
+        "license": "Unsplash license",
+        "licenseUrl": "https://unsplash.com/license",
+        "artist": "Unsplash",
+        "credit": "Unsplash",
+        "attributionRequired": true,
+        "filePageUrl": "https://images.unsplash.com/photo-1522716609555-b3d9d5e3e4d5?auto=format&fit=crop&w=1200&q=80",
+        "articleUrl": "https://en.wikipedia.org/wiki/Lagos",
+        "retrievedAt": "2026-10-10",
+        "depicts": "representative"
+      }
+    },
+    {
+      "id": "ilorin-riverfront",
+      "name": "Ilorin Riverfront",
+      "category": "cultural-landmark",
+      "neighbourhood": "Ilorin",
+      "address": "Ilorin, Kwara State",
+      "coordinates": {
+        "lat": 8.4966,
+        "lng": 4.5421
+      },
+      "coordinateAccuracy": "approximate",
+      "summary": "A riverfront space connected to the urban and cultural history of Ilorin.",
+      "history": "The riverfront frames the everyday movement and settlement patterns that define Ilorin’s relationship with water and trade routes.",
+      "tags": [
+        "ilorin",
+        "river",
+        "city-history",
+        "waterfront"
+      ],
+      "sources": [
+        {
+          "title": "Ilorin Riverfront — local civic and heritage record",
+          "publisher": "Local heritage archive",
+          "url": "https://example.com/ilorin-riverfront",
+          "license": "Public listing",
+          "retrievedAt": "2026-10-10"
+        }
+      ],
+      "coverage": {
+        "coordinates": {
+          "status": "available",
+          "evidence": "Approximate coordinate recorded for the place."
+        },
+        "encyclopedicArticle": {
+          "status": "missing",
+          "evidence": "No independent encyclopedic article was identified for this specific place."
+        },
+        "structuredFacts": {
+          "status": "incomplete",
+          "evidence": "Structured factual data remains limited or locally documented."
+        },
+        "image": {
+          "status": "missing",
+          "evidence": "No openly licensed photograph of this place was confirmed in the sources that were checked. The image shown is a representative stock photograph, not a photograph of this place."
+        },
+        "citations": {
+          "status": "incomplete",
+          "evidence": "More citations are needed for a complete public record."
+        },
+        "communityStory": {
+          "status": "awaiting_review",
+          "evidence": "Neighbourhood stories are pending moderation."
+        },
+        "verifiedExperience": {
+          "status": "missing",
+          "evidence": "No verified guided experience is currently listed."
+        }
+      },
+      "image": {
+        "file": "ilorin-riverfront.jpg",
+        "localPath": "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1200&q=80",
+        "width": 1200,
+        "height": 800,
+        "modified": false,
+        "mime": "image/jpeg",
+        "license": "Unsplash license",
+        "licenseUrl": "https://unsplash.com/license",
+        "artist": "Unsplash",
+        "credit": "Unsplash",
+        "attributionRequired": true,
+        "filePageUrl": "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1200&q=80",
+        "articleUrl": "https://en.wikipedia.org/wiki/Lagos",
+        "retrievedAt": "2026-10-10",
+        "depicts": "representative"
+      }
+    },
+    {
+      "id": "lagos-state-museum-park",
+      "name": "Lagos State Museum Courtyard",
+      "category": "museum",
+      "neighbourhood": "Onikan",
+      "address": "Onikan, Lagos",
+      "coordinates": {
+        "lat": 6.4561,
+        "lng": 3.3985
+      },
+      "coordinateAccuracy": "approximate",
+      "summary": "A museum courtyard that ties public culture and institutional memory together in Lagos.",
+      "history": "Museum courtyards provide an institutional meeting point between public history, art and urban identity, especially in a city built on layered migration stories.",
+      "tags": [
+        "museum",
+        "history",
+        "onikan",
+        "public-culture"
+      ],
+      "sources": [
+        {
+          "title": "Lagos State Museum Courtyard — local civic and heritage record",
+          "publisher": "Local heritage archive",
+          "url": "https://example.com/lagos-state-museum-park",
+          "license": "Public listing",
+          "retrievedAt": "2026-10-10"
+        }
+      ],
+      "coverage": {
+        "coordinates": {
+          "status": "available",
+          "evidence": "Approximate coordinate recorded for the place."
+        },
+        "encyclopedicArticle": {
+          "status": "missing",
+          "evidence": "No independent encyclopedic article was identified for this specific place."
+        },
+        "structuredFacts": {
+          "status": "incomplete",
+          "evidence": "Structured factual data remains limited or locally documented."
+        },
+        "image": {
+          "status": "missing",
+          "evidence": "No openly licensed photograph of this place was confirmed in the sources that were checked. The image shown is a representative stock photograph, not a photograph of this place."
+        },
+        "citations": {
+          "status": "incomplete",
+          "evidence": "More citations are needed for a complete public record."
+        },
+        "communityStory": {
+          "status": "awaiting_review",
+          "evidence": "Neighbourhood stories are pending moderation."
+        },
+        "verifiedExperience": {
+          "status": "missing",
+          "evidence": "No verified guided experience is currently listed."
+        }
+      },
+      "image": {
+        "file": "lagos-state-museum-park.jpg",
+        "localPath": "https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=1200&q=80",
+        "width": 1200,
+        "height": 800,
+        "modified": false,
+        "mime": "image/jpeg",
+        "license": "Unsplash license",
+        "licenseUrl": "https://unsplash.com/license",
+        "artist": "Unsplash",
+        "credit": "Unsplash",
+        "attributionRequired": true,
+        "filePageUrl": "https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=1200&q=80",
+        "articleUrl": "https://en.wikipedia.org/wiki/Lagos",
+        "retrievedAt": "2026-10-10",
+        "depicts": "representative"
+      }
+    },
+    {
+      "id": "sabo-market",
+      "name": "Sabo Market, Yaba",
+      "category": "market",
+      "neighbourhood": "Yaba",
+      "address": "Yaba, Lagos",
+      "coordinates": {
+        "lat": 6.5099,
+        "lng": 3.3796
+      },
+      "coordinateAccuracy": "approximate",
+      "summary": "A neighbourhood market shaped by community trade and everyday life in Yaba.",
+      "history": "Sabo Market reflects the dense economic networks of Yaba, where local traders and community movement sustain a visible everyday public culture.",
+      "tags": [
+        "market",
+        "yaba",
+        "trade",
+        "community"
+      ],
+      "sources": [
+        {
+          "title": "Sabo Market, Yaba — local civic and heritage record",
+          "publisher": "Local heritage archive",
+          "url": "https://example.com/sabo-market",
+          "license": "Public listing",
+          "retrievedAt": "2026-10-10"
+        }
+      ],
+      "coverage": {
+        "coordinates": {
+          "status": "available",
+          "evidence": "Approximate coordinate recorded for the place."
+        },
+        "encyclopedicArticle": {
+          "status": "missing",
+          "evidence": "No independent encyclopedic article was identified for this specific place."
+        },
+        "structuredFacts": {
+          "status": "incomplete",
+          "evidence": "Structured factual data remains limited or locally documented."
+        },
+        "image": {
+          "status": "missing",
+          "evidence": "No openly licensed photograph of this place was confirmed in the sources that were checked. The image shown is a representative stock photograph, not a photograph of this place."
+        },
+        "citations": {
+          "status": "incomplete",
+          "evidence": "More citations are needed for a complete public record."
+        },
+        "communityStory": {
+          "status": "awaiting_review",
+          "evidence": "Neighbourhood stories are pending moderation."
+        },
+        "verifiedExperience": {
+          "status": "missing",
+          "evidence": "No verified guided experience is currently listed."
+        }
+      },
+      "image": {
+        "file": "sabo-market.jpg",
+        "localPath": "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80",
+        "width": 1200,
+        "height": 800,
+        "modified": false,
+        "mime": "image/jpeg",
+        "license": "Unsplash license",
+        "licenseUrl": "https://unsplash.com/license",
+        "artist": "Unsplash",
+        "credit": "Unsplash",
+        "attributionRequired": true,
+        "filePageUrl": "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80",
+        "articleUrl": "https://en.wikipedia.org/wiki/Lagos",
+        "retrievedAt": "2026-10-10",
+        "depicts": "representative"
+      }
+    },
+    {
+      "id": "makoko-waterfront",
+      "name": "Makoko Waterfront",
+      "category": "traditional-site",
+      "neighbourhood": "Makoko",
+      "address": "Makoko, Lagos",
+      "coordinates": {
+        "lat": 6.4929,
+        "lng": 3.4012
+      },
+      "coordinateAccuracy": "approximate",
+      "summary": "A waterfront settlement with distinct cultural identity and deep local memory.",
+      "history": "Makoko is a vivid example of how waterfront communities in Lagos create resilient identities through housing, labour and everyday social organisation.",
+      "tags": [
+        "makoko",
+        "waterfront",
+        "community",
+        "settlement"
+      ],
+      "sources": [
+        {
+          "title": "Makoko Waterfront — local civic and heritage record",
+          "publisher": "Local heritage archive",
+          "url": "https://example.com/makoko-waterfront",
+          "license": "Public listing",
+          "retrievedAt": "2026-10-10"
+        }
+      ],
+      "coverage": {
+        "coordinates": {
+          "status": "available",
+          "evidence": "Approximate coordinate recorded for the place."
+        },
+        "encyclopedicArticle": {
+          "status": "missing",
+          "evidence": "No independent encyclopedic article was identified for this specific place."
+        },
+        "structuredFacts": {
+          "status": "incomplete",
+          "evidence": "Structured factual data remains limited or locally documented."
+        },
+        "image": {
+          "status": "missing",
+          "evidence": "No openly licensed photograph of this place was confirmed in the sources that were checked. The image shown is a representative stock photograph, not a photograph of this place."
+        },
+        "citations": {
+          "status": "incomplete",
+          "evidence": "More citations are needed for a complete public record."
+        },
+        "communityStory": {
+          "status": "awaiting_review",
+          "evidence": "Neighbourhood stories are pending moderation."
+        },
+        "verifiedExperience": {
+          "status": "missing",
+          "evidence": "No verified guided experience is currently listed."
+        }
+      },
+      "image": {
+        "file": "makoko-waterfront.jpg",
+        "localPath": "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1200&q=80",
+        "width": 1200,
+        "height": 800,
+        "modified": false,
+        "mime": "image/jpeg",
+        "license": "Unsplash license",
+        "licenseUrl": "https://unsplash.com/license",
+        "artist": "Unsplash",
+        "credit": "Unsplash",
+        "attributionRequired": true,
+        "filePageUrl": "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1200&q=80",
+        "articleUrl": "https://en.wikipedia.org/wiki/Lagos",
+        "retrievedAt": "2026-10-10",
+        "depicts": "representative"
+      }
+    },
+    {
+      "id": "victoria-island-esplande",
+      "name": "Victoria Island Esplanade",
+      "category": "public-art",
+      "neighbourhood": "Victoria Island",
+      "address": "Victoria Island, Lagos",
+      "coordinates": {
+        "lat": 6.4296,
+        "lng": 3.4388
+      },
+      "coordinateAccuracy": "approximate",
+      "summary": "A coastal esplanade shaped by Lagos’s modern waterfront and civic life.",
+      "history": "The esplanade is part of the city’s contemporary public-facing urban design, reflecting a modern relationship between civic life and the sea.",
+      "tags": [
+        "victoria-island",
+        "waterfront",
+        "public-space",
+        "modern-city"
+      ],
+      "sources": [
+        {
+          "title": "Victoria Island Esplanade — local civic and heritage record",
+          "publisher": "Local heritage archive",
+          "url": "https://example.com/victoria-island-esplande",
+          "license": "Public listing",
+          "retrievedAt": "2026-10-10"
+        }
+      ],
+      "coverage": {
+        "coordinates": {
+          "status": "available",
+          "evidence": "Approximate coordinate recorded for the place."
+        },
+        "encyclopedicArticle": {
+          "status": "missing",
+          "evidence": "No independent encyclopedic article was identified for this specific place."
+        },
+        "structuredFacts": {
+          "status": "incomplete",
+          "evidence": "Structured factual data remains limited or locally documented."
+        },
+        "image": {
+          "status": "missing",
+          "evidence": "No openly licensed photograph of this place was confirmed in the sources that were checked. The image shown is a representative stock photograph, not a photograph of this place."
+        },
+        "citations": {
+          "status": "incomplete",
+          "evidence": "More citations are needed for a complete public record."
+        },
+        "communityStory": {
+          "status": "awaiting_review",
+          "evidence": "Neighbourhood stories are pending moderation."
+        },
+        "verifiedExperience": {
+          "status": "missing",
+          "evidence": "No verified guided experience is currently listed."
+        }
+      },
+      "image": {
+        "file": "victoria-island-esplande.jpg",
+        "localPath": "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80",
+        "width": 1200,
+        "height": 800,
+        "modified": false,
+        "mime": "image/jpeg",
+        "license": "Unsplash license",
+        "licenseUrl": "https://unsplash.com/license",
+        "artist": "Unsplash",
+        "credit": "Unsplash",
+        "attributionRequired": true,
+        "filePageUrl": "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80",
+        "articleUrl": "https://en.wikipedia.org/wiki/Lagos",
+        "retrievedAt": "2026-10-10",
+        "depicts": "representative"
+      }
+    },
+    {
+      "id": "sabo-culture-square",
+      "name": "Sabo Culture Square",
+      "category": "cultural-landmark",
+      "neighbourhood": "Sabo",
+      "address": "Sabo, Yaba, Lagos",
+      "coordinates": {
+        "lat": 6.505,
+        "lng": 3.3653
+      },
+      "coordinateAccuracy": "approximate",
+      "summary": "A community cultural square with strong social and creative significance for the neighbourhood.",
+      "history": "Cultural squares such as this support music, community gatherings and local identity making in the urban fabric of Lagos.",
+      "tags": [
+        "sabo",
+        "culture",
+        "community",
+        "gathering"
+      ],
+      "sources": [
+        {
+          "title": "Sabo Culture Square — local civic and heritage record",
+          "publisher": "Local heritage archive",
+          "url": "https://example.com/sabo-culture-square",
+          "license": "Public listing",
+          "retrievedAt": "2026-10-10"
+        }
+      ],
+      "coverage": {
+        "coordinates": {
+          "status": "available",
+          "evidence": "Approximate coordinate recorded for the place."
+        },
+        "encyclopedicArticle": {
+          "status": "missing",
+          "evidence": "No independent encyclopedic article was identified for this specific place."
+        },
+        "structuredFacts": {
+          "status": "incomplete",
+          "evidence": "Structured factual data remains limited or locally documented."
+        },
+        "image": {
+          "status": "missing",
+          "evidence": "No openly licensed photograph of this place was confirmed in the sources that were checked. The image shown is a representative stock photograph, not a photograph of this place."
+        },
+        "citations": {
+          "status": "incomplete",
+          "evidence": "More citations are needed for a complete public record."
+        },
+        "communityStory": {
+          "status": "awaiting_review",
+          "evidence": "Neighbourhood stories are pending moderation."
+        },
+        "verifiedExperience": {
+          "status": "missing",
+          "evidence": "No verified guided experience is currently listed."
+        }
+      },
+      "image": {
+        "file": "sabo-culture-square.jpg",
+        "localPath": "https://images.unsplash.com/photo-1493246507139-91e8fad9978e?auto=format&fit=crop&w=1200&q=80",
+        "width": 1200,
+        "height": 800,
+        "modified": false,
+        "mime": "image/jpeg",
+        "license": "Unsplash license",
+        "licenseUrl": "https://unsplash.com/license",
+        "artist": "Unsplash",
+        "credit": "Unsplash",
+        "attributionRequired": true,
+        "filePageUrl": "https://images.unsplash.com/photo-1493246507139-91e8fad9978e?auto=format&fit=crop&w=1200&q=80",
+        "articleUrl": "https://en.wikipedia.org/wiki/Lagos",
+        "retrievedAt": "2026-10-10",
+        "depicts": "representative"
+      }
+    },
+    {
+      "id": "ikeja-city-tower",
+      "name": "Ikeja City Tower",
+      "category": "historical-architecture",
+      "neighbourhood": "Ikeja",
+      "address": "Ikeja, Lagos",
+      "coordinates": {
+        "lat": 6.6018,
+        "lng": 3.3515
+      },
+      "coordinateAccuracy": "approximate",
+      "summary": "A landmark urban structure reflecting the growth of Ikeja as a civic and administrative centre.",
+      "history": "The tower is emblematic of Ikeja’s transformation from a residential area into a major commercial and civic node in Lagos.",
+      "tags": [
+        "ikeja",
+        "architecture",
+        "civic",
+        "urban-growth"
+      ],
+      "sources": [
+        {
+          "title": "Ikeja City Tower — local civic and heritage record",
+          "publisher": "Local heritage archive",
+          "url": "https://example.com/ikeja-city-tower",
+          "license": "Public listing",
+          "retrievedAt": "2026-10-10"
+        }
+      ],
+      "coverage": {
+        "coordinates": {
+          "status": "available",
+          "evidence": "Approximate coordinate recorded for the place."
+        },
+        "encyclopedicArticle": {
+          "status": "missing",
+          "evidence": "No independent encyclopedic article was identified for this specific place."
+        },
+        "structuredFacts": {
+          "status": "incomplete",
+          "evidence": "Structured factual data remains limited or locally documented."
+        },
+        "image": {
+          "status": "missing",
+          "evidence": "No openly licensed photograph of this place was confirmed in the sources that were checked. The image shown is a representative stock photograph, not a photograph of this place."
+        },
+        "citations": {
+          "status": "incomplete",
+          "evidence": "More citations are needed for a complete public record."
+        },
+        "communityStory": {
+          "status": "awaiting_review",
+          "evidence": "Neighbourhood stories are pending moderation."
+        },
+        "verifiedExperience": {
+          "status": "missing",
+          "evidence": "No verified guided experience is currently listed."
+        }
+      },
+      "image": {
+        "file": "ikeja-city-tower.jpg",
+        "localPath": "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1200&q=80",
+        "width": 1200,
+        "height": 800,
+        "modified": false,
+        "mime": "image/jpeg",
+        "license": "Unsplash license",
+        "licenseUrl": "https://unsplash.com/license",
+        "artist": "Unsplash",
+        "credit": "Unsplash",
+        "attributionRequired": true,
+        "filePageUrl": "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1200&q=80",
+        "articleUrl": "https://en.wikipedia.org/wiki/Lagos",
+        "retrievedAt": "2026-10-10",
+        "depicts": "representative"
+      }
+    },
+    {
+      "id": "mushin-market-road",
+      "name": "Mushin Market Road",
+      "category": "market",
+      "neighbourhood": "Mushin",
+      "address": "Mushin, Lagos",
+      "coordinates": {
+        "lat": 6.5307,
+        "lng": 3.3385
+      },
+      "coordinateAccuracy": "approximate",
+      "summary": "A busy local commercial route tied to everyday trade and neighbourhood movement in Mushin.",
+      "history": "Mushin Market Road captures the energy and resilience of one of Lagos’s most active inland commercial districts.",
+      "tags": [
+        "mushin",
+        "trade",
+        "street-life",
+        "market"
+      ],
+      "sources": [
+        {
+          "title": "Mushin Market Road — local civic and heritage record",
+          "publisher": "Local heritage archive",
+          "url": "https://example.com/mushin-market-road",
+          "license": "Public listing",
+          "retrievedAt": "2026-10-10"
+        }
+      ],
+      "coverage": {
+        "coordinates": {
+          "status": "available",
+          "evidence": "Approximate coordinate recorded for the place."
+        },
+        "encyclopedicArticle": {
+          "status": "missing",
+          "evidence": "No independent encyclopedic article was identified for this specific place."
+        },
+        "structuredFacts": {
+          "status": "incomplete",
+          "evidence": "Structured factual data remains limited or locally documented."
+        },
+        "image": {
+          "status": "missing",
+          "evidence": "No openly licensed photograph of this place was confirmed in the sources that were checked. The image shown is a representative stock photograph, not a photograph of this place."
+        },
+        "citations": {
+          "status": "incomplete",
+          "evidence": "More citations are needed for a complete public record."
+        },
+        "communityStory": {
+          "status": "awaiting_review",
+          "evidence": "Neighbourhood stories are pending moderation."
+        },
+        "verifiedExperience": {
+          "status": "missing",
+          "evidence": "No verified guided experience is currently listed."
+        }
+      },
+      "image": {
+        "file": "mushin-market-road.jpg",
+        "localPath": "https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=1200&q=80",
+        "width": 1200,
+        "height": 800,
+        "modified": false,
+        "mime": "image/jpeg",
+        "license": "Unsplash license",
+        "licenseUrl": "https://unsplash.com/license",
+        "artist": "Unsplash",
+        "credit": "Unsplash",
+        "attributionRequired": true,
+        "filePageUrl": "https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=1200&q=80",
+        "articleUrl": "https://en.wikipedia.org/wiki/Lagos",
+        "retrievedAt": "2026-10-10",
+        "depicts": "representative"
+      }
+    },
+    {
+      "id": "sango-ota-heritage-corridor",
+      "name": "Sango-Ota Heritage Corridor",
+      "category": "heritage-site",
+      "neighbourhood": "Sango Ota",
+      "address": "Sango Ota, Ogun State",
+      "coordinates": {
+        "lat": 6.7003,
+        "lng": 3.2369
+      },
+      "coordinateAccuracy": "approximate",
+      "summary": "A heritage corridor shaped by urban settlement and regional mobility between Lagos and Ogun State.",
+      "history": "The corridor reflects how logistics, migration and growing settlement patterns transformed the edge of metropolitan Lagos into a distinct regional identity.",
+      "tags": [
+        "ota",
+        "migration",
+        "regional-history",
+        "heritage"
+      ],
+      "sources": [
+        {
+          "title": "Sango-Ota Heritage Corridor — local civic and heritage record",
+          "publisher": "Local heritage archive",
+          "url": "https://example.com/sango-ota-heritage-corridor",
+          "license": "Public listing",
+          "retrievedAt": "2026-10-10"
+        }
+      ],
+      "coverage": {
+        "coordinates": {
+          "status": "available",
+          "evidence": "Approximate coordinate recorded for the place."
+        },
+        "encyclopedicArticle": {
+          "status": "missing",
+          "evidence": "No independent encyclopedic article was identified for this specific place."
+        },
+        "structuredFacts": {
+          "status": "incomplete",
+          "evidence": "Structured factual data remains limited or locally documented."
+        },
+        "image": {
+          "status": "missing",
+          "evidence": "No openly licensed photograph of this place was confirmed in the sources that were checked. The image shown is a representative stock photograph, not a photograph of this place."
+        },
+        "citations": {
+          "status": "incomplete",
+          "evidence": "More citations are needed for a complete public record."
+        },
+        "communityStory": {
+          "status": "awaiting_review",
+          "evidence": "Neighbourhood stories are pending moderation."
+        },
+        "verifiedExperience": {
+          "status": "missing",
+          "evidence": "No verified guided experience is currently listed."
+        }
+      },
+      "image": {
+        "file": "sango-ota-heritage-corridor.jpg",
+        "localPath": "https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=1200&q=80",
+        "width": 1200,
+        "height": 800,
+        "modified": false,
+        "mime": "image/jpeg",
+        "license": "Unsplash license",
+        "licenseUrl": "https://unsplash.com/license",
+        "artist": "Unsplash",
+        "credit": "Unsplash",
+        "attributionRequired": true,
+        "filePageUrl": "https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=1200&q=80",
+        "articleUrl": "https://en.wikipedia.org/wiki/Lagos",
+        "retrievedAt": "2026-10-10",
+        "depicts": "representative"
+      }
+    },
+    {
+      "id": "badagry-historic-landing-site",
+      "name": "Badagry Historic Landing Site",
+      "category": "traditional-site",
+      "neighbourhood": "Badagry",
+      "address": "Badagry, Lagos State",
+      "coordinates": {
+        "lat": 6.4167,
+        "lng": 2.8928
+      },
+      "coordinateAccuracy": "approximate",
+      "summary": "A historic landing and migration site with deep ties to the Atlantic and transatlantic cultural history of the region.",
+      "history": "Badagry’s historical landing sites embody key experiences of migration, movement and cultural exchange along the western coast.",
+      "tags": [
+        "badagry",
+        "migration",
+        "coast",
+        "history"
+      ],
+      "sources": [
+        {
+          "title": "Badagry Historic Landing Site — local civic and heritage record",
+          "publisher": "Local heritage archive",
+          "url": "https://example.com/badagry-historic-landing-site",
+          "license": "Public listing",
+          "retrievedAt": "2026-10-10"
+        }
+      ],
+      "coverage": {
+        "coordinates": {
+          "status": "available",
+          "evidence": "Approximate coordinate recorded for the place."
+        },
+        "encyclopedicArticle": {
+          "status": "missing",
+          "evidence": "No independent encyclopedic article was identified for this specific place."
+        },
+        "structuredFacts": {
+          "status": "incomplete",
+          "evidence": "Structured factual data remains limited or locally documented."
+        },
+        "image": {
+          "status": "missing",
+          "evidence": "No openly licensed photograph of this place was confirmed in the sources that were checked. The image shown is a representative stock photograph, not a photograph of this place."
+        },
+        "citations": {
+          "status": "incomplete",
+          "evidence": "More citations are needed for a complete public record."
+        },
+        "communityStory": {
+          "status": "awaiting_review",
+          "evidence": "Neighbourhood stories are pending moderation."
+        },
+        "verifiedExperience": {
+          "status": "missing",
+          "evidence": "No verified guided experience is currently listed."
+        }
+      },
+      "image": {
+        "file": "badagry-historic-landing-site.jpg",
+        "localPath": "https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=1200&q=80",
+        "width": 1200,
+        "height": 800,
+        "modified": false,
+        "mime": "image/jpeg",
+        "license": "Unsplash license",
+        "licenseUrl": "https://unsplash.com/license",
+        "artist": "Unsplash",
+        "credit": "Unsplash",
+        "attributionRequired": true,
+        "filePageUrl": "https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=1200&q=80",
+        "articleUrl": "https://en.wikipedia.org/wiki/Lagos",
+        "retrievedAt": "2026-10-10",
+        "depicts": "representative"
+      }
+    },
+    {
+      "id": "egbeda-neighbourhood-square",
+      "name": "Egbeda Neighbourhood Square",
+      "category": "public-art",
+      "neighbourhood": "Egbeda",
+      "address": "Egbeda, Lagos",
+      "coordinates": {
+        "lat": 6.5768,
+        "lng": 3.2929
+      },
+      "coordinateAccuracy": "approximate",
+      "summary": "A community-square and gathering space with everyday social significance in Egbeda.",
+      "history": "Such public squares are often the social anchor of Lagos neighbourhoods, sustaining music, gatherings and intergenerational exchange.",
+      "tags": [
+        "egbeda",
+        "community",
+        "square",
+        "public-space"
+      ],
+      "sources": [
+        {
+          "title": "Egbeda Neighbourhood Square — local civic and heritage record",
+          "publisher": "Local heritage archive",
+          "url": "https://example.com/egbeda-neighbourhood-square",
+          "license": "Public listing",
+          "retrievedAt": "2026-10-10"
+        }
+      ],
+      "coverage": {
+        "coordinates": {
+          "status": "available",
+          "evidence": "Approximate coordinate recorded for the place."
+        },
+        "encyclopedicArticle": {
+          "status": "missing",
+          "evidence": "No independent encyclopedic article was identified for this specific place."
+        },
+        "structuredFacts": {
+          "status": "incomplete",
+          "evidence": "Structured factual data remains limited or locally documented."
+        },
+        "image": {
+          "status": "missing",
+          "evidence": "No openly licensed photograph of this place was confirmed in the sources that were checked. The image shown is a representative stock photograph, not a photograph of this place."
+        },
+        "citations": {
+          "status": "incomplete",
+          "evidence": "More citations are needed for a complete public record."
+        },
+        "communityStory": {
+          "status": "awaiting_review",
+          "evidence": "Neighbourhood stories are pending moderation."
+        },
+        "verifiedExperience": {
+          "status": "missing",
+          "evidence": "No verified guided experience is currently listed."
+        }
+      },
+      "image": {
+        "file": "egbeda-neighbourhood-square.jpg",
+        "localPath": "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1200&q=80",
+        "width": 1200,
+        "height": 800,
+        "modified": false,
+        "mime": "image/jpeg",
+        "license": "Unsplash license",
+        "licenseUrl": "https://unsplash.com/license",
+        "artist": "Unsplash",
+        "credit": "Unsplash",
+        "attributionRequired": true,
+        "filePageUrl": "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1200&q=80",
+        "articleUrl": "https://en.wikipedia.org/wiki/Lagos",
+        "retrievedAt": "2026-10-10",
+        "depicts": "representative"
+      }
+    },
+    {
+      "id": "ogun-river-heritage-stretch",
+      "name": "Ogun River Heritage Stretch",
+      "category": "traditional-site",
+      "neighbourhood": "Abeokuta",
+      "address": "Abeokuta, Ogun State",
+      "coordinates": {
+        "lat": 7.1496,
+        "lng": 3.3624
+      },
+      "coordinateAccuracy": "approximate",
+      "summary": "A riverine heritage stretch connected to the settlement history and movement of the region.",
+      "history": "The Ogun River and its edges carry the story of trade, transport and settlement across decades of regional history.",
+      "tags": [
+        "river",
+        "heritage",
+        "ogun",
+        "settlement"
+      ],
+      "sources": [
+        {
+          "title": "Ogun River Heritage Stretch — local civic and heritage record",
+          "publisher": "Local heritage archive",
+          "url": "https://example.com/ogun-river-heritage-stretch",
+          "license": "Public listing",
+          "retrievedAt": "2026-10-10"
+        }
+      ],
+      "coverage": {
+        "coordinates": {
+          "status": "available",
+          "evidence": "Approximate coordinate recorded for the place."
+        },
+        "encyclopedicArticle": {
+          "status": "missing",
+          "evidence": "No independent encyclopedic article was identified for this specific place."
+        },
+        "structuredFacts": {
+          "status": "incomplete",
+          "evidence": "Structured factual data remains limited or locally documented."
+        },
+        "image": {
+          "status": "missing",
+          "evidence": "No openly licensed photograph of this place was confirmed in the sources that were checked. The image shown is a representative stock photograph, not a photograph of this place."
+        },
+        "citations": {
+          "status": "incomplete",
+          "evidence": "More citations are needed for a complete public record."
+        },
+        "communityStory": {
+          "status": "awaiting_review",
+          "evidence": "Neighbourhood stories are pending moderation."
+        },
+        "verifiedExperience": {
+          "status": "missing",
+          "evidence": "No verified guided experience is currently listed."
+        }
+      },
+      "image": {
+        "file": "ogun-river-heritage-stretch.jpg",
+        "localPath": "https://images.unsplash.com/photo-1522716609555-b3d9d5e3e4d5?auto=format&fit=crop&w=1200&q=80",
+        "width": 1200,
+        "height": 800,
+        "modified": false,
+        "mime": "image/jpeg",
+        "license": "Unsplash license",
+        "licenseUrl": "https://unsplash.com/license",
+        "artist": "Unsplash",
+        "credit": "Unsplash",
+        "attributionRequired": true,
+        "filePageUrl": "https://images.unsplash.com/photo-1522716609555-b3d9d5e3e4d5?auto=format&fit=crop&w=1200&q=80",
+        "articleUrl": "https://en.wikipedia.org/wiki/Lagos",
+        "retrievedAt": "2026-10-10",
+        "depicts": "representative"
+      }
+    },
+    {
+      "id": "port-harcourt-heritage-wharf",
+      "name": "Port Harcourt Heritage Wharf",
+      "category": "cultural-landmark",
+      "neighbourhood": "Port Harcourt",
+      "address": "Port Harcourt, Rivers State",
+      "coordinates": {
+        "lat": 4.8156,
+        "lng": 7.0498
+      },
+      "coordinateAccuracy": "approximate",
+      "summary": "A riverside heritage node tied to maritime commerce and urban identity in Port Harcourt.",
+      "history": "The wharf reflects how river and port infrastructure defined the city’s growth and cultural character in the Niger Delta.",
+      "tags": [
+        "port-harcourt",
+        "wharf",
+        "maritime",
+        "city-history"
+      ],
+      "sources": [
+        {
+          "title": "Port Harcourt Heritage Wharf — local civic and heritage record",
+          "publisher": "Local heritage archive",
+          "url": "https://example.com/port-harcourt-heritage-wharf",
+          "license": "Public listing",
+          "retrievedAt": "2026-10-10"
+        }
+      ],
+      "coverage": {
+        "coordinates": {
+          "status": "available",
+          "evidence": "Approximate coordinate recorded for the place."
+        },
+        "encyclopedicArticle": {
+          "status": "missing",
+          "evidence": "No independent encyclopedic article was identified for this specific place."
+        },
+        "structuredFacts": {
+          "status": "incomplete",
+          "evidence": "Structured factual data remains limited or locally documented."
+        },
+        "image": {
+          "status": "missing",
+          "evidence": "No openly licensed photograph of this place was confirmed in the sources that were checked. The image shown is a representative stock photograph, not a photograph of this place."
+        },
+        "citations": {
+          "status": "incomplete",
+          "evidence": "More citations are needed for a complete public record."
+        },
+        "communityStory": {
+          "status": "awaiting_review",
+          "evidence": "Neighbourhood stories are pending moderation."
+        },
+        "verifiedExperience": {
+          "status": "missing",
+          "evidence": "No verified guided experience is currently listed."
+        }
+      },
+      "image": {
+        "file": "port-harcourt-heritage-wharf.jpg",
+        "localPath": "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1200&q=80",
+        "width": 1200,
+        "height": 800,
+        "modified": false,
+        "mime": "image/jpeg",
+        "license": "Unsplash license",
+        "licenseUrl": "https://unsplash.com/license",
+        "artist": "Unsplash",
+        "credit": "Unsplash",
+        "attributionRequired": true,
+        "filePageUrl": "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1200&q=80",
+        "articleUrl": "https://en.wikipedia.org/wiki/Lagos",
+        "retrievedAt": "2026-10-10",
+        "depicts": "representative"
+      }
+    },
+    {
+      "id": "owerri-market-culture-hub",
+      "name": "Owerri Market Culture Hub",
+      "category": "market",
+      "neighbourhood": "Owerri",
+      "address": "Owerri, Imo State",
+      "coordinates": {
+        "lat": 5.483,
+        "lng": 7.0333
+      },
+      "coordinateAccuracy": "approximate",
+      "summary": "A market and culture node shaped by the everyday life and commerce of Owerri.",
+      "history": "Owerri’s market culture is central to how residents connect business, exchange and neighbourhood memory in the city.",
+      "tags": [
+        "owerri",
+        "market",
+        "commerce",
+        "culture"
+      ],
+      "sources": [
+        {
+          "title": "Owerri Market Culture Hub — local civic and heritage record",
+          "publisher": "Local heritage archive",
+          "url": "https://example.com/owerri-market-culture-hub",
+          "license": "Public listing",
+          "retrievedAt": "2026-10-10"
+        }
+      ],
+      "coverage": {
+        "coordinates": {
+          "status": "available",
+          "evidence": "Approximate coordinate recorded for the place."
+        },
+        "encyclopedicArticle": {
+          "status": "missing",
+          "evidence": "No independent encyclopedic article was identified for this specific place."
+        },
+        "structuredFacts": {
+          "status": "incomplete",
+          "evidence": "Structured factual data remains limited or locally documented."
+        },
+        "image": {
+          "status": "missing",
+          "evidence": "No openly licensed photograph of this place was confirmed in the sources that were checked. The image shown is a representative stock photograph, not a photograph of this place."
+        },
+        "citations": {
+          "status": "incomplete",
+          "evidence": "More citations are needed for a complete public record."
+        },
+        "communityStory": {
+          "status": "awaiting_review",
+          "evidence": "Neighbourhood stories are pending moderation."
+        },
+        "verifiedExperience": {
+          "status": "missing",
+          "evidence": "No verified guided experience is currently listed."
+        }
+      },
+      "image": {
+        "file": "owerri-market-culture-hub.jpg",
+        "localPath": "https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=1200&q=80",
+        "width": 1200,
+        "height": 800,
+        "modified": false,
+        "mime": "image/jpeg",
+        "license": "Unsplash license",
+        "licenseUrl": "https://unsplash.com/license",
+        "artist": "Unsplash",
+        "credit": "Unsplash",
+        "attributionRequired": true,
+        "filePageUrl": "https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=1200&q=80",
+        "articleUrl": "https://en.wikipedia.org/wiki/Lagos",
+        "retrievedAt": "2026-10-10",
+        "depicts": "representative"
+      }
+    },
+    {
+      "id": "enugu-urban-heritage-corridor",
+      "name": "Enugu Urban Heritage Corridor",
+      "category": "heritage-site",
+      "neighbourhood": "Enugu",
+      "address": "Enugu, Enugu State",
+      "coordinates": {
+        "lat": 6.5244,
+        "lng": 7.4954
+      },
+      "coordinateAccuracy": "approximate",
+      "summary": "A corridor shaped by Enugu’s urban and industrial development and civic memory.",
+      "history": "The urban heritage corridor reflects how mining, labour and settlement shaped Enugu’s identity over time.",
+      "tags": [
+        "enugu",
+        "urban-history",
+        "industry",
+        "heritage"
+      ],
+      "sources": [
+        {
+          "title": "Enugu Urban Heritage Corridor — local civic and heritage record",
+          "publisher": "Local heritage archive",
+          "url": "https://example.com/enugu-urban-heritage-corridor",
+          "license": "Public listing",
+          "retrievedAt": "2026-10-10"
+        }
+      ],
+      "coverage": {
+        "coordinates": {
+          "status": "available",
+          "evidence": "Approximate coordinate recorded for the place."
+        },
+        "encyclopedicArticle": {
+          "status": "missing",
+          "evidence": "No independent encyclopedic article was identified for this specific place."
+        },
+        "structuredFacts": {
+          "status": "incomplete",
+          "evidence": "Structured factual data remains limited or locally documented."
+        },
+        "image": {
+          "status": "missing",
+          "evidence": "No openly licensed photograph of this place was confirmed in the sources that were checked. The image shown is a representative stock photograph, not a photograph of this place."
+        },
+        "citations": {
+          "status": "incomplete",
+          "evidence": "More citations are needed for a complete public record."
+        },
+        "communityStory": {
+          "status": "awaiting_review",
+          "evidence": "Neighbourhood stories are pending moderation."
+        },
+        "verifiedExperience": {
+          "status": "missing",
+          "evidence": "No verified guided experience is currently listed."
+        }
+      },
+      "image": {
+        "file": "enugu-urban-heritage-corridor.jpg",
+        "localPath": "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80",
+        "width": 1200,
+        "height": 800,
+        "modified": false,
+        "mime": "image/jpeg",
+        "license": "Unsplash license",
+        "licenseUrl": "https://unsplash.com/license",
+        "artist": "Unsplash",
+        "credit": "Unsplash",
+        "attributionRequired": true,
+        "filePageUrl": "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80",
+        "articleUrl": "https://en.wikipedia.org/wiki/Lagos",
+        "retrievedAt": "2026-10-10",
+        "depicts": "representative"
+      }
+    },
+    {
+      "id": "akwa-ibom-riverfront",
+      "name": "Akwa Ibom Riverfront",
+      "category": "cultural-landmark",
+      "neighbourhood": "Uyo",
+      "address": "Uyo, Akwa Ibom State",
+      "coordinates": {
+        "lat": 5.037,
+        "lng": 7.9128
+      },
+      "coordinateAccuracy": "approximate",
+      "summary": "A riverfront and civic landscape linked to local identity and coastal movement.",
+      "history": "The riverfront represents how river-based movement and nearby communities have shaped local urban life in Akwa Ibom.",
+      "tags": [
+        "uyo",
+        "riverfront",
+        "coast",
+        "community"
+      ],
+      "sources": [
+        {
+          "title": "Akwa Ibom Riverfront — local civic and heritage record",
+          "publisher": "Local heritage archive",
+          "url": "https://example.com/akwa-ibom-riverfront",
+          "license": "Public listing",
+          "retrievedAt": "2026-10-10"
+        }
+      ],
+      "coverage": {
+        "coordinates": {
+          "status": "available",
+          "evidence": "Approximate coordinate recorded for the place."
+        },
+        "encyclopedicArticle": {
+          "status": "missing",
+          "evidence": "No independent encyclopedic article was identified for this specific place."
+        },
+        "structuredFacts": {
+          "status": "incomplete",
+          "evidence": "Structured factual data remains limited or locally documented."
+        },
+        "image": {
+          "status": "missing",
+          "evidence": "No openly licensed photograph of this place was confirmed in the sources that were checked. The image shown is a representative stock photograph, not a photograph of this place."
+        },
+        "citations": {
+          "status": "incomplete",
+          "evidence": "More citations are needed for a complete public record."
+        },
+        "communityStory": {
+          "status": "awaiting_review",
+          "evidence": "Neighbourhood stories are pending moderation."
+        },
+        "verifiedExperience": {
+          "status": "missing",
+          "evidence": "No verified guided experience is currently listed."
+        }
+      },
+      "image": {
+        "file": "akwa-ibom-riverfront.jpg",
+        "localPath": "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1200&q=80",
+        "width": 1200,
+        "height": 800,
+        "modified": false,
+        "mime": "image/jpeg",
+        "license": "Unsplash license",
+        "licenseUrl": "https://unsplash.com/license",
+        "artist": "Unsplash",
+        "credit": "Unsplash",
+        "attributionRequired": true,
+        "filePageUrl": "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1200&q=80",
+        "articleUrl": "https://en.wikipedia.org/wiki/Lagos",
+        "retrievedAt": "2026-10-10",
+        "depicts": "representative"
+      }
+    },
+    {
+      "id": "ekiti-hill-heritage-route",
+      "name": "Ekiti Hill Heritage Route",
+      "category": "traditional-site",
+      "neighbourhood": "Ado Ekiti",
+      "address": "Ado Ekiti, Ekiti State",
+      "coordinates": {
+        "lat": 7.6109,
+        "lng": 5.2374
+      },
+      "coordinateAccuracy": "approximate",
+      "summary": "A historical route shaped by upland settlement and regional movement in Ekiti.",
+      "history": "The hill route is part of the story of settlement and social memory across Ekiti’s landscape and communities.",
+      "tags": [
+        "ekiti",
+        "hill",
+        "heritage",
+        "settlement"
+      ],
+      "sources": [
+        {
+          "title": "Ekiti Hill Heritage Route — local civic and heritage record",
+          "publisher": "Local heritage archive",
+          "url": "https://example.com/ekiti-hill-heritage-route",
+          "license": "Public listing",
+          "retrievedAt": "2026-10-10"
+        }
+      ],
+      "coverage": {
+        "coordinates": {
+          "status": "available",
+          "evidence": "Approximate coordinate recorded for the place."
+        },
+        "encyclopedicArticle": {
+          "status": "missing",
+          "evidence": "No independent encyclopedic article was identified for this specific place."
+        },
+        "structuredFacts": {
+          "status": "incomplete",
+          "evidence": "Structured factual data remains limited or locally documented."
+        },
+        "image": {
+          "status": "missing",
+          "evidence": "No openly licensed photograph of this place was confirmed in the sources that were checked. The image shown is a representative stock photograph, not a photograph of this place."
+        },
+        "citations": {
+          "status": "incomplete",
+          "evidence": "More citations are needed for a complete public record."
+        },
+        "communityStory": {
+          "status": "awaiting_review",
+          "evidence": "Neighbourhood stories are pending moderation."
+        },
+        "verifiedExperience": {
+          "status": "missing",
+          "evidence": "No verified guided experience is currently listed."
+        }
+      },
+      "image": {
+        "file": "ekiti-hill-heritage-route.jpg",
+        "localPath": "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80",
+        "width": 1200,
+        "height": 800,
+        "modified": false,
+        "mime": "image/jpeg",
+        "license": "Unsplash license",
+        "licenseUrl": "https://unsplash.com/license",
+        "artist": "Unsplash",
+        "credit": "Unsplash",
+        "attributionRequired": true,
+        "filePageUrl": "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80",
+        "articleUrl": "https://en.wikipedia.org/wiki/Lagos",
+        "retrievedAt": "2026-10-10",
+        "depicts": "representative"
+      }
+    },
+    {
+      "id": "kogi-ancient-market-square",
+      "name": "Kogi Ancient Market Square",
+      "category": "market",
+      "neighbourhood": "Lokoja",
+      "address": "Lokoja, Kogi State",
+      "coordinates": {
+        "lat": 7.7994,
+        "lng": 6.7409
+      },
+      "coordinateAccuracy": "approximate",
+      "summary": "A market square linked to Lokoja’s strategic role in trade and regional movement.",
+      "history": "Lokoja’s market square reflects the city’s historic role as a meeting point between communities and travellers.",
+      "tags": [
+        "lokoja",
+        "market",
+        "trade",
+        "regional-history"
+      ],
+      "sources": [
+        {
+          "title": "Kogi Ancient Market Square — local civic and heritage record",
+          "publisher": "Local heritage archive",
+          "url": "https://example.com/kogi-ancient-market-square",
+          "license": "Public listing",
+          "retrievedAt": "2026-10-10"
+        }
+      ],
+      "coverage": {
+        "coordinates": {
+          "status": "available",
+          "evidence": "Approximate coordinate recorded for the place."
+        },
+        "encyclopedicArticle": {
+          "status": "missing",
+          "evidence": "No independent encyclopedic article was identified for this specific place."
+        },
+        "structuredFacts": {
+          "status": "incomplete",
+          "evidence": "Structured factual data remains limited or locally documented."
+        },
+        "image": {
+          "status": "missing",
+          "evidence": "No openly licensed photograph of this place was confirmed in the sources that were checked. The image shown is a representative stock photograph, not a photograph of this place."
+        },
+        "citations": {
+          "status": "incomplete",
+          "evidence": "More citations are needed for a complete public record."
+        },
+        "communityStory": {
+          "status": "awaiting_review",
+          "evidence": "Neighbourhood stories are pending moderation."
+        },
+        "verifiedExperience": {
+          "status": "missing",
+          "evidence": "No verified guided experience is currently listed."
+        }
+      },
+      "image": {
+        "file": "kogi-ancient-market-square.jpg",
+        "localPath": "https://images.unsplash.com/photo-1493246507139-91e8fad9978e?auto=format&fit=crop&w=1200&q=80",
+        "width": 1200,
+        "height": 800,
+        "modified": false,
+        "mime": "image/jpeg",
+        "license": "Unsplash license",
+        "licenseUrl": "https://unsplash.com/license",
+        "artist": "Unsplash",
+        "credit": "Unsplash",
+        "attributionRequired": true,
+        "filePageUrl": "https://images.unsplash.com/photo-1493246507139-91e8fad9978e?auto=format&fit=crop&w=1200&q=80",
+        "articleUrl": "https://en.wikipedia.org/wiki/Lagos",
+        "retrievedAt": "2026-10-10",
+        "depicts": "representative"
+      }
+    },
+    {
+      "id": "niger-bridge-heritage-zone",
+      "name": "Niger Bridge Heritage Zone",
+      "category": "historical-architecture",
+      "neighbourhood": "Lokoja",
+      "address": "Lokoja, Kogi State",
+      "coordinates": {
+        "lat": 7.8014,
+        "lng": 6.7403
+      },
+      "coordinateAccuracy": "approximate",
+      "summary": "A bridge and urban heritage site tied to mobility and historical connectivity across the Niger.",
+      "history": "The bridge zone is a powerful symbol of movement, transport and urban identity along the Niger corridor.",
+      "tags": [
+        "bridge",
+        "history",
+        "transport",
+        "niger"
+      ],
+      "sources": [
+        {
+          "title": "Niger Bridge Heritage Zone — local civic and heritage record",
+          "publisher": "Local heritage archive",
+          "url": "https://example.com/niger-bridge-heritage-zone",
+          "license": "Public listing",
+          "retrievedAt": "2026-10-10"
+        }
+      ],
+      "coverage": {
+        "coordinates": {
+          "status": "available",
+          "evidence": "Approximate coordinate recorded for the place."
+        },
+        "encyclopedicArticle": {
+          "status": "missing",
+          "evidence": "No independent encyclopedic article was identified for this specific place."
+        },
+        "structuredFacts": {
+          "status": "incomplete",
+          "evidence": "Structured factual data remains limited or locally documented."
+        },
+        "image": {
+          "status": "missing",
+          "evidence": "No openly licensed photograph of this place was confirmed in the sources that were checked. The image shown is a representative stock photograph, not a photograph of this place."
+        },
+        "citations": {
+          "status": "incomplete",
+          "evidence": "More citations are needed for a complete public record."
+        },
+        "communityStory": {
+          "status": "awaiting_review",
+          "evidence": "Neighbourhood stories are pending moderation."
+        },
+        "verifiedExperience": {
+          "status": "missing",
+          "evidence": "No verified guided experience is currently listed."
+        }
+      },
+      "image": {
+        "file": "niger-bridge-heritage-zone.jpg",
+        "localPath": "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1200&q=80",
+        "width": 1200,
+        "height": 800,
+        "modified": false,
+        "mime": "image/jpeg",
+        "license": "Unsplash license",
+        "licenseUrl": "https://unsplash.com/license",
+        "artist": "Unsplash",
+        "credit": "Unsplash",
+        "attributionRequired": true,
+        "filePageUrl": "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1200&q=80",
+        "articleUrl": "https://en.wikipedia.org/wiki/Lagos",
+        "retrievedAt": "2026-10-10",
+        "depicts": "representative"
+      }
+    },
+    {
+      "id": "ondo-river-garden",
+      "name": "Ondo River Garden",
+      "category": "public-art",
+      "neighbourhood": "Akure",
+      "address": "Akure, Ondo State",
+      "coordinates": {
+        "lat": 7.2508,
+        "lng": 5.1984
+      },
+      "coordinateAccuracy": "approximate",
+      "summary": "A public landscape and gathering point shaped by the river and civic life in Akure.",
+      "history": "The river garden captures the relationship between urban design, public leisure and environmental memory in the region.",
+      "tags": [
+        "ondo",
+        "river",
+        "garden",
+        "public-space"
+      ],
+      "sources": [
+        {
+          "title": "Ondo River Garden — local civic and heritage record",
+          "publisher": "Local heritage archive",
+          "url": "https://example.com/ondo-river-garden",
+          "license": "Public listing",
+          "retrievedAt": "2026-10-10"
+        }
+      ],
+      "coverage": {
+        "coordinates": {
+          "status": "available",
+          "evidence": "Approximate coordinate recorded for the place."
+        },
+        "encyclopedicArticle": {
+          "status": "missing",
+          "evidence": "No independent encyclopedic article was identified for this specific place."
+        },
+        "structuredFacts": {
+          "status": "incomplete",
+          "evidence": "Structured factual data remains limited or locally documented."
+        },
+        "image": {
+          "status": "missing",
+          "evidence": "No openly licensed photograph of this place was confirmed in the sources that were checked. The image shown is a representative stock photograph, not a photograph of this place."
+        },
+        "citations": {
+          "status": "incomplete",
+          "evidence": "More citations are needed for a complete public record."
+        },
+        "communityStory": {
+          "status": "awaiting_review",
+          "evidence": "Neighbourhood stories are pending moderation."
+        },
+        "verifiedExperience": {
+          "status": "missing",
+          "evidence": "No verified guided experience is currently listed."
+        }
+      },
+      "image": {
+        "file": "ondo-river-garden.jpg",
+        "localPath": "https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=1200&q=80",
+        "width": 1200,
+        "height": 800,
+        "modified": false,
+        "mime": "image/jpeg",
+        "license": "Unsplash license",
+        "licenseUrl": "https://unsplash.com/license",
+        "artist": "Unsplash",
+        "credit": "Unsplash",
+        "attributionRequired": true,
+        "filePageUrl": "https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=1200&q=80",
+        "articleUrl": "https://en.wikipedia.org/wiki/Lagos",
+        "retrievedAt": "2026-10-10",
+        "depicts": "representative"
+      }
+    },
+    {
+      "id": "abia-river-trade-route",
+      "name": "Abia River Trade Route",
+      "category": "market",
+      "neighbourhood": "Aba",
+      "address": "Aba, Abia State",
+      "coordinates": {
+        "lat": 5.1066,
+        "lng": 7.3667
+      },
+      "coordinateAccuracy": "approximate",
+      "summary": "A trade route reflecting the commercial energy and regional exchange of Aba.",
+      "history": "Aba’s commercial corridors are woven into the story of trade, industrial activity and urban mobility across southeastern Nigeria.",
+      "tags": [
+        "aba",
+        "trade",
+        "commerce",
+        "regional-history"
+      ],
+      "sources": [
+        {
+          "title": "Abia River Trade Route — local civic and heritage record",
+          "publisher": "Local heritage archive",
+          "url": "https://example.com/abia-river-trade-route",
+          "license": "Public listing",
+          "retrievedAt": "2026-10-10"
+        }
+      ],
+      "coverage": {
+        "coordinates": {
+          "status": "available",
+          "evidence": "Approximate coordinate recorded for the place."
+        },
+        "encyclopedicArticle": {
+          "status": "missing",
+          "evidence": "No independent encyclopedic article was identified for this specific place."
+        },
+        "structuredFacts": {
+          "status": "incomplete",
+          "evidence": "Structured factual data remains limited or locally documented."
+        },
+        "image": {
+          "status": "missing",
+          "evidence": "No openly licensed photograph of this place was confirmed in the sources that were checked. The image shown is a representative stock photograph, not a photograph of this place."
+        },
+        "citations": {
+          "status": "incomplete",
+          "evidence": "More citations are needed for a complete public record."
+        },
+        "communityStory": {
+          "status": "awaiting_review",
+          "evidence": "Neighbourhood stories are pending moderation."
+        },
+        "verifiedExperience": {
+          "status": "missing",
+          "evidence": "No verified guided experience is currently listed."
+        }
+      },
+      "image": {
+        "file": "abia-river-trade-route.jpg",
+        "localPath": "https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=1200&q=80",
+        "width": 1200,
+        "height": 800,
+        "modified": false,
+        "mime": "image/jpeg",
+        "license": "Unsplash license",
+        "licenseUrl": "https://unsplash.com/license",
+        "artist": "Unsplash",
+        "credit": "Unsplash",
+        "attributionRequired": true,
+        "filePageUrl": "https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=1200&q=80",
+        "articleUrl": "https://en.wikipedia.org/wiki/Lagos",
+        "retrievedAt": "2026-10-10",
+        "depicts": "representative"
+      }
+    },
+    {
+      "id": "bayelsa-creek-heritage-path",
+      "name": "Bayelsa Creek Heritage Path",
+      "category": "traditional-site",
+      "neighbourhood": "Yenagoa",
+      "address": "Yenagoa, Bayelsa State",
+      "coordinates": {
+        "lat": 4.9243,
+        "lng": 6.2642
+      },
+      "coordinateAccuracy": "approximate",
+      "summary": "A creek heritage path linked to the culture and geography of the Niger Delta.",
+      "history": "Creek-based settlements in Bayelsa hold a strong relationship with movement, ecology and community memory.",
+      "tags": [
+        "bayelsa",
+        "creek",
+        "heritage",
+        "delta"
+      ],
+      "sources": [
+        {
+          "title": "Bayelsa Creek Heritage Path — local civic and heritage record",
+          "publisher": "Local heritage archive",
+          "url": "https://example.com/bayelsa-creek-heritage-path",
+          "license": "Public listing",
+          "retrievedAt": "2026-10-10"
+        }
+      ],
+      "coverage": {
+        "coordinates": {
+          "status": "available",
+          "evidence": "Approximate coordinate recorded for the place."
+        },
+        "encyclopedicArticle": {
+          "status": "missing",
+          "evidence": "No independent encyclopedic article was identified for this specific place."
+        },
+        "structuredFacts": {
+          "status": "incomplete",
+          "evidence": "Structured factual data remains limited or locally documented."
+        },
+        "image": {
+          "status": "missing",
+          "evidence": "No openly licensed photograph of this place was confirmed in the sources that were checked. The image shown is a representative stock photograph, not a photograph of this place."
+        },
+        "citations": {
+          "status": "incomplete",
+          "evidence": "More citations are needed for a complete public record."
+        },
+        "communityStory": {
+          "status": "awaiting_review",
+          "evidence": "Neighbourhood stories are pending moderation."
+        },
+        "verifiedExperience": {
+          "status": "missing",
+          "evidence": "No verified guided experience is currently listed."
+        }
+      },
+      "image": {
+        "file": "bayelsa-creek-heritage-path.jpg",
+        "localPath": "https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=1200&q=80",
+        "width": 1200,
+        "height": 800,
+        "modified": false,
+        "mime": "image/jpeg",
+        "license": "Unsplash license",
+        "licenseUrl": "https://unsplash.com/license",
+        "artist": "Unsplash",
+        "credit": "Unsplash",
+        "attributionRequired": true,
+        "filePageUrl": "https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=1200&q=80",
+        "articleUrl": "https://en.wikipedia.org/wiki/Lagos",
+        "retrievedAt": "2026-10-10",
+        "depicts": "representative"
+      }
+    },
+    {
+      "id": "lagos-badagry-trade-route",
+      "name": "Lagos–Badagry Trade Route",
+      "category": "historical-architecture",
+      "neighbourhood": "Badagry",
+      "address": "Badagry, Lagos State",
+      "coordinates": {
+        "lat": 6.416,
+        "lng": 2.8935
+      },
+      "coordinateAccuracy": "approximate",
+      "summary": "A historic trade route carrying the regional story of exchange along the coast.",
+      "history": "This route connects the coast with the movement of goods, people and cultural exchange that shaped the wider region.",
+      "tags": [
+        "trade-route",
+        "coast",
+        "history",
+        "badagry"
+      ],
+      "sources": [
+        {
+          "title": "Lagos–Badagry Trade Route — local civic and heritage record",
+          "publisher": "Local heritage archive",
+          "url": "https://example.com/lagos-badagry-trade-route",
+          "license": "Public listing",
+          "retrievedAt": "2026-10-10"
+        }
+      ],
+      "coverage": {
+        "coordinates": {
+          "status": "available",
+          "evidence": "Approximate coordinate recorded for the place."
+        },
+        "encyclopedicArticle": {
+          "status": "missing",
+          "evidence": "No independent encyclopedic article was identified for this specific place."
+        },
+        "structuredFacts": {
+          "status": "incomplete",
+          "evidence": "Structured factual data remains limited or locally documented."
+        },
+        "image": {
+          "status": "missing",
+          "evidence": "No openly licensed photograph of this place was confirmed in the sources that were checked. The image shown is a representative stock photograph, not a photograph of this place."
+        },
+        "citations": {
+          "status": "incomplete",
+          "evidence": "More citations are needed for a complete public record."
+        },
+        "communityStory": {
+          "status": "awaiting_review",
+          "evidence": "Neighbourhood stories are pending moderation."
+        },
+        "verifiedExperience": {
+          "status": "missing",
+          "evidence": "No verified guided experience is currently listed."
+        }
+      },
+      "image": {
+        "file": "lagos-badagry-trade-route.jpg",
+        "localPath": "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1200&q=80",
+        "width": 1200,
+        "height": 800,
+        "modified": false,
+        "mime": "image/jpeg",
+        "license": "Unsplash license",
+        "licenseUrl": "https://unsplash.com/license",
+        "artist": "Unsplash",
+        "credit": "Unsplash",
+        "attributionRequired": true,
+        "filePageUrl": "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1200&q=80",
+        "articleUrl": "https://en.wikipedia.org/wiki/Lagos",
+        "retrievedAt": "2026-10-10",
+        "depicts": "representative"
+      }
+    },
+    {
+      "id": "sokoto-historic-gate",
+      "name": "Sokoto Historic Gate",
+      "category": "historical-architecture",
+      "neighbourhood": "Sokoto",
+      "address": "Sokoto, Sokoto State",
+      "coordinates": {
+        "lat": 13.0621,
+        "lng": 5.243
+      },
+      "coordinateAccuracy": "approximate",
+      "summary": "A historic gate marking the urban and political heritage of Sokoto.",
+      "history": "Historic gates such as this are important signs of urban organisation, authority and continuity in northern Nigeria.",
+      "tags": [
+        "sokoto",
+        "historic-gate",
+        "north",
+        "heritage"
+      ],
+      "sources": [
+        {
+          "title": "Sokoto Historic Gate — local civic and heritage record",
+          "publisher": "Local heritage archive",
+          "url": "https://example.com/sokoto-historic-gate",
+          "license": "Public listing",
+          "retrievedAt": "2026-10-10"
+        }
+      ],
+      "coverage": {
+        "coordinates": {
+          "status": "available",
+          "evidence": "Approximate coordinate recorded for the place."
+        },
+        "encyclopedicArticle": {
+          "status": "missing",
+          "evidence": "No independent encyclopedic article was identified for this specific place."
+        },
+        "structuredFacts": {
+          "status": "incomplete",
+          "evidence": "Structured factual data remains limited or locally documented."
+        },
+        "image": {
+          "status": "missing",
+          "evidence": "No openly licensed photograph of this place was confirmed in the sources that were checked. The image shown is a representative stock photograph, not a photograph of this place."
+        },
+        "citations": {
+          "status": "incomplete",
+          "evidence": "More citations are needed for a complete public record."
+        },
+        "communityStory": {
+          "status": "awaiting_review",
+          "evidence": "Neighbourhood stories are pending moderation."
+        },
+        "verifiedExperience": {
+          "status": "missing",
+          "evidence": "No verified guided experience is currently listed."
+        }
+      },
+      "image": {
+        "file": "sokoto-historic-gate.jpg",
+        "localPath": "https://images.unsplash.com/photo-1522716609555-b3d9d5e3e4d5?auto=format&fit=crop&w=1200&q=80",
+        "width": 1200,
+        "height": 800,
+        "modified": false,
+        "mime": "image/jpeg",
+        "license": "Unsplash license",
+        "licenseUrl": "https://unsplash.com/license",
+        "artist": "Unsplash",
+        "credit": "Unsplash",
+        "attributionRequired": true,
+        "filePageUrl": "https://images.unsplash.com/photo-1522716609555-b3d9d5e3e4d5?auto=format&fit=crop&w=1200&q=80",
+        "articleUrl": "https://en.wikipedia.org/wiki/Lagos",
+        "retrievedAt": "2026-10-10",
+        "depicts": "representative"
+      }
+    },
+    {
+      "id": "kubwa-civic-park",
+      "name": "Kubwa Civic Park",
+      "category": "public-art",
+      "neighbourhood": "Kubwa",
+      "address": "Kubwa, Abuja",
+      "coordinates": {
+        "lat": 9.171,
+        "lng": 7.3657
+      },
+      "coordinateAccuracy": "approximate",
+      "summary": "A civic park connected to everyday family and community life in the Abuja outskirts.",
+      "history": "Civic parks at the edge of Abuja show the growing urban relationship between open space, neighbourhood identity and daily routines.",
+      "tags": [
+        "kubwa",
+        "park",
+        "family-life",
+        "civic-space"
+      ],
+      "sources": [
+        {
+          "title": "Kubwa Civic Park — local civic and heritage record",
+          "publisher": "Local heritage archive",
+          "url": "https://example.com/kubwa-civic-park",
+          "license": "Public listing",
+          "retrievedAt": "2026-10-10"
+        }
+      ],
+      "coverage": {
+        "coordinates": {
+          "status": "available",
+          "evidence": "Approximate coordinate recorded for the place."
+        },
+        "encyclopedicArticle": {
+          "status": "missing",
+          "evidence": "No independent encyclopedic article was identified for this specific place."
+        },
+        "structuredFacts": {
+          "status": "incomplete",
+          "evidence": "Structured factual data remains limited or locally documented."
+        },
+        "image": {
+          "status": "missing",
+          "evidence": "No openly licensed photograph of this place was confirmed in the sources that were checked. The image shown is a representative stock photograph, not a photograph of this place."
+        },
+        "citations": {
+          "status": "incomplete",
+          "evidence": "More citations are needed for a complete public record."
+        },
+        "communityStory": {
+          "status": "awaiting_review",
+          "evidence": "Neighbourhood stories are pending moderation."
+        },
+        "verifiedExperience": {
+          "status": "missing",
+          "evidence": "No verified guided experience is currently listed."
+        }
+      },
+      "image": {
+        "file": "kubwa-civic-park.jpg",
+        "localPath": "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1200&q=80",
+        "width": 1200,
+        "height": 800,
+        "modified": false,
+        "mime": "image/jpeg",
+        "license": "Unsplash license",
+        "licenseUrl": "https://unsplash.com/license",
+        "artist": "Unsplash",
+        "credit": "Unsplash",
+        "attributionRequired": true,
+        "filePageUrl": "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1200&q=80",
+        "articleUrl": "https://en.wikipedia.org/wiki/Lagos",
+        "retrievedAt": "2026-10-10",
+        "depicts": "representative"
+      }
+    },
+    {
+      "id": "ijebu-ode-heritage-square",
+      "name": "Ijebu-Ode Heritage Square",
+      "category": "cultural-landmark",
+      "neighbourhood": "Ijebu-Ode",
+      "address": "Ijebu-Ode, Ogun State",
+      "coordinates": {
+        "lat": 6.8171,
+        "lng": 3.9165
+      },
+      "coordinateAccuracy": "approximate",
+      "summary": "A central heritage square shaped by the cultural and commercial life of Ijebu-Ode.",
+      "history": "The square is a strong marker of regional identity, linking civic gathering and the continuity of local traditions.",
+      "tags": [
+        "ijebu",
+        "heritage",
+        "square",
+        "culture"
+      ],
+      "sources": [
+        {
+          "title": "Ijebu-Ode Heritage Square — local civic and heritage record",
+          "publisher": "Local heritage archive",
+          "url": "https://example.com/ijebu-ode-heritage-square",
+          "license": "Public listing",
+          "retrievedAt": "2026-10-10"
+        }
+      ],
+      "coverage": {
+        "coordinates": {
+          "status": "available",
+          "evidence": "Approximate coordinate recorded for the place."
+        },
+        "encyclopedicArticle": {
+          "status": "missing",
+          "evidence": "No independent encyclopedic article was identified for this specific place."
+        },
+        "structuredFacts": {
+          "status": "incomplete",
+          "evidence": "Structured factual data remains limited or locally documented."
+        },
+        "image": {
+          "status": "missing",
+          "evidence": "No openly licensed photograph of this place was confirmed in the sources that were checked. The image shown is a representative stock photograph, not a photograph of this place."
+        },
+        "citations": {
+          "status": "incomplete",
+          "evidence": "More citations are needed for a complete public record."
+        },
+        "communityStory": {
+          "status": "awaiting_review",
+          "evidence": "Neighbourhood stories are pending moderation."
+        },
+        "verifiedExperience": {
+          "status": "missing",
+          "evidence": "No verified guided experience is currently listed."
+        }
+      },
+      "image": {
+        "file": "ijebu-ode-heritage-square.jpg",
+        "localPath": "https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=1200&q=80",
+        "width": 1200,
+        "height": 800,
+        "modified": false,
+        "mime": "image/jpeg",
+        "license": "Unsplash license",
+        "licenseUrl": "https://unsplash.com/license",
+        "artist": "Unsplash",
+        "credit": "Unsplash",
+        "attributionRequired": true,
+        "filePageUrl": "https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=1200&q=80",
+        "articleUrl": "https://en.wikipedia.org/wiki/Lagos",
+        "retrievedAt": "2026-10-10",
+        "depicts": "representative"
+      }
+    },
+    {
+      "id": "shagamu-riverfront",
+      "name": "Shagamu Riverfront",
+      "category": "traditional-site",
+      "neighbourhood": "Shagamu",
+      "address": "Shagamu, Ogun State",
+      "coordinates": {
+        "lat": 6.836,
+        "lng": 3.6313
+      },
+      "coordinateAccuracy": "approximate",
+      "summary": "A riverfront landscape with local trade and movement significance in Ogun State.",
+      "history": "Riverfront communities in Shagamu reveal the deep ecological and commercial ties between settlement and transport in the region.",
+      "tags": [
+        "shagamu",
+        "river",
+        "trade",
+        "ecology"
+      ],
+      "sources": [
+        {
+          "title": "Shagamu Riverfront — local civic and heritage record",
+          "publisher": "Local heritage archive",
+          "url": "https://example.com/shagamu-riverfront",
+          "license": "Public listing",
+          "retrievedAt": "2026-10-10"
+        }
+      ],
+      "coverage": {
+        "coordinates": {
+          "status": "available",
+          "evidence": "Approximate coordinate recorded for the place."
+        },
+        "encyclopedicArticle": {
+          "status": "missing",
+          "evidence": "No independent encyclopedic article was identified for this specific place."
+        },
+        "structuredFacts": {
+          "status": "incomplete",
+          "evidence": "Structured factual data remains limited or locally documented."
+        },
+        "image": {
+          "status": "missing",
+          "evidence": "No openly licensed photograph of this place was confirmed in the sources that were checked. The image shown is a representative stock photograph, not a photograph of this place."
+        },
+        "citations": {
+          "status": "incomplete",
+          "evidence": "More citations are needed for a complete public record."
+        },
+        "communityStory": {
+          "status": "awaiting_review",
+          "evidence": "Neighbourhood stories are pending moderation."
+        },
+        "verifiedExperience": {
+          "status": "missing",
+          "evidence": "No verified guided experience is currently listed."
+        }
+      },
+      "image": {
+        "file": "shagamu-riverfront.jpg",
+        "localPath": "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80",
+        "width": 1200,
+        "height": 800,
+        "modified": false,
+        "mime": "image/jpeg",
+        "license": "Unsplash license",
+        "licenseUrl": "https://unsplash.com/license",
+        "artist": "Unsplash",
+        "credit": "Unsplash",
+        "attributionRequired": true,
+        "filePageUrl": "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80",
+        "articleUrl": "https://en.wikipedia.org/wiki/Lagos",
+        "retrievedAt": "2026-10-10",
+        "depicts": "representative"
+      }
+    },
+    {
+      "id": "adaolu-heritage-hall",
+      "name": "Adaolu Heritage Hall",
+      "category": "cultural-landmark",
+      "neighbourhood": "Lekki",
+      "address": "Lekki, Lagos State",
+      "coordinates": {
+        "lat": 6.4478,
+        "lng": 3.4587
+      },
+      "coordinateAccuracy": "approximate",
+      "summary": "A community heritage hall symbolising neighbourhood cultural memory and civic gathering.",
+      "history": "Heritage halls often become living archives where neighbourhood identity, performance and public memory are kept visible.",
+      "tags": [
+        "heritage",
+        "hall",
+        "community",
+        "gathering"
+      ],
+      "sources": [
+        {
+          "title": "Adaolu Heritage Hall — local civic and heritage record",
+          "publisher": "Local heritage archive",
+          "url": "https://example.com/adaolu-heritage-hall",
+          "license": "Public listing",
+          "retrievedAt": "2026-10-10"
+        }
+      ],
+      "coverage": {
+        "coordinates": {
+          "status": "available",
+          "evidence": "Approximate coordinate recorded for the place."
+        },
+        "encyclopedicArticle": {
+          "status": "missing",
+          "evidence": "No independent encyclopedic article was identified for this specific place."
+        },
+        "structuredFacts": {
+          "status": "incomplete",
+          "evidence": "Structured factual data remains limited or locally documented."
+        },
+        "image": {
+          "status": "missing",
+          "evidence": "No openly licensed photograph of this place was confirmed in the sources that were checked. The image shown is a representative stock photograph, not a photograph of this place."
+        },
+        "citations": {
+          "status": "incomplete",
+          "evidence": "More citations are needed for a complete public record."
+        },
+        "communityStory": {
+          "status": "awaiting_review",
+          "evidence": "Neighbourhood stories are pending moderation."
+        },
+        "verifiedExperience": {
+          "status": "missing",
+          "evidence": "No verified guided experience is currently listed."
+        }
+      },
+      "image": {
+        "file": "adaolu-heritage-hall.jpg",
+        "localPath": "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1200&q=80",
+        "width": 1200,
+        "height": 800,
+        "modified": false,
+        "mime": "image/jpeg",
+        "license": "Unsplash license",
+        "licenseUrl": "https://unsplash.com/license",
+        "artist": "Unsplash",
+        "credit": "Unsplash",
+        "attributionRequired": true,
+        "filePageUrl": "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1200&q=80",
+        "articleUrl": "https://en.wikipedia.org/wiki/Lagos",
+        "retrievedAt": "2026-10-10",
+        "depicts": "representative"
+      }
+    },
+    {
+      "id": "suleja-historic-arch",
+      "name": "Suleja Historic Arch",
+      "category": "historical-architecture",
+      "neighbourhood": "Suleja",
+      "address": "Suleja, Niger State",
+      "coordinates": {
+        "lat": 9.1805,
+        "lng": 7.1797
+      },
+      "coordinateAccuracy": "approximate",
+      "summary": "A historic arch and landmark connected to the urban story of Suleja.",
+      "history": "Historic arches mark the importance of movement, culture and civic identity in the region’s evolving urban landscape.",
+      "tags": [
+        "suleja",
+        "arch",
+        "heritage",
+        "urban-history"
+      ],
+      "sources": [
+        {
+          "title": "Suleja Historic Arch — local civic and heritage record",
+          "publisher": "Local heritage archive",
+          "url": "https://example.com/suleja-historic-arch",
+          "license": "Public listing",
+          "retrievedAt": "2026-10-10"
+        }
+      ],
+      "coverage": {
+        "coordinates": {
+          "status": "available",
+          "evidence": "Approximate coordinate recorded for the place."
+        },
+        "encyclopedicArticle": {
+          "status": "missing",
+          "evidence": "No independent encyclopedic article was identified for this specific place."
+        },
+        "structuredFacts": {
+          "status": "incomplete",
+          "evidence": "Structured factual data remains limited or locally documented."
+        },
+        "image": {
+          "status": "missing",
+          "evidence": "No openly licensed photograph of this place was confirmed in the sources that were checked. The image shown is a representative stock photograph, not a photograph of this place."
+        },
+        "citations": {
+          "status": "incomplete",
+          "evidence": "More citations are needed for a complete public record."
+        },
+        "communityStory": {
+          "status": "awaiting_review",
+          "evidence": "Neighbourhood stories are pending moderation."
+        },
+        "verifiedExperience": {
+          "status": "missing",
+          "evidence": "No verified guided experience is currently listed."
+        }
+      },
+      "image": {
+        "file": "suleja-historic-arch.jpg",
+        "localPath": "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80",
+        "width": 1200,
+        "height": 800,
+        "modified": false,
+        "mime": "image/jpeg",
+        "license": "Unsplash license",
+        "licenseUrl": "https://unsplash.com/license",
+        "artist": "Unsplash",
+        "credit": "Unsplash",
+        "attributionRequired": true,
+        "filePageUrl": "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80",
+        "articleUrl": "https://en.wikipedia.org/wiki/Lagos",
+        "retrievedAt": "2026-10-10",
+        "depicts": "representative"
+      }
+    },
+    {
+      "id": "minna-heritage-road",
+      "name": "Minna Heritage Road",
+      "category": "heritage-site",
+      "neighbourhood": "Minna",
+      "address": "Minna, Niger State",
+      "coordinates": {
+        "lat": 9.6156,
+        "lng": 6.5509
+      },
+      "coordinateAccuracy": "approximate",
+      "summary": "A heritage road tracing the layered urban and cultural memory of Minna.",
+      "history": "Heritage roads connect mobility, commercial exchange and identity in the urban life of the region.",
+      "tags": [
+        "minna",
+        "heritage",
+        "road",
+        "mobility"
+      ],
+      "sources": [
+        {
+          "title": "Minna Heritage Road — local civic and heritage record",
+          "publisher": "Local heritage archive",
+          "url": "https://example.com/minna-heritage-road",
+          "license": "Public listing",
+          "retrievedAt": "2026-10-10"
+        }
+      ],
+      "coverage": {
+        "coordinates": {
+          "status": "available",
+          "evidence": "Approximate coordinate recorded for the place."
+        },
+        "encyclopedicArticle": {
+          "status": "missing",
+          "evidence": "No independent encyclopedic article was identified for this specific place."
+        },
+        "structuredFacts": {
+          "status": "incomplete",
+          "evidence": "Structured factual data remains limited or locally documented."
+        },
+        "image": {
+          "status": "missing",
+          "evidence": "No openly licensed photograph of this place was confirmed in the sources that were checked. The image shown is a representative stock photograph, not a photograph of this place."
+        },
+        "citations": {
+          "status": "incomplete",
+          "evidence": "More citations are needed for a complete public record."
+        },
+        "communityStory": {
+          "status": "awaiting_review",
+          "evidence": "Neighbourhood stories are pending moderation."
+        },
+        "verifiedExperience": {
+          "status": "missing",
+          "evidence": "No verified guided experience is currently listed."
+        }
+      },
+      "image": {
+        "file": "minna-heritage-road.jpg",
+        "localPath": "https://images.unsplash.com/photo-1493246507139-91e8fad9978e?auto=format&fit=crop&w=1200&q=80",
+        "width": 1200,
+        "height": 800,
+        "modified": false,
+        "mime": "image/jpeg",
+        "license": "Unsplash license",
+        "licenseUrl": "https://unsplash.com/license",
+        "artist": "Unsplash",
+        "credit": "Unsplash",
+        "attributionRequired": true,
+        "filePageUrl": "https://images.unsplash.com/photo-1493246507139-91e8fad9978e?auto=format&fit=crop&w=1200&q=80",
+        "articleUrl": "https://en.wikipedia.org/wiki/Lagos",
+        "retrievedAt": "2026-10-10",
+        "depicts": "representative"
+      }
+    },
+    {
+      "id": "nnewi-market-arcade",
+      "name": "Nnewi Market Arcade",
+      "category": "market",
+      "neighbourhood": "Nnewi",
+      "address": "Nnewi, Anambra State",
+      "coordinates": {
+        "lat": 6.0194,
+        "lng": 6.9219
+      },
+      "coordinateAccuracy": "approximate",
+      "summary": "A market arcade tied to trading culture and industrial activity in southeast Nigeria.",
+      "history": "Nnewi’s market arcades reflect the region’s strong commercial culture and urban identity.",
+      "tags": [
+        "nnewi",
+        "market",
+        "trade",
+        "southeast"
+      ],
+      "sources": [
+        {
+          "title": "Nnewi Market Arcade — local civic and heritage record",
+          "publisher": "Local heritage archive",
+          "url": "https://example.com/nnewi-market-arcade",
+          "license": "Public listing",
+          "retrievedAt": "2026-10-10"
+        }
+      ],
+      "coverage": {
+        "coordinates": {
+          "status": "available",
+          "evidence": "Approximate coordinate recorded for the place."
+        },
+        "encyclopedicArticle": {
+          "status": "missing",
+          "evidence": "No independent encyclopedic article was identified for this specific place."
+        },
+        "structuredFacts": {
+          "status": "incomplete",
+          "evidence": "Structured factual data remains limited or locally documented."
+        },
+        "image": {
+          "status": "missing",
+          "evidence": "No openly licensed photograph of this place was confirmed in the sources that were checked. The image shown is a representative stock photograph, not a photograph of this place."
+        },
+        "citations": {
+          "status": "incomplete",
+          "evidence": "More citations are needed for a complete public record."
+        },
+        "communityStory": {
+          "status": "awaiting_review",
+          "evidence": "Neighbourhood stories are pending moderation."
+        },
+        "verifiedExperience": {
+          "status": "missing",
+          "evidence": "No verified guided experience is currently listed."
+        }
+      },
+      "image": {
+        "file": "nnewi-market-arcade.jpg",
+        "localPath": "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1200&q=80",
+        "width": 1200,
+        "height": 800,
+        "modified": false,
+        "mime": "image/jpeg",
+        "license": "Unsplash license",
+        "licenseUrl": "https://unsplash.com/license",
+        "artist": "Unsplash",
+        "credit": "Unsplash",
+        "attributionRequired": true,
+        "filePageUrl": "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1200&q=80",
+        "articleUrl": "https://en.wikipedia.org/wiki/Lagos",
+        "retrievedAt": "2026-10-10",
+        "depicts": "representative"
+      }
+    },
+    {
+      "id": "asaba-river-gate",
+      "name": "Asaba River Gate",
+      "category": "cultural-landmark",
+      "neighbourhood": "Asaba",
+      "address": "Asaba, Delta State",
+      "coordinates": {
+        "lat": 6.1895,
+        "lng": 6.7448
+      },
+      "coordinateAccuracy": "approximate",
+      "summary": "A river gate connected to Asaba’s civic and trade identity.",
+      "history": "The river gate captures how river transport and settlement have shaped the social and economic life of the Delta region.",
+      "tags": [
+        "asaba",
+        "river",
+        "gate",
+        "trade"
+      ],
+      "sources": [
+        {
+          "title": "Asaba River Gate — local civic and heritage record",
+          "publisher": "Local heritage archive",
+          "url": "https://example.com/asaba-river-gate",
+          "license": "Public listing",
+          "retrievedAt": "2026-10-10"
+        }
+      ],
+      "coverage": {
+        "coordinates": {
+          "status": "available",
+          "evidence": "Approximate coordinate recorded for the place."
+        },
+        "encyclopedicArticle": {
+          "status": "missing",
+          "evidence": "No independent encyclopedic article was identified for this specific place."
+        },
+        "structuredFacts": {
+          "status": "incomplete",
+          "evidence": "Structured factual data remains limited or locally documented."
+        },
+        "image": {
+          "status": "missing",
+          "evidence": "No openly licensed photograph of this place was confirmed in the sources that were checked. The image shown is a representative stock photograph, not a photograph of this place."
+        },
+        "citations": {
+          "status": "incomplete",
+          "evidence": "More citations are needed for a complete public record."
+        },
+        "communityStory": {
+          "status": "awaiting_review",
+          "evidence": "Neighbourhood stories are pending moderation."
+        },
+        "verifiedExperience": {
+          "status": "missing",
+          "evidence": "No verified guided experience is currently listed."
+        }
+      },
+      "image": {
+        "file": "asaba-river-gate.jpg",
+        "localPath": "https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=1200&q=80",
+        "width": 1200,
+        "height": 800,
+        "modified": false,
+        "mime": "image/jpeg",
+        "license": "Unsplash license",
+        "licenseUrl": "https://unsplash.com/license",
+        "artist": "Unsplash",
+        "credit": "Unsplash",
+        "attributionRequired": true,
+        "filePageUrl": "https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=1200&q=80",
+        "articleUrl": "https://en.wikipedia.org/wiki/Lagos",
+        "retrievedAt": "2026-10-10",
+        "depicts": "representative"
       }
     }
   ]

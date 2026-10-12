@@ -105,7 +105,7 @@ from the configured OSRM endpoint.
 
 ```bash
 npm run typecheck                    # both workspaces, strict
-npm test                             # 87 API tests + 7 client tests
+npm test                             # API + client suites (see §10 for the counts)
 npm run build                        # server tsc + client vite build
 ```
 
@@ -125,8 +125,17 @@ Full list with commentary: [`.env.example`](.env.example). Never commit `.env`.
 | Map tiles | `VITE_TILE_URL`, `VITE_TILE_ATTRIBUTION` | Point at your own/commercial tiles for production |
 | Routing | `ROUTING_PROVIDER`, `OSRM_BASE_URL`, `GRAPHHOPPER_API_KEY` | |
 | ALATPay | `ALATPAY_ENV`, `ALATPAY_BASE_URL`, `ALATPAY_PUBLIC_KEY`, `ALATPAY_SECRET_KEY`, `ALATPAY_BUSINESS_ID`, `ALATPAY_INIT_PATH`, `ALATPAY_VERIFY_PATH`, `ALATPAY_WEBHOOK_SECRET`, `ALATPAY_CALLBACK_URL`, `ALATPAY_ALLOW_SIMULATION` | |
+| Analytics | `ANALYTICS_TIMEZONE`, `ANALYTICS_RETENTION_DAYS`, `ANALYTICS_REQUIRE_CONSENT` | Day boundaries and retention for the console |
+| Admin access | `ADMIN_EMAILS` | Optional extra allowlist on top of `ADMIN_API_TOKEN` |
+| AI budget | `AI_DAILY_BUDGET_MICROS`, `AI_MONTHLY_BUDGET_MICROS`, `AI_BUDGET_ALERT_PERCENT` | Budget alerts in the AI section |
 
 Only `VITE_*` values reach the browser. Secret keys are read server-side exclusively.
+
+Both workspaces read this one root `.env`. The client's Vite config points `envDir` at the
+repository root, so a browser-facing value such as `VITE_ALATPAY_PUBLIC_KEY` goes here
+rather than in a second `client/.env` — a client-only `.env` would simply be ignored. Vite
+reads env files when it starts, so restart `npm run dev` (and rebuild) after changing a
+`VITE_*` value.
 
 ---
 
@@ -254,6 +263,17 @@ when `ALATPAY_ENV=live`) lets the whole journey be exercised locally; it reports
 
 ## 9. Database
 
+A PostgreSQL + PostGIS instance can be started locally with Docker. The image carries
+PostGIS because `prisma/sql/postgis.sql` creates the extension, which the plain `postgres`
+image cannot:
+
+```bash
+docker compose up -d                                # local PostgreSQL + PostGIS
+export DATABASE_URL=postgresql://echoes:echoes@localhost:5432/echoes
+```
+
+Then apply the schema and seed it:
+
 ```bash
 npm --workspace server run db:generate              # Prisma client
 npm --workspace server run db:migrate:dev -- --name init   # create the migration
@@ -265,25 +285,57 @@ SEED_ADMIN_EMAIL=you@example.org SEED_ADMIN_PASSWORD='…' npm --workspace serve
 `prisma/sql/postgis.sql` is idempotent and adds a `place_geo` table, a GIST index and a
 `places_near(in_lat, in_lng, radius_m, max_rows)` function for radius queries.
 
-> **Not executed here:** no PostgreSQL/PostGIS server was available in this environment, so
-> migrations and seed were **not run**. The Prisma store typechecks against the generated client but
-> has **not been exercised against a live database**; the in-memory store is what every test and the
-> running demo use.
+### Analytics tables (`prisma/sql/analytics.sql`)
+
+The admin console reads four tables — `AnalyticsEvent`, `AiRequest`, `RequestMetric` and
+the `status`/`suspendedAt` columns on `User` — plus the append-only guard on `AuditLog`.
+Apply them after the Prisma migration:
+
+```bash
+npm --workspace server run db:generate                     # Prisma client
+npm --workspace server run db:migrate                      # prisma migrate deploy
+psql "$DATABASE_URL" -f server/prisma/sql/analytics.sql    # tables, indexes, audit guard
+```
+
+Every statement in that file is idempotent, so re-running it is safe, and all of it is
+additive: no existing row is modified or removed. The list of what it does:
+
+- creates the `UserStatus` enum and the `User.status` / `User.suspendedAt` columns;
+- creates `AnalyticsEvent` with the indexes the read patterns actually use (range first,
+  then name / visitor / session / user / resource / internal);
+- creates `AiRequest` (one row per AI call, metadata only) and `RequestMetric` (per-minute
+  request aggregates, unique on bucket + route + method);
+- installs a trigger that **rejects UPDATE and DELETE on `AuditLog`**, so an administrator
+  cannot rewrite what an earlier administrator did without deliberately disabling it.
+
+Without a database the in-memory store implements the same interface, so the console works
+end to end in development — the tables above are what make it survive a restart.
+
+> **Not executed here:** `docker-compose.yml` is provided, but no Docker or PostgreSQL/PostGIS
+> server was available in this environment, so migrations and seed were **not run**. The Prisma store
+> typechecks against the generated client but has **not been exercised against a live database**; the
+> in-memory store is what every test and the running demo use.
 
 ---
 
 ## 10. Testing
 
 ```
-server  →  9 suites, 87 tests   (knowledge, geo, validation, quality, stories,
-                                 bookings, payments, itinerary, API integration)
-client  →  2 suites,  7 tests   (formatting, coverage/gap presentation)
+server  → 16 suites, 179 tests  (knowledge, geo, validation, quality, stories, bookings,
+                                 payments, itinerary, uploads, email, password reset,
+                                 ingestion, image provenance, providers, analytics,
+                                 API integration)
+client  →  7 suites,  66 tests  (formatting, API client, coverage/gap presentation,
+                                 sidebar/rail, place profile, tracker, admin console)
 ```
 
 Highlights covered: independent gap classification; no "no history" claims; citation dropping;
 rejected stop ids; overbooking and seat release; server-side pricing; reference/amount/currency
 mismatch; replay and cancelled-booking protection; unsigned webhooks; admin authorisation;
-sensitive-content moderation refusal; routing failure degradation; over-budget itineraries.
+sensitive-content moderation refusal; routing failure degradation; over-budget itineraries;
+event-allowlist validation and property bounding; bot exclusion; duplicate delivery;
+server-assigned session boundaries; zero-denominator handling; histogram percentiles;
+CSV formula injection; unauthenticated analytics access; empty datasets.
 
 ```bash
 npm test
@@ -344,5 +396,161 @@ requested only after an explanation and never persisted.
 4. **A production tile source** for the map, and a **self-hosted/contracted routing service**
    instead of the public demo servers.
 5. **Verified experience operators** with written consent before any listing is sold.
-6. **Deployment targets**: Cloudflare Pages for `client/dist`, a Node host for `server/dist`, managed
-   Postgres for data — configuration is documented but no deployment has been performed.
+6. **Deployment credentials, not deployment files.** `Dockerfile` builds the API, `client/vercel.json`
+   configures the web app (SPA rewrites plus cache headers) and `docker-compose.yml` provides a local
+   PostgreSQL + PostGIS. What is still missing is an account to deploy into: a Node host for
+   `server/dist`, a managed Postgres, and `VITE_API_BASE_URL` set to the deployed API origin.
+   **The Dockerfile has not been built here** — no container runtime was available — so it is
+   unverified against a real `docker build`; the `node server/dist/index.js` entrypoint it runs *was*
+   exercised locally.
+
+## 14. Cultural data ingestion
+
+`server/src/services/ingestion` is the refreshing half of the dataset. It walks each record's
+citations, asks the Wikimedia API whether the cited page still exists, and reports what it found:
+
+```bash
+npm --workspace server run ingest                          # report only, nothing is written
+npm --workspace server run ingest -- --write                # record the verdicts
+npm --workspace server run ingest -- --place jaekel-house --write
+npm --workspace server run ingest -- --limit 10 --delay 500 # pace a partial run
+```
+
+What it deliberately does **not** do:
+
+- It never marks a citation `found: false` unless the provider actually answered. A timeout, a 429 or
+a 5xx is left unchecked (`found` untouched) and reported as an error, because "could not be checked"
+and "does not exist" are different claims.
+- It only queries Wikimedia endpoints. OpenStreetMap and other third-party citations are reported as
+skipped rather than hammered.
+- Requests are sequential with a delay, carry `WIKIMEDIA_USER_AGENT`, and retry with backoff on
+throttling and server faults.
+- Coordinate disagreement between a record and its article is reported as a warning; duplicates are
+flagged for human review. Nothing is merged, rewritten or deleted automatically.
+
+Exit code is 1 whenever a run was partial, so a cron job or CI cannot mistake an incomplete refresh
+for a clean one. `npm --workspace server run images:provenance` is the companion script that keeps the
+`depicts` flag and the image coverage row in agreement.
+
+## 15. Uploads
+
+Guides attach a photograph through `POST /api/uploads` (authenticated, rate-limited). Two properties
+matter:
+
+- **The bytes decide the type.** The file's leading bytes are sniffed against JPEG, PNG, GIF and WebP
+signatures; the client's filename and declared content type are ignored. A PNG sent as `avatar.jpg` is
+stored and served as a PNG, and anything unrecognised is refused before it reaches the disk.
+- **Only paths this API issued can be attached to a profile.** `avatarUrl` is validated against
+`/uploads/<id>.<ext>`, so a profile cannot point at a third-party host or smuggle a `javascript:` or
+traversal path.
+
+Files are written to `UPLOADS_DIR` with a random name and served from `UPLOADS_PUBLIC_PATH`.
+
+> **Limitation:** local disk storage suits a single instance. A deployment with more than one instance
+> needs object storage, because a file written on one host is invisible to the others. No storage
+> service is configured here, and none should be assumed.
+
+## 16. Email
+
+Transactional mail goes through one small service (`server/src/services/email`) with three explicit
+transports — `log` (default; writes the message, including the reset link, to the API log), `sendbyte`,
+and `none` (refuses to send).
+
+The provider is **SendByte** (`POST https://api.sendbyte.africa/v1/emails`), a transactional email API
+hosted in Africa with pricing in naira. Configuration is `MAIL_TRANSPORT=sendbyte`, `SENDBYTE_API_KEY`
+and `EMAIL_FROM`; the `from` domain must be verified in the SendByte dashboard before a live key can
+deliver. Sends carry an idempotency key derived from the stored reset, so a retried request cannot
+deliver two links.
+
+There is deliberately no silent "sent" state, and the sandbox case is why: SendByte's `sk_test_` keys
+**capture** mail instead of delivering it. A sandbox send is reported as `sandbox: true` with
+`delivered: false`, and the operator gets a warning — the caller still learns nothing, since that would
+leak which addresses have accounts. Provider errors (`domain_not_verified`, `suppressed_recipient`,
+`rate_limit_exceeded`, transport timeouts) are turned into one actionable sentence each and surfaced
+rather than swallowed.
+
+Password reset is the first flow built on it. Requesting a link always answers the same way whether or
+not the address has an account, only a SHA-256 hash of the token is stored, links are single-use and
+expire after 60 minutes, and using one invalidates every other outstanding link for that account.
+Sessions are stateless JWTs, so a reset does not sign out sessions that are already active elsewhere —
+revoking those needs a token denylist.
+
+---
+
+## 17. Admin analytics console
+
+`/admin` is an operating console: a sidebar of sections, one global date range, and a
+breadcrumb. Sections are addressable (`/admin#ai`, `/admin#users`) so a view can be linked
+to a colleague. Everything it shows is computed on the server from stored rows; the browser
+never receives a whole table.
+
+### Accessing it
+
+1. Set `ADMIN_API_TOKEN` on the API (and optionally `ADMIN_EMAILS` to restrict session
+   access to named addresses). Without either, access is **refused**, not allowed.
+2. Open `/admin`, paste the token. It is kept in `sessionStorage` for that tab only, which
+   is a convenience — every request is authorised again on the server, so a hidden button is
+   never an access control.
+
+### Sections
+
+| Section | What it answers |
+| --- | --- |
+| **Overview** | Registered/new users, DAU/WAU/MAU, unique visitors, sessions, page views, average engagement time, engagement rate, place views, AI conversations/questions, completed bookings, verified revenue, error rate and p95 latency — each with the previous equivalent period, plus audience/registration/active-user charts, top pages and places, traffic sources, devices, and the conversion funnel |
+| **Cultural discovery** | Most viewed places and categories, top and zero-result search terms, map opens, route requests and failures, information gaps, unviewed places, story submissions and the moderation backlog |
+| **AI operations** | Requests, success/failure, rate-limits and timeouts, p50/p95/p99 latency, token usage, estimated cost per day/feature/model, cost per successful request, and budget alerts |
+| **Bookings & revenue** | Attempts, confirmed/cancelled/failed/awaiting payment, conversion, popular and upcoming experiences, verified payments, and recent bookings/payments with customer addresses masked |
+| **Users** | Search, filter, sort and paginate accounts; activity per account; suspension/reactivation with a reason |
+| **System health** | Request volume, error rate, latency percentiles, slowest and busiest routes, recent server errors with correlation ids, and integration status |
+| **Moderation / Payment reconciliation / Data quality / Audit log** | The operations that already existed, plus the append-only audit trail |
+
+### What is actually instrumented
+
+Collection is first-party: `client/src/lib/tracker.ts` sends beacons to
+`POST /api/analytics/events`, validated against the allowlist in
+`server/src/domain/analytics.ts`. The browser tracker reads that allowlist from
+`GET /api/analytics/config` rather than carrying its own copy.
+
+- **Live now:** page views, sessions (server-assigned, 30-minute inactivity timeout),
+  unique visitors, search terms and result counts, place profile views, map opens, route
+  requests, AI conversations and questions, itineraries created, story submissions,
+  registrations/logins/logouts, booking starts, confirmed bookings and verified payments.
+- **Server-recorded only:** `booking_completed` and `payment_verified` are written by the
+  server when the transaction actually happens. A browser beacon claiming either is
+  rejected, so a forged request cannot inflate revenue. Revenue itself is summed from
+  verified payment records, never from an event or a redirect.
+- **Estimated, and labelled as such:** average engagement time and engagement rate (derived
+  from session boundaries), and AI cost (published token prices, not provider invoices —
+  a model with no known price reports no cost rather than zero).
+- **Not collected:** nothing reads message contents, question text, passwords, payment
+  details or precise locations. Bot user agents are dropped before storage; staff and
+  `/admin` traffic is flagged and excluded from audience figures.
+
+### Privacy, consent and retention
+
+- A visitor is a random id this browser stores itself (`localStorage`), never a cookie and
+  never joined to an account. When it is absent the fallback is a salted hash of the request
+  that rotates daily and is never stored raw.
+- `ANALYTICS_REQUIRE_CONSENT=true` shows a consent notice and **sends nothing** until it is
+  accepted. Declining leaves the site fully usable.
+- `navigator.doNotTrack` / Global Privacy Control are honoured as a decision, without asking.
+- `POST /api/analytics/opt-out` erases the events already stored for that visitor, not just
+  future ones.
+- Raw events are pruned after `ANALYTICS_RETENTION_DAYS` (default 400). Audit and payment
+  rows are never pruned, and audit rows cannot be updated or deleted at all.
+
+### Known limitations
+
+- **The session registry is per process.** Sessions are assigned server-side from an
+  in-memory map. A single instance is correct; a multi-instance deployment needs sticky
+  sessions or a shared store, or session counts will be slightly higher than reality.
+- **Analytics reads are capped** at 50,000 events per period. A range that hits the cap is
+  reported to the console as *partial* rather than answered from a truncated sample. Past
+  that volume the right fix is a daily rollup table, not a larger cap.
+- **Refunds are not modelled.** The payment integration records no refunds, so "gross
+  verified payments" is what is shown, with that stated on the page.
+- **AI costs are estimates** from published per-token prices. Caching and batch discounts
+  are not modelled, and unpriced models are reported as unpriced.
+- **No dark mode.** The existing application is light-only, so the console follows it.
+- **Deployment metadata is unavailable** — the health section shows process uptime and says
+  plainly that the running commit is not shown, rather than inventing a deploy time.

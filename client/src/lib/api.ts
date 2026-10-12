@@ -2,12 +2,36 @@ import type {
   AnswerResult,
   CheckoutResult,
   Experience,
+  GuideSummary,
   HealthStatus,
   ItineraryResult,
   Place,
   ProviderStatus,
   RouteResult,
 } from './types';
+import type {
+  AiPayload,
+  CommercePayload,
+  DiscoveryPayload,
+  HealthPayload,
+  OverviewPayload,
+  UsersPayload,
+} from './analytics';
+
+export interface AnalyticsRangeQuery {
+  preset?: 'today' | '7d' | '30d' | '90d' | 'custom';
+  from?: string;
+  to?: string;
+}
+
+function rangeQuery(range: AnalyticsRangeQuery): string {
+  const params = new URLSearchParams();
+  if (range.preset) params.set('preset', range.preset);
+  if (range.from) params.set('from', range.from);
+  if (range.to) params.set('to', range.to);
+  const query = params.toString();
+  return query ? `?${query}` : '';
+}
 
 const BASE = (import.meta.env.VITE_API_BASE_URL as string | undefined) ?? '';
 
@@ -24,12 +48,17 @@ export class ApiClientError extends Error {
 }
 
 async function request<T>(path: string, init?: RequestInit): Promise<T> {
+  // A FormData body must keep the browser's own content type: it carries the
+  // multipart boundary, and setting the header manually breaks the upload.
+  const isFormData = typeof FormData !== 'undefined' && init?.body instanceof FormData;
+
   let response: Response;
   try {
     response = await fetch(`${BASE}${path}`, {
+      credentials: 'include',
       ...init,
       headers: {
-        ...(init?.body ? { 'content-type': 'application/json' } : {}),
+        ...(init?.body && !isFormData ? { 'content-type': 'application/json' } : {}),
         ...(init?.headers ?? {}),
       },
     });
@@ -65,6 +94,36 @@ async function request<T>(path: string, init?: RequestInit): Promise<T> {
 }
 
 export const api = {
+  auth: {
+    register: (input: { email: string; name: string; password: string; role?: 'visitor' | 'organizer' }) =>
+      request<{ user: { id: string; name: string; email: string; role: string }; token: string }>('/api/auth/register', {
+        method: 'POST',
+        body: JSON.stringify(input),
+      }),
+    login: (input: { email: string; password: string }) =>
+      request<{ user: { id: string; name: string; email: string; role: string }; token: string }>('/api/auth/login', {
+        method: 'POST',
+        body: JSON.stringify(input),
+      }),
+    me: (token: string) =>
+      request<{ user: { id: string; name: string; email: string; role: string } }>('/api/auth/me', {
+        headers: {
+          authorization: `Bearer ${token}`,
+        },
+      }),
+    /** Always answers the same way, whether or not the address has an account. */
+    requestPasswordReset: (input: { email: string }) =>
+      request<{ message: string; expiresInMinutes: number }>('/api/auth/password-reset/request', {
+        method: 'POST',
+        body: JSON.stringify(input),
+      }),
+    confirmPasswordReset: (input: { token: string; password: string }) =>
+      request<{ message: string }>('/api/auth/password-reset/confirm', {
+        method: 'POST',
+        body: JSON.stringify(input),
+      }),
+  },
+
   health: () => request<HealthStatus>('/api/health'),
 
   places: (params: {
@@ -116,6 +175,49 @@ export const api = {
     request<{ experience: Experience; provider: ProviderStatus }>(
       `/api/experiences/${encodeURIComponent(id)}`,
     ),
+
+  guides: () =>
+    request<{ guides: GuideSummary[] }>('/api/guides'),
+
+  /** Applies to become a guide. The profile stays pending until it is reviewed. */
+  applyAsGuide: (
+    token: string,
+    input: {
+      name: string;
+      role: string;
+      city: string;
+      specialties: string[];
+      bio: string;
+      availability?: string | null;
+      priceFrom?: string | null;
+      avatarUrl?: string | null;
+    },
+  ) =>
+    request<{ guide: GuideSummary }>('/api/guides', {
+      method: 'POST',
+      headers: { authorization: `Bearer ${token}` },
+      body: JSON.stringify(input),
+    }),
+
+  uploads: {
+    /**
+     * Sends one image and returns the path the API serves it from. The server
+     * decides the type from the file's own bytes, so the returned URL may have a
+     * different extension than the file that was picked.
+     */
+    image: (file: File, token: string) => {
+      const form = new FormData();
+      form.append('image', file);
+      return request<{ url: string; filename: string; mime: string; bytes: number }>('/api/uploads', {
+        method: 'POST',
+        headers: { authorization: `Bearer ${token}` },
+        body: form,
+      });
+    },
+  },
+
+  guide: (id: string) =>
+    request<{ guide: GuideSummary }>(`/api/guides/${encodeURIComponent(id)}`),
 
   ask: (question: string, placeId?: string | null) =>
     request<AnswerResult>('/api/ai/answer', {
@@ -182,6 +284,27 @@ export const api = {
     notes?: string | null;
   }) => request<CheckoutResult>('/api/bookings', { method: 'POST', body: JSON.stringify(input) }),
 
+  bookings: (token?: string, email?: string) =>
+    request<{
+      bookings: Array<{
+        id: string;
+        reference: string;
+        status: string;
+        experienceId: string;
+        experienceTitle: string;
+        scheduleId: string;
+        participants: number;
+        totalMinor: number;
+        currency: string;
+        customerName: string;
+        customerEmail: string;
+        createdAt: string;
+        updatedAt: string;
+      }>;
+    }>(`/api/bookings${email ? `?email=${encodeURIComponent(email)}` : ''}`, {
+      headers: token ? { authorization: `Bearer ${token}` } : undefined,
+    }),
+
   booking: (reference: string, email: string) =>
     request<{
       booking: {
@@ -228,8 +351,21 @@ export const api = {
         { headers: { 'x-admin-token': token } },
       ),
 
+    guides: (token: string, status = 'pending') =>
+      request<{ guides: Array<{ id: string; name: string; role: string; city: string; rating: number; specialties: string[]; bio: string; availability: string | null; priceFrom: string | null; status: string; moderationNote: string | null; reviewedBy: string | null; reviewedAt: string | null; createdAt: string; updatedAt: string }> }>(
+        `/api/admin/guides?status=${status}`,
+        { headers: { 'x-admin-token': token } },
+      ),
+
     moderate: (token: string, id: string, body: { status: string; moderationNote?: string | null }) =>
       request<{ story: import('./types').CommunityStory }>(`/api/admin/stories/${id}/moderate`, {
+        method: 'POST',
+        headers: { 'x-admin-token': token },
+        body: JSON.stringify(body),
+      }),
+
+    moderateGuide: (token: string, id: string, body: { status: string; moderationNote?: string | null }) =>
+      request<{ guide: { id: string; name: string; role: string; city: string; rating: number; specialties: string[]; bio: string; availability: string | null; priceFrom: string | null; status: string; moderationNote: string | null; reviewedBy: string | null; reviewedAt: string | null; createdAt: string; updatedAt: string } }>(`/api/admin/guides/${id}/moderate`, {
         method: 'POST',
         headers: { 'x-admin-token': token },
         body: JSON.stringify(body),
@@ -271,5 +407,131 @@ export const api = {
         }>;
         duplicatePolicy: string;
       }>('/api/admin/data-quality', { headers: { 'x-admin-token': token } }),
+  },
+
+  /**
+   * The analytics console. Every call is authorised on the server; the token here
+   * is what the operator holds, not what grants access.
+   */
+  adminAnalytics: {
+    meta: (token: string) =>
+      request<{
+        timezone: string;
+        retentionDays: number;
+        requireConsent: boolean;
+        adminEmailsConfigured: boolean;
+        payments: ProviderStatus;
+        store: string;
+      }>('/api/admin/analytics/meta', { headers: { 'x-admin-token': token } }),
+
+    overview: (token: string, range: AnalyticsRangeQuery) =>
+      request<OverviewPayload>(`/api/admin/analytics/overview${rangeQuery(range)}`, {
+        headers: { 'x-admin-token': token },
+      }),
+
+    discovery: (token: string, range: AnalyticsRangeQuery) =>
+      request<DiscoveryPayload>(`/api/admin/analytics/discovery${rangeQuery(range)}`, {
+        headers: { 'x-admin-token': token },
+      }),
+
+    ai: (token: string, range: AnalyticsRangeQuery) =>
+      request<AiPayload>(`/api/admin/analytics/ai${rangeQuery(range)}`, {
+        headers: { 'x-admin-token': token },
+      }),
+
+    commerce: (token: string, range: AnalyticsRangeQuery) =>
+      request<CommercePayload>(`/api/admin/analytics/commerce${rangeQuery(range)}`, {
+        headers: { 'x-admin-token': token },
+      }),
+
+    health: (token: string, range: AnalyticsRangeQuery) =>
+      request<HealthPayload>(`/api/admin/analytics/health${rangeQuery(range)}`, {
+        headers: { 'x-admin-token': token },
+      }),
+
+    users: (
+      token: string,
+      range: AnalyticsRangeQuery,
+      filters: { q?: string; role?: string; status?: string; page?: number; perPage?: number } = {},
+    ) => {
+      const params = new URLSearchParams();
+      if (range.preset) params.set('preset', range.preset);
+      if (range.from) params.set('from', range.from);
+      if (range.to) params.set('to', range.to);
+      if (filters.q) params.set('q', filters.q);
+      if (filters.role) params.set('role', filters.role);
+      if (filters.status) params.set('status', filters.status);
+      if (filters.page) params.set('page', String(filters.page));
+      if (filters.perPage) params.set('perPage', String(filters.perPage));
+      return request<UsersPayload>(`/api/admin/analytics/users?${params.toString()}`, {
+        headers: { 'x-admin-token': token },
+      });
+    },
+
+    setUserStatus: (token: string, id: string, body: { status: 'active' | 'suspended'; reason?: string }) =>
+      request<{ user: { id: string; status: string }; note: string }>(
+        `/api/admin/analytics/users/${id}/status`,
+        { method: 'POST', headers: { 'x-admin-token': token }, body: JSON.stringify(body) },
+      ),
+
+    place: (token: string, id: string, range: AnalyticsRangeQuery) =>
+      request<{
+        range: { from: string; to: string; label: string };
+        place: {
+          id: string;
+          name: string;
+          category: string;
+          neighbourhood: string | null;
+          sources: number;
+          coverage: { coveredDimensions: number; totalDimensions: number; needsResearch: boolean };
+        };
+        views: { total: number; visitors: number; byDevice: Record<string, number> };
+        stories: { total: number; approved: number; pending: number };
+        integrity: { note: string };
+      }>(`/api/admin/analytics/places/${id}${rangeQuery(range)}`, {
+        headers: { 'x-admin-token': token },
+      }),
+
+    audit: (token: string, limit = 100) =>
+      request<{
+        audit: Array<{
+          id: string;
+          actor: string;
+          action: string;
+          entityType: string;
+          entityId: string;
+          details: unknown;
+          createdAt: string;
+        }>;
+        note: string;
+      }>(`/api/admin/analytics/audit?limit=${limit}`, { headers: { 'x-admin-token': token } }),
+
+    /**
+     * Export as a file.
+     *
+     * Fetched rather than linked so the admin token stays in a header: putting it
+     * in a query string would write it into browser history and server logs.
+     */
+    exportCsv: async (
+      token: string,
+      dataset: 'overview' | 'discovery' | 'ai' | 'users' | 'audit' | 'bookings',
+      range: AnalyticsRangeQuery,
+    ): Promise<{ blob: Blob; filename: string }> => {
+      const params = new URLSearchParams();
+      if (range.preset) params.set('preset', range.preset);
+      if (range.from) params.set('from', range.from);
+      if (range.to) params.set('to', range.to);
+      params.set('dataset', dataset);
+      const response = await fetch(`${BASE}/api/admin/analytics/export?${params.toString()}`, {
+        headers: { 'x-admin-token': token },
+        credentials: 'include',
+      });
+      if (!response.ok) {
+        throw new ApiClientError(`The export failed with HTTP ${response.status}.`, response.status, 'export_failed');
+      }
+      const disposition = response.headers.get('content-disposition') ?? '';
+      const match = /filename="([^"]+)"/.exec(disposition);
+      return { blob: await response.blob(), filename: match?.[1] ?? `echoes-${dataset}.csv` };
+    },
   },
 };

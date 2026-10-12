@@ -7,8 +7,10 @@ import {
   Compass,
   FileSearch,
   MapPinned,
+  MapPin,
   MessageSquareQuote,
   Route,
+  Star,
   Ticket,
   Users,
 } from 'lucide-react';
@@ -16,8 +18,8 @@ import { api } from '../lib/api';
 import { categoryLabel, formatMinutes, formatMoney } from '../lib/format';
 import { usePlaces } from '../lib/hooks';
 import { Chip, Loading, Notice, OfflineBanner, SectionHeading } from '../components/ui';
-import { placeArt } from '../components/place';
-import { GiantWordmark, HeroBlobs, Parallax, Reveal, WordReveal, EASE } from '../components/layout';
+import { ImageCredit, placeArt, placeImageStyle } from '../components/place';
+import { GiantWordmark, Reveal, EASE } from '../components/layout';
 
 const CAPABILITIES = [
   {
@@ -76,6 +78,86 @@ const METHOD = [
     title: 'Cited, refused, or flagged',
     body: 'Answers must cite retrieved records. Invented citations are discarded on the server, community accounts stay labelled as testimony, and when the evidence is thin ECHOES says so instead of filling the silence.',
     icon: MessageSquareQuote,
+  },
+];
+
+const FOOD_FEATURES = [
+  {
+    name: 'Jollof Rice',
+    blurb: 'Tomato-rich party favourite with crispy, smoky depth.',
+    restaurant: 'Bungalow Restaurant',
+    rating: 4.8,
+    tag: 'Popular near Lekki',
+    tone: 'from-orange-500/90 via-amber-500/80 to-red-500/80',
+  },
+  {
+    name: 'Amala & Ewedu',
+    blurb: 'A slow, earthy classic served with peppery sauces.',
+    restaurant: 'Mama Toun Kitchen',
+    rating: 4.9,
+    tag: 'Local favourite',
+    tone: 'from-emerald-600/90 via-lime-500/80 to-teal-500/80',
+  },
+  {
+    name: 'Suya',
+    blurb: 'Spiced grilled meat with that smoky, peppery finish.',
+    restaurant: 'Iya Ado Suya Bar',
+    rating: 4.7,
+    tag: 'Best after sunset',
+    tone: 'from-rose-500/90 via-red-500/80 to-orange-500/80',
+  },
+  {
+    name: 'Moi Moi',
+    blurb: 'Smooth bean pudding that pairs perfectly with tea.',
+    restaurant: 'Taste of Oshodi',
+    rating: 4.6,
+    tag: 'Quick breakfast',
+    tone: 'from-yellow-500/90 via-amber-400/80 to-orange-400/80',
+  },
+];
+
+const NIGERIA_HIGHLIGHTS = [
+  {
+    city: 'Lagos',
+    state: 'Lagos State',
+    headline: 'Freedom Park, Marina & the island pulse',
+    summary: 'Architecture, street culture, and memory-rich walks across the metropolis.',
+    tone: 'from-[#1b2d2b] via-[#2b4a45] to-[#c78e53]',
+  },
+  {
+    city: 'Ibadan',
+    state: 'Oyo State',
+    headline: 'Heritage districts and cultural memory',
+    summary: 'Old-city routes, historic compounds, and layered civic history.',
+    tone: 'from-[#4f392c] via-[#8a5d3f] to-[#d7b48d]',
+  },
+  {
+    city: 'Kano',
+    state: 'Kano State',
+    headline: 'Markets, craft, and northern character',
+    summary: 'A strong centre for trade, textiles, and urban heritage.',
+    tone: 'from-[#33261a] via-[#7b4d29] to-[#d99b57]',
+  },
+  {
+    city: 'Enugu',
+    state: 'Enugu State',
+    headline: 'Hill-city storytelling and local identity',
+    summary: 'Traditional routes, cultural architecture, and community-led experiences.',
+    tone: 'from-[#16362d] via-[#376b5d] to-[#9ab99d]',
+  },
+  {
+    city: 'Calabar',
+    state: 'Cross River State',
+    headline: 'Coastal culture and festival energy',
+    summary: 'A mix of heritage, hospitality, and southern coastal atmosphere.',
+    tone: 'from-[#1f2d52] via-[#4668a8] to-[#94c5db]',
+  },
+  {
+    city: 'Abeokuta',
+    state: 'Ogun State',
+    headline: 'Cultural roots and intellectual heritage',
+    summary: 'Historic institutions, town texture, and a strong arts narrative.',
+    tone: 'from-[#2b3127] via-[#526b46] to-[#d9c99d]',
   },
 ];
 
@@ -184,65 +266,86 @@ export default function Home() {
 
   return (
     <>
-      {/* ==================== HERO ==================== */}
-      <header className="relative flex min-h-screen flex-col overflow-hidden">
-        <Parallax strength={0.12} className="absolute inset-0">
-          <div className="h-[115%] w-full bg-[radial-gradient(120%_90%_at_15%_10%,#2A6647_0%,#1E4D33_38%,#12281A_100%)]" />
-          <div className="absolute inset-0 bg-[radial-gradient(70%_60%_at_80%_20%,rgba(66,168,93,0.35),transparent_65%)]" />
-          <div className="absolute inset-0 opacity-[0.14] [background-image:linear-gradient(rgba(251,250,247,0.6)_1px,transparent_1px),linear-gradient(90deg,rgba(251,250,247,0.6)_1px,transparent_1px)] [background-size:64px_64px]" />
-        </Parallax>
+      <header className="relative overflow-hidden pb-4 sm:pb-6">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="p-0">
+            <div className="grid gap-4 lg:grid-cols-[minmax(0,1.3fr)_minmax(260px,0.7fr)] lg:items-center">
+              <section className="rounded-[28px] bg-transparent p-0 sm:p-0 lg:p-0">
+                <div className="flex items-center justify-between gap-3 text-black/60">
+                  <span className="inline-flex items-center rounded-full border border-black/10 bg-white/70 px-3 py-1.5 text-[10px] font-medium uppercase tracking-[0.22em]">
+                    ECHOES Lagos
+                  </span>
+                  <span className="inline-flex items-center gap-2 rounded-full border border-black/10 bg-white/70 px-3 py-1.5 text-[10px] font-medium uppercase tracking-[0.18em] text-black/65">
+                    <MapPin className="h-3.5 w-3.5" />
+                    Lagos, Nigeria
+                  </span>
+                </div>
 
-        <HeroBlobs />
+                <div className="mt-5 max-w-xl">
+                  <p className="text-[10px] font-medium uppercase tracking-[0.32em] text-[#856337]">Curated culture, on your terms</p>
+                  <h1 className="mt-3 font-display text-[2.5rem] font-light leading-[0.94] tracking-[-0.06em] text-ink sm:text-[2.9rem] lg:text-[3.4rem]">
+                    See Lagos through the stories that shaped it.
+                  </h1>
+                  <p className="mt-3 max-w-lg text-sm leading-relaxed text-black/65 sm:text-base">
+                    Discover heritage places, food trails, and local experiences built around the real rhythm of the city.
+                  </p>
+                </div>
 
-        <div className="absolute inset-0 bg-gradient-to-t from-cream via-cream/60 to-cream/10" />
-        <div className="absolute inset-0 bg-gradient-to-r from-cream/70 via-transparent to-cream/30" />
-
-        <div className="relative z-10 flex flex-1 items-end">
-          <div className="mx-auto w-full max-w-7xl px-6 pb-[22vw] pt-40 sm:px-10 sm:pb-[18vw] lg:pb-[15vw]">
-            <div className="max-w-2xl">
-              <Reveal>
-                <p className="mb-8 text-xs font-medium uppercase tracking-[0.25em] text-brand-deep">
-                  Cultural discovery — Lagos, Nigeria
-                </p>
-              </Reveal>
-
-              <h1 className="font-display text-5xl font-light leading-[0.95] tracking-tighter text-ink sm:text-7xl lg:text-8xl">
-                <WordReveal text="Discover where to go. Understand" as="span" />
-                <br />
-                <WordReveal text="why it" as="span" delay={0.2} />{' '}
-                <em className="font-serif font-normal italic">
-                  <WordReveal text="matters." as="span" delay={0.32} />
-                </em>
-              </h1>
-
-              <Reveal delay={0.55}>
-                <p className="mt-8 text-sm tracking-wide text-black/50">
-                  / Real places · cited sources · honest gaps /
-                </p>
-              </Reveal>
-
-              <Reveal delay={0.7}>
-                <div className="mt-10 flex flex-wrap items-center gap-6">
-                  <Link to="/discover" className="group btn-primary">
-                    Explore the map
-                    <ArrowUpRight
-                      className="h-4 w-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
-                      aria-hidden="true"
-                    />
+                <div className="mt-5 flex flex-wrap gap-3">
+                  <Link to="/discover" className="inline-flex items-center gap-2 rounded-full bg-[#1d2a26] px-4 py-2.5 text-sm font-medium text-white transition-transform hover:-translate-y-0.5">
+                    Start exploring
+                    <ArrowUpRight className="h-4 w-4" />
                   </Link>
-                  <Link to="/plan" className="link-underline">
-                    Plan a cultural route
+                  <Link to="/experiences" className="inline-flex items-center gap-2 rounded-full border border-black/10 bg-white px-4 py-2.5 text-sm font-medium text-ink transition-colors hover:bg-[#f6f1eb]">
+                    Book a tour
                   </Link>
                 </div>
-              </Reveal>
+
+                <div className="mt-5 grid grid-cols-3 gap-3 sm:gap-4">
+                  {[
+                    { value: '120+', label: 'Sites' },
+                    { value: '4.9', label: 'Rating' },
+                    { value: '14', label: 'Routes' },
+                  ].map((stat) => (
+                    <div key={stat.label} className="rounded-2xl border border-black/10 bg-white/80 p-3 sm:p-4">
+                      <p className="font-display text-2xl tracking-tighter text-ink sm:text-3xl">{stat.value}</p>
+                      <p className="mt-1 text-[10px] uppercase tracking-[0.18em] text-black/45">{stat.label}</p>
+                    </div>
+                  ))}
+                </div>
+              </section>
+
+              <aside className="rounded-[28px] border border-black/10 bg-white p-5 shadow-[0_8px_20px_rgba(17,24,39,0.03)] sm:p-6">
+                <p className="text-[9px] uppercase tracking-[0.24em] text-black/45">This week</p>
+                <h2 className="mt-2 font-display text-3xl tracking-tighter text-ink">Top picks</h2>
+
+                <div className="mt-5 space-y-3">
+                  {[
+                    ['Jollof Rice', 'Lekki • 4.8'],
+                    ['Amala & Ewedu', 'Yaba • 4.9'],
+                    ['Suya Night Market', 'Victoria Island • 4.7'],
+                  ].map(([name, meta]) => (
+                    <div key={name} className="flex items-center justify-between gap-3 rounded-2xl border border-black/8 bg-[#f7f2eb] p-3">
+                      <div>
+                        <p className="font-medium text-ink">{name}</p>
+                        <p className="text-xs text-black/45">{meta}</p>
+                      </div>
+                      <div className="flex items-center gap-1 rounded-full bg-white px-2 py-1 text-[10px] font-medium text-black/60">
+                        <Star className="h-3 w-3 fill-current text-yellow-400" />
+                        4.8
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="mt-6 rounded-[22px] bg-[#f2eadf] p-4">
+                  <p className="text-[9px] uppercase tracking-[0.24em] text-black/45">Featured route</p>
+                  <h3 className="mt-2 font-display text-2xl tracking-tighter text-ink">Freedom Park</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-black/60">History, memory, and city energy in one calm, easy walk.</p>
+                </div>
+              </aside>
             </div>
           </div>
-        </div>
-
-        <div className="pointer-events-none absolute -bottom-[4vw] left-1/2 z-[5] w-full -translate-x-1/2 overflow-hidden">
-          <Parallax strength={0.4}>
-            <GiantWordmark text="ECHOES" className="text-[19.5vw]" strokeOnly />
-          </Parallax>
         </div>
       </header>
 
@@ -254,6 +357,59 @@ export default function Home() {
           </Notice>
         )}
       </div>
+
+      <section className="relative mx-auto max-w-7xl px-4 pb-6 pt-8 sm:px-6 lg:px-8">
+        <div className="mb-6 flex items-end justify-between gap-4">
+          <div>
+            <p className="text-[10px] font-medium uppercase tracking-[0.28em] text-black/40">Food spotlight</p>
+            <h2 className="mt-2 font-display text-3xl tracking-tighter text-ink sm:text-5xl">
+              Nigerian flavours near you
+            </h2>
+          </div>
+          <Link to="/discover" className="hidden items-center gap-2 text-sm font-medium text-brand-deep sm:inline-flex">
+            Explore the food map
+            <ArrowUpRight className="h-4 w-4" />
+          </Link>
+        </div>
+
+        <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+          {FOOD_FEATURES.map((dish) => (
+            <article key={dish.name} className="group overflow-hidden rounded-[28px] border border-black/10 bg-white shadow-[0_14px_32px_rgba(17,24,39,0.06)] transition-transform duration-300 hover:-translate-y-1">
+              <div className={`relative h-40 bg-gradient-to-br ${dish.tone}`}>
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.34),transparent_36%)]" />
+                <div className="absolute left-4 top-4 flex items-center gap-2 rounded-full bg-white/80 px-2.5 py-1 text-[10px] font-medium uppercase tracking-[0.18em] text-black/60 backdrop-blur-sm">
+                  <MapPin className="h-3 w-3" />
+                  {dish.tag}
+                </div>
+                <div className="absolute bottom-4 left-4 flex items-center gap-1 rounded-full bg-black/20 px-2 py-1 text-xs text-white">
+                  <Star className="h-3.5 w-3.5 fill-current text-yellow-300" />
+                  {dish.rating}
+                </div>
+              </div>
+
+              <div className="p-4 sm:p-5">
+                <div className="flex items-start justify-between gap-3">
+                  <h3 className="font-display text-2xl tracking-tighter text-ink">{dish.name}</h3>
+                  <div className="rounded-full bg-[#f5efe7] px-2 py-1 text-[10px] uppercase tracking-[0.22em] text-black/50">
+                    Local
+                  </div>
+                </div>
+                <p className="mt-2 text-sm leading-relaxed text-black/60">{dish.blurb}</p>
+                <div className="mt-4 flex items-center justify-between gap-3">
+                  <div>
+                    <p className="text-[10px] uppercase tracking-[0.2em] text-black/40">Best restaurant</p>
+                    <p className="mt-1 text-sm font-medium text-ink">{dish.restaurant}</p>
+                  </div>
+                  <button type="button" className="inline-flex items-center gap-1 rounded-full border border-black/10 px-3 py-2 text-[10px] font-medium uppercase tracking-[0.18em] text-ink">
+                    Explore
+                    <ArrowUpRight className="h-3 w-3" />
+                  </button>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
 
       {/* ==================== FEATURED PLACES ==================== */}
       <section id="places" className="relative pb-8 pt-24 sm:pt-36">
@@ -279,11 +435,16 @@ export default function Home() {
             {primary && (
               <div className="mx-auto mb-6 max-w-7xl px-6 sm:mb-10 sm:px-10">
                 <Reveal>
-                  <Link
-                    to={`/places/${primary.id}`}
-                    className="group relative block aspect-[16/10] overflow-hidden rounded-2xl shadow-2xl shadow-black/15 sm:aspect-[21/9]"
-                  >
-                    <div className={`absolute inset-0 bg-gradient-to-br ${placeArt(primary)}`} />
+                  {/*
+                    The card is a link over its whole surface, but the licence
+                    credit inside it is a link too, so the card is a shell with
+                    an overlay link rather than one anchor wrapped in another.
+                  */}
+                  <div className="group relative aspect-[16/10] overflow-hidden rounded-2xl shadow-2xl shadow-black/15 sm:aspect-[21/9]">
+                    <div
+                      className={`absolute inset-0 bg-gradient-to-br ${placeArt(primary)}`}
+                      style={placeImageStyle(primary)}
+                    />
                     <div className="absolute inset-0 bg-[radial-gradient(circle_at_75%_25%,rgba(255,255,255,0.28),transparent_55%)]" />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
                     <div className="absolute bottom-0 left-0 flex w-full flex-col gap-4 p-6 sm:flex-row sm:items-end sm:justify-between sm:p-10">
@@ -293,13 +454,17 @@ export default function Home() {
                           {primary.name}
                         </h3>
                         <p className="mt-2 max-w-md text-base text-white/60">{primary.summary}</p>
+                        <ImageCredit image={primary.image} className="relative z-20 mt-3 max-w-md" />
                       </div>
                       <div className="flex flex-wrap gap-2 text-xs text-white/60">
                         <Chip tone="dark">{categoryLabel(primary.category)}</Chip>
                         <Chip tone="dark">{primary.neighbourhood}</Chip>
                       </div>
                     </div>
-                  </Link>
+                    <Link to={`/places/${primary.id}`} className="absolute inset-0 z-10 rounded-2xl">
+                      <span className="sr-only">{primary.name} — open the cultural record</span>
+                    </Link>
+                  </div>
                 </Reveal>
               </div>
             )}
@@ -316,13 +481,15 @@ export default function Home() {
                         : 'lg:col-span-5 lg:mt-24'
                     }
                   >
-                    <Link
-                      to={`/places/${place.id}`}
-                      className={`group relative block overflow-hidden rounded-2xl shadow-2xl shadow-black/15 ${
+                    <div
+                      className={`group relative overflow-hidden rounded-2xl shadow-2xl shadow-black/15 ${
                         index === 0 ? 'aspect-[4/3]' : 'aspect-[4/5] lg:aspect-auto'
                       }`}
                     >
-                      <div className={`absolute inset-0 bg-gradient-to-br ${placeArt(place)}`} />
+                      <div
+                        className={`absolute inset-0 bg-gradient-to-br ${placeArt(place)}`}
+                        style={placeImageStyle(place)}
+                      />
                       <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.22),transparent_55%)]" />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
                       <div className="absolute bottom-0 left-0 p-6 sm:p-8">
@@ -333,6 +500,7 @@ export default function Home() {
                           {place.name}
                         </h3>
                         <p className="mt-2 max-w-sm text-base text-white/60">{place.summary}</p>
+                        <ImageCredit image={place.image} className="relative z-20 mt-3 max-w-xs" />
                         <div className="mt-4 flex flex-wrap gap-2 text-xs text-white/60">
                           <Chip tone="dark">{categoryLabel(place.category)}</Chip>
                           {place.knowledge && place.knowledge.gaps.length > 0 && (
@@ -340,7 +508,10 @@ export default function Home() {
                           )}
                         </div>
                       </div>
-                    </Link>
+                      <Link to={`/places/${place.id}`} className="absolute inset-0 z-10 rounded-2xl">
+                        <span className="sr-only">{place.name} — open the cultural record</span>
+                      </Link>
+                    </div>
                   </Reveal>
                 ))}
               </div>
@@ -348,11 +519,11 @@ export default function Home() {
 
             {rest[2] && (
               <Reveal>
-                <Link
-                  to={`/places/${rest[2].id}`}
-                  className="group relative block aspect-[16/12] overflow-hidden sm:aspect-[21/9]"
-                >
-                  <div className={`absolute inset-0 bg-gradient-to-br ${placeArt(rest[2])}`} />
+                <div className="group relative aspect-[16/12] overflow-hidden sm:aspect-[21/9]">
+                  <div
+                    className={`absolute inset-0 bg-gradient-to-br ${placeArt(rest[2])}`}
+                    style={placeImageStyle(rest[2])}
+                  />
                   <div className="absolute inset-0 bg-[radial-gradient(circle_at_60%_30%,rgba(255,255,255,0.2),transparent_60%)]" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
                   <div className="absolute bottom-0 left-0 w-full">
@@ -363,6 +534,7 @@ export default function Home() {
                           {rest[2].name}
                         </h3>
                         <p className="mt-2 max-w-md text-base text-white/60">{rest[2].summary}</p>
+                        <ImageCredit image={rest[2].image} className="relative z-20 mt-3 max-w-md" />
                       </div>
                       <div className="flex flex-wrap gap-2 text-xs text-white/60">
                         <Chip tone="dark">{categoryLabel(rest[2].category)}</Chip>
@@ -370,11 +542,58 @@ export default function Home() {
                       </div>
                     </div>
                   </div>
-                </Link>
+                  <Link to={`/places/${rest[2].id}`} className="absolute inset-0 z-10">
+                    <span className="sr-only">{rest[2].name} — open the cultural record</span>
+                  </Link>
+                </div>
               </Reveal>
             )}
           </>
         )}
+      </section>
+
+      <section id="nigeria-coverage" className="relative pb-8 pt-20 sm:pt-28">
+        <div className="mx-auto max-w-7xl px-6 sm:px-10">
+          <div className="mb-10 flex items-end justify-between gap-4">
+            <SectionHeading
+              eyebrow="Across Nigeria"
+              title="Built for a wider travel map, not just"
+              accent="one city."
+              description="ECHOES is expanding beyond Lagos with a deeper travel story across Nigeria's major heritage and culture hubs."
+            />
+            <Link to="/discover" className="hidden items-center gap-2 text-sm font-medium text-brand-deep sm:inline-flex">
+              View more places
+              <ArrowUpRight className="h-4 w-4" />
+            </Link>
+          </div>
+
+          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+            {NIGERIA_HIGHLIGHTS.map((item) => (
+              <article
+                key={item.city}
+                className="group overflow-hidden rounded-[26px] border border-black/10 bg-white shadow-[0_14px_28px_rgba(17,24,39,0.05)] transition-transform duration-300 hover:-translate-y-1"
+              >
+                <div className={`relative h-40 bg-gradient-to-br ${item.tone}`}>
+                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.28),transparent_30%)]" />
+                  <div className="absolute left-4 top-4 rounded-full bg-white/80 px-2.5 py-1 text-[10px] font-medium uppercase tracking-[0.2em] text-black/60 backdrop-blur-sm">
+                    {item.state}
+                  </div>
+                </div>
+
+                <div className="p-5">
+                  <div className="flex items-center justify-between gap-3">
+                    <h3 className="font-display text-2xl tracking-tighter text-ink">{item.city}</h3>
+                    <span className="rounded-full bg-[#f3ecdf] px-2 py-1 text-[10px] uppercase tracking-[0.18em] text-black/50">
+                      Heritage
+                    </span>
+                  </div>
+                  <p className="mt-3 text-sm font-medium text-brand-deep">{item.headline}</p>
+                  <p className="mt-2 text-sm leading-relaxed text-black/60">{item.summary}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
       </section>
 
       {/* ==================== METHOD ==================== */}

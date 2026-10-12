@@ -15,10 +15,13 @@
     "db:generate": "prisma generate",
     "db:migrate": "prisma migrate deploy",
     "db:migrate:dev": "prisma migrate dev",
-    "db:seed": "tsx src/scripts/seed.ts"
+    "db:seed": "tsx src/scripts/seed.ts",
+    "ingest": "tsx src/scripts/ingest.ts",
+    "images:provenance": "tsx src/scripts/flag-image-provenance.ts"
   },
   "dependencies": {
     "@prisma/client": "^5.20.0",
+    "@types/multer": "^2.3.0",
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
@@ -26,6 +29,7 @@
     "express-rate-limit": "^7.4.0",
     "helmet": "^7.1.0",
     "jsonwebtoken": "^9.0.2",
+    "multer": "^2.4.0",
     "pino": "^9.4.0",
     "pino-http": "^10.3.0",
     "zod": "^3.23.8"

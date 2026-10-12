@@ -1,6 +1,7 @@
 import type { NextFunction, Request, Response } from 'express';
 import { ApiError } from '../lib/errors';
 import { logger } from '../lib/logger';
+import { recordServerError } from './metrics';
 
 export function notFoundHandler(req: Request, res: Response): void {
   res.status(404).json({
@@ -17,6 +18,9 @@ export function errorHandler(
   if (error instanceof ApiError) {
     if (error.status >= 500) {
       logger.error({ code: error.code, path: req.path, details: error.details }, error.message);
+      // Only our own error text reaches the health view: an unexpected exception
+      // could otherwise copy infrastructure detail onto a page people read.
+      recordServerError({ req, status: error.status, code: error.code, message: error.message });
     } else {
       logger.warn({ code: error.code, path: req.path }, error.message);
     }
@@ -27,7 +31,13 @@ export function errorHandler(
   }
 
   const message = error instanceof Error ? error.message : 'Unexpected error.';
-  logger.error({ err: error, path: req.path }, 'Unhandled error');
+  logger.error({ err: error, path: req.path, requestId: req.requestId }, 'Unhandled error');
+  recordServerError({
+    req,
+    status: 500,
+    code: 'internal_error',
+    message: 'Unhandled server error. Search the logs for this correlation id for the stack trace.',
+  });
   res.status(500).json({
     error: {
       code: 'internal_error',

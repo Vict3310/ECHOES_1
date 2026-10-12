@@ -8,8 +8,58 @@ import { validateBody } from '../middleware/validate';
 import { createRepository } from '../repo';
 import { bookingSchema } from '../schemas';
 import { initialiseCheckout, alatpayStatus } from '../services/payments/alatpay';
+import { recordServerEvent } from '../services/analytics/collect';
 
 export const bookingsRouter = Router();
+
+bookingsRouter.get(
+  '/bookings',
+  asyncHandler(async (req, res) => {
+    const repo = createRepository();
+    const email = typeof req.query.email === 'string' ? req.query.email.trim().toLowerCase() : '';
+    const sessionEmail = req.user?.email?.trim().toLowerCase() ?? '';
+    const isStaff = req.user?.role === 'admin' || req.user?.role === 'moderator';
+    const isOrganizer = req.user?.role === 'organizer';
+
+    if (!isStaff && !isOrganizer && !sessionEmail && !email) {
+      throw ApiError.unauthorized('Sign in to view your bookings.');
+    }
+
+    if (!isStaff && !isOrganizer && sessionEmail && email && email !== sessionEmail) {
+      throw ApiError.forbidden('You can only view your own bookings.');
+    }
+
+    const targetEmail = isStaff || isOrganizer ? '' : (email || sessionEmail);
+    let bookings = await repo.listBookings();
+
+    if (!isStaff && !isOrganizer && targetEmail) {
+      bookings = bookings.filter((booking) => booking.customerEmail.toLowerCase() === targetEmail);
+    }
+
+    const enriched = await Promise.all(
+      bookings.map(async (booking) => {
+        const experience = await repo.getExperience(booking.experienceId);
+        return {
+          id: booking.id,
+          reference: booking.reference,
+          status: booking.status,
+          experienceId: booking.experienceId,
+          experienceTitle: experience?.title ?? 'Experience',
+          scheduleId: booking.scheduleId,
+          participants: booking.participants,
+          totalMinor: booking.totalMinor,
+          currency: booking.currency,
+          customerName: booking.customerName,
+          customerEmail: booking.customerEmail,
+          createdAt: booking.createdAt,
+          updatedAt: booking.updatedAt,
+        };
+      }),
+    );
+
+    ok(res, { bookings: enriched });
+  }),
+);
 
 bookingsRouter.post(
   '/bookings',
@@ -89,6 +139,18 @@ bookingsRouter.post(
       details: { reference, mode: checkout.mode, amountMinor: booking.totalMinor },
     });
 
+    // Recorded server-side, so a booking that exists is always counted even if
+    // the visitor never returns to a page that could report it.
+    await recordServerEvent(repo, 'booking_started', {
+      userId: req.user?.id ?? null,
+      resourceId: experience.id,
+      path: '/bookings',
+      props: {
+        experienceId: experience.id,
+        participants: Math.min(Math.max(booking.participants, 1), 100),
+      },
+    });
+
     logger.info(
       { booking: booking.reference, payment: reference, mode: checkout.mode },
       'Booking created and checkout initialised',
@@ -132,9 +194,11 @@ bookingsRouter.get(
     if (!booking) throw ApiError.notFound('No booking matches that reference.');
 
     const email = typeof req.query.email === 'string' ? req.query.email.trim().toLowerCase() : '';
-    const owns = Boolean(email) && booking.customerEmail.toLowerCase() === email;
+    const sessionEmail = req.user?.email?.trim().toLowerCase() ?? '';
+    const owns = Boolean(email || sessionEmail) && booking.customerEmail.toLowerCase() === (email || sessionEmail);
     const isStaff = req.user?.role === 'admin' || req.user?.role === 'moderator';
-    if (!owns && !isStaff) {
+    const isOrganizer = req.user?.role === 'organizer';
+    if (!owns && !isStaff && !isOrganizer) {
       throw ApiError.forbidden('Provide the email used for this booking to view it.');
     }
 

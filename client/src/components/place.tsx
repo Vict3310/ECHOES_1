@@ -29,6 +29,73 @@ export function placeArt(place: Pick<Place, 'id' | 'category'>) {
   return gradients[place.category] ?? 'from-[#1E4D33] to-[#42A85D]/70';
 }
 
+export function placeImageStyle(place: Pick<Place, 'id' | 'category' | 'image'>) {
+  const imagePath = place.image?.localPath;
+  if (!imagePath) {
+    return undefined;
+  }
+
+  return {
+    backgroundImage: `linear-gradient(180deg, rgba(17,24,39,0.12), rgba(17,24,39,0.55)), url(${imagePath})`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
+  } as const;
+}
+
+/**
+ * Visible licence credit for a place image.
+ *
+ * The dataset records an author and a licence for every photograph, and CC BY-SA
+ * plus public-domain files require that credit to travel with the image rather
+ * than living only in the JSON. Images flagged `representative` are stock
+ * photographs that do not depict the place, so they say so wherever they appear.
+ */
+export function ImageCredit({
+  image,
+  variant = 'overlay',
+  className = '',
+}: {
+  image?: Place['image'];
+  variant?: 'overlay' | 'inline';
+  className?: string;
+}) {
+  if (!image) return null;
+
+  const author = image.artist?.trim() || image.credit?.trim() || null;
+  const href = image.filePageUrl || image.licenseUrl || null;
+  const tone = variant === 'overlay' ? 'text-white/70' : 'text-black/45';
+
+  return (
+    <p className={`text-[10px] leading-snug ${tone} ${className}`}>
+      {image.depicts === 'representative' && (
+        <>
+          <span className="uppercase tracking-[0.14em]">Representative image</span>
+          <span aria-hidden="true"> · </span>
+        </>
+      )}
+      {author && (
+        <>
+          Photo: {author}
+          <span aria-hidden="true"> · </span>
+        </>
+      )}
+      {href ? (
+        <a
+          href={href}
+          target="_blank"
+          rel="noreferrer noopener"
+          className="underline underline-offset-2 hover:no-underline"
+        >
+          {image.license}
+        </a>
+      ) : (
+        image.license
+      )}
+    </p>
+  );
+}
+
 export function PlaceCard({
   place,
   active = false,
@@ -42,7 +109,10 @@ export function PlaceCard({
 
   const content = (
     <>
-      <div className={`panel-art aspect-[16/10] bg-gradient-to-br ${placeArt(place)}`}>
+      <div
+        className={`panel-art aspect-[16/10] bg-gradient-to-br ${placeArt(place)}`}
+        style={placeImageStyle(place)}
+      >
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.22),transparent_55%)]" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent" />
         <div className="absolute bottom-0 left-0 flex w-full items-end justify-between gap-3 p-5">
@@ -51,6 +121,7 @@ export function PlaceCard({
             <h3 className="font-display text-lg font-light leading-tight tracking-tighter text-white">
               {place.name}
             </h3>
+            <ImageCredit image={place.image} className="relative z-20 mt-1.5 max-w-[20rem]" />
           </div>
           {gaps > 0 && (
             <span className="shrink-0 rounded-full border border-white/25 px-2.5 py-1 text-[10px] text-white/75">
@@ -73,28 +144,40 @@ export function PlaceCard({
     </>
   );
 
+  /*
+    The whole card is one target, but the licence credit inside it is a link of
+    its own. The target is therefore an overlay rather than a wrapper: an anchor
+    or button nested inside another is invalid HTML and, in practice, unusable —
+    a browser is free to close the outer element and the inner one becomes
+    unreachable. The overlay sits above the card and below the credit `z-20`.
+  */
+  const shellClass = `group relative block w-full rounded-2xl text-left transition-transform duration-300 hover:-translate-y-0.5 ${
+    active ? 'ring-2 ring-brand-deep ring-offset-2 ring-offset-cream' : ''
+  }`;
+
   if (onSelect) {
     return (
-      <button
-        type="button"
-        onClick={() => onSelect(place)}
-        aria-pressed={active}
-        className={`group block w-full rounded-2xl text-left transition-transform duration-300 hover:-translate-y-0.5 ${
-          active ? 'ring-2 ring-brand-deep ring-offset-2 ring-offset-cream' : ''
-        }`}
-      >
+      <div className={shellClass}>
         {content}
-      </button>
+        <button
+          type="button"
+          onClick={() => onSelect(place)}
+          aria-pressed={active}
+          className="absolute inset-0 z-10 rounded-2xl"
+        >
+          <span className="sr-only">{place.name}</span>
+        </button>
+      </div>
     );
   }
 
   return (
-    <Link
-      to={`/places/${place.id}`}
-      className="group block rounded-2xl transition-transform duration-300 hover:-translate-y-0.5"
-    >
+    <div className={shellClass}>
       {content}
-    </Link>
+      <Link to={`/places/${place.id}`} className="absolute inset-0 z-10 rounded-2xl">
+        <span className="sr-only">{place.name} — open the cultural record</span>
+      </Link>
+    </div>
   );
 }
 

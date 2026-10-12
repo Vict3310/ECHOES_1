@@ -27,6 +27,8 @@ export interface SourceRef {
   retrievedAt?: string;
   /** Whether the citation was confirmed to resolve. `null` = could not be checked. */
   found?: boolean | null;
+  /** When the citation was last checked by the ingestion pipeline. */
+  checkedAt?: string;
 }
 
 /** A freely-licensed image plus the attribution required to reuse it. */
@@ -41,9 +43,29 @@ export interface PlaceImage {
   artist: string | null;
   credit: string | null;
   attributionRequired: boolean;
+  /**
+   * `place` = a confirmed, openly licensed photograph of this place.
+   * `representative` = a stock image shown for atmosphere, labelled as such.
+   */
+  depicts?: 'place' | 'representative';
   filePageUrl: string;
   articleUrl: string;
   retrievedAt: string;
+}
+
+/** A guide profile as the marketplace and the dashboard receive it. */
+export interface GuideSummary {
+  id: string;
+  name: string;
+  role: string;
+  city: string;
+  rating: number;
+  specialties: string[];
+  bio: string;
+  availability: string;
+  priceFrom: string;
+  /** Path this API serves the guide's uploaded photograph from, or null. */
+  avatarUrl: string | null;
 }
 
 export type PlaceCategory =

@@ -18,6 +18,7 @@ import type { ItineraryLeg, ItineraryResult, ItineraryStop } from '../lib/types'
 import MapView from '../components/MapView';
 import { Chip, EmptyState, Notice, SectionHeading, Skeleton } from '../components/ui';
 import { Reveal } from '../components/layout';
+import { track } from '../lib/tracker';
 
 const INTERESTS = [
   'history',
@@ -108,6 +109,7 @@ export default function Plan() {
       setResult(itinerary);
       setStops(itinerary.stops);
       setLegs(itinerary.legs);
+      track('itinerary_created', { stops: itinerary.stops.length });
     } catch (planError) {
       setResult(null);
       setStops([]);

@@ -33,6 +33,11 @@ enum StoryStatus {
   needs_correction
 }
 
+enum UserStatus {
+  active
+  suspended
+}
+
 enum AttributionPreference {
   full_name
   pseudonym
@@ -64,15 +69,36 @@ enum PaymentStatus {
 }
 
 model User {
-  id           String   @id @default(uuid())
-  email        String   @unique
-  name         String
-  passwordHash String
-  role         UserRole @default(visitor)
-  createdAt    DateTime @default(now())
-  stories      Story[]  @relation("StoryReviewer")
+  id             String               @id @default(uuid())
+  email          String               @unique
+  name           String
+  passwordHash   String
+  role           UserRole             @default(visitor)
+  // Suspension is reversible and auditable; accounts are never hard-deleted by
+  // the dashboard, so the audit trail keeps pointing at something real.
+  status         UserStatus           @default(active)
+  suspendedAt    DateTime?
+  createdAt      DateTime             @default(now())
+  stories        Story[]              @relation("StoryReviewer")
+  passwordResets PasswordResetToken[]
 
   @@index([role])
+  @@index([status, createdAt])
+  @@index([createdAt])
+}
+
+/// Single-use password resets. Only the SHA-256 hash of the emailed token is
+/// stored, so a database leak cannot be replayed into a working reset link.
+model PasswordResetToken {
+  id        String    @id @default(uuid())
+  userId    String
+  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  tokenHash String    @unique
+  expiresAt DateTime
+  usedAt    DateTime?
+  createdAt DateTime  @default(now())
+
+  @@index([userId, usedAt])
 }
 
 model Story {
@@ -144,6 +170,9 @@ model PaymentAttempt {
   @@index([status, createdAt])
 }
 
+/// Append-only by policy and by database trigger (see prisma/sql/analytics.sql):
+/// an UPDATE or DELETE on this table is rejected outright, so an administrator
+/// cannot quietly rewrite what an earlier administrator did.
 model AuditLog {
   id         String   @id @default(uuid())
   actor      String
@@ -155,4 +184,74 @@ model AuditLog {
 
   @@index([entityType, entityId])
   @@index([createdAt])
+}
+
+/// Raw first-party analytics events.
+///
+/// `userId` is a plain column rather than a foreign key: analytics must keep
+/// working for anonymous visitors, and erasing an account must not cascade into
+/// deleting the record of what the site did. It is deliberately not the visitor
+/// identifier — that is a random token, and the two are counted separately.
+model AnalyticsEvent {
+  id          String   @id
+  name        String
+  receivedAt  DateTime @default(now())
+  occurredAt  DateTime
+  visitorId   String?
+  sessionId   String?
+  userId      String?
+  path        String?
+  resourceId  String?
+  utmSource   String?
+  utmMedium   String?
+  utmCampaign String?
+  device      String   @default("unknown")
+  props       Json     @default("{}")
+  internal    Boolean  @default(false)
+
+  @@index([occurredAt])
+  @@index([name, occurredAt])
+  @@index([visitorId, occurredAt])
+  @@index([sessionId])
+  @@index([userId, occurredAt])
+  @@index([resourceId, occurredAt])
+  @@index([internal, occurredAt])
+}
+
+/// One row per AI request. Prompts and answers are never stored here.
+model AiRequest {
+  id                  String   @id @default(uuid())
+  feature             String
+  model               String
+  provider            String
+  ok                  Boolean
+  status              Int
+  latencyMs           Int
+  promptTokens        Int?
+  completionTokens    Int?
+  providerCostMinor   Int?
+  estimatedCostMicros Int?
+  errorKind           String?
+  createdAt           DateTime @default(now())
+
+  @@index([createdAt])
+  @@index([feature, createdAt])
+  @@index([model, createdAt])
+}
+
+/// Per-minute request aggregates, not per-request rows.
+model RequestMetric {
+  id            String   @id @default(uuid())
+  bucket        DateTime
+  route         String
+  method        String
+  count         Int      @default(0)
+  serverErrors  Int      @default(0)
+  clientErrors  Int      @default(0)
+  latencySumMs  Int      @default(0)
+  latencyMaxMs  Int      @default(0)
+  histogram     Int[]    @default([])
+
+  @@unique([bucket, route, method])
+  @@index([bucket])
 }

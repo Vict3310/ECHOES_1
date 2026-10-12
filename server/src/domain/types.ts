@@ -35,6 +35,8 @@ export interface SourceRef {
   retrievedAt?: string;
   /** Result of checking the citation resolves. `null` means it could not be checked. */
   found?: boolean | null;
+  /** When the citation was last checked by the ingestion pipeline. */
+  checkedAt?: string;
 }
 
 /**
@@ -53,6 +55,11 @@ export interface PlaceImage {
   artist: string | null;
   credit: string | null;
   attributionRequired: boolean;
+  /**
+   * `place` = a confirmed, openly licensed photograph of this place.
+   * `representative` = a stock image shown for atmosphere, labelled as such.
+   */
+  depicts?: 'place' | 'representative';
   filePageUrl: string;
   articleUrl: string;
   retrievedAt: string;
@@ -110,8 +117,30 @@ export interface Experience {
 }
 
 export type StoryStatus = 'pending' | 'approved' | 'rejected' | 'needs_correction';
+export type GuideStatus = 'pending' | 'approved' | 'rejected' | 'needs_correction';
 export type AttributionPreference = 'full_name' | 'pseudonym' | 'anonymous';
 export type SensitivityLevel = 'standard' | 'sensitive' | 'restricted';
+
+export interface GuideProfile {
+  id: string;
+  email: string | null;
+  name: string;
+  role: string;
+  city: string;
+  specialties: string[];
+  bio: string;
+  availability: string | null;
+  priceFrom: string | null;
+  /** Public path of an uploaded photograph, or null when none was provided. */
+  avatarUrl: string | null;
+  rating: number;
+  status: GuideStatus;
+  moderationNote: string | null;
+  reviewedBy: string | null;
+  reviewedAt: string | null;
+  createdAt: string;
+  updatedAt: string;
+}
 
 export interface Story {
   id: string;

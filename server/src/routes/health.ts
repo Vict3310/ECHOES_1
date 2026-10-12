@@ -3,6 +3,7 @@ import { databaseConfigured, env, gemmaConfigured } from '../env';
 import { asyncHandler, ok } from '../lib/http';
 import { createGemmaProvider } from '../services/gemma/providers';
 import { alatpayStatus } from '../services/payments/alatpay';
+import { emailStatus } from '../services/email';
 import { createRepository } from '../repo';
 
 export const healthRouter = Router();
@@ -39,6 +40,7 @@ healthRouter.get(
           productionReady: !env.routing.osrmBaseUrl.includes('router.project-osrm.org'),
         },
         alatpay: alatpayStatus(),
+        email: emailStatus(),
         database: {
           configured: databaseConfigured(),
           note: databaseConfigured()

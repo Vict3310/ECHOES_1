@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import L from 'leaflet';
 import type { Place } from '../lib/types';
+import { track } from '../lib/tracker';
 
 /** Minimal route shape so both a single route and a joined itinerary can be drawn. */
 export interface DrawableRoute {
@@ -58,6 +59,8 @@ export function MapView({
   // Initialise once.
   useEffect(() => {
     if (!containerRef.current || mapRef.current) return;
+    // Counted once per mounted map, whichever page hosts it.
+    track('map_opened', { interaction: 'open' });
 
     const map = L.map(containerRef.current, {
       center: LAGOS_CENTRE,

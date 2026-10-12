@@ -19,7 +19,7 @@ export interface GenerateResult {
 }
 
 export interface GemmaProvider {
-  readonly name: 'google' | 'ollama' | 'offline';
+  readonly name: 'google' | 'ollama' | 'openai' | 'offline';
   readonly model: string;
   generate(options: GenerateOptions): Promise<GenerateResult>;
   health(): Promise<{ ok: boolean; message: string }>;
@@ -105,6 +105,83 @@ class GoogleGemmaProvider implements GemmaProvider {
       return { ok: true, message: `Google AI reachable (${result.model}).` };
     } catch (error) {
       return { ok: false, message: error instanceof Error ? error.message : 'unreachable' };
+    }
+  }
+}
+
+/** OpenAI — cheap hosted inference via GPT-4o mini. */
+class OpenAIGemmaProvider implements GemmaProvider {
+  readonly name = 'openai' as const;
+  constructor(readonly model: string, private readonly apiKey: string, private readonly baseUrl: string) {}
+
+  async generate(options: GenerateOptions): Promise<GenerateResult> {
+    const { signal, done } = withTimeout(env.gemma.timeoutMs);
+    const started = Date.now();
+    try {
+      const response = await fetch(`${this.baseUrl.replace(/\/$/, '')}/chat/completions`, {
+        method: 'POST',
+        signal,
+        headers: {
+          'content-type': 'application/json',
+          authorization: `Bearer ${this.apiKey}`,
+        },
+        body: JSON.stringify({
+          model: this.model,
+          temperature: options.temperature ?? 0.3,
+          max_tokens: options.maxTokens ?? env.gemma.maxOutputTokens,
+          ...(options.json ? { response_format: { type: 'json_object' } } : {}),
+          messages: [
+            { role: 'system', content: options.system },
+            { role: 'user', content: options.prompt },
+          ],
+        }),
+      });
+
+      if (!response.ok) {
+        const detail = await response.text().catch(() => '');
+        throw new GemmaUnavailableError(
+          `OpenAI returned HTTP ${response.status}. ${detail.slice(0, 300)}`,
+        );
+      }
+
+      const body = (await response.json()) as {
+        choices?: Array<{ message?: { content?: string } }>;
+        usage?: { prompt_tokens?: number; completion_tokens?: number };
+      };
+      const text = body.choices?.[0]?.message?.content?.trim() ?? '';
+      if (!text) throw new GemmaUnavailableError('OpenAI returned an empty response.');
+
+      return {
+        text,
+        provider: this.name,
+        model: this.model,
+        usage: {
+          inputTokens: body.usage?.prompt_tokens,
+          outputTokens: body.usage?.completion_tokens,
+        },
+        latencyMs: Date.now() - started,
+      };
+    } catch (error) {
+      if (error instanceof GemmaUnavailableError) throw error;
+      throw new GemmaUnavailableError(
+        error instanceof Error ? `OpenAI request failed: ${error.message}` : 'OpenAI request failed.',
+        error,
+      );
+    } finally {
+      done();
+    }
+  }
+
+  async health(): Promise<{ ok: boolean; message: string }> {
+    try {
+      const result = await this.generate({
+        system: 'Reply with the single word: ready',
+        prompt: 'ping',
+        maxTokens: 8,
+      });
+      return { ok: true, message: `OpenAI reachable (${result.model}).` };
+    } catch (error) {
+      return { ok: false, message: error instanceof Error ? error.message : 'OpenAI unreachable.' };
     }
   }
 }
@@ -222,6 +299,13 @@ export function createGemmaProvider(): GemmaProvider {
       return new OfflineProvider();
     }
     return new GoogleGemmaProvider(env.gemma.model, env.gemma.googleApiKey);
+  }
+  if (env.gemma.provider === 'openai') {
+    if (!env.gemma.openaiApiKey) {
+      logger.warn('GEMMA_PROVIDER=openai but OPENAI_API_KEY is empty; falling back to offline mode.');
+      return new OfflineProvider();
+    }
+    return new OpenAIGemmaProvider(env.gemma.model, env.gemma.openaiApiKey, env.gemma.openaiBaseUrl);
   }
   if (env.gemma.provider === 'ollama') {
     return new OllamaGemmaProvider(env.gemma.model, env.gemma.ollamaBaseUrl);

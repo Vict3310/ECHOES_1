@@ -314,6 +314,112 @@ describe('bookings and payments', () => {
     );
     expect(res.status).toBe(403);
   });
+
+  it('shows all bookings to organizers while travellers only see their own', async () => {
+    const organizer = await request(app).post('/api/auth/register').send({
+      email: 'organizer@example.com',
+      name: 'Guide Lead',
+      password: 'supersecretpass',
+      role: 'organizer',
+    });
+    const traveller = await request(app).post('/api/auth/register').send({
+      email: 'traveller@example.com',
+      name: 'Tourist Person',
+      password: 'supersecretpass',
+      role: 'visitor',
+    });
+
+    await request(app).post('/api/bookings').send({ ...booking, customerEmail: 'ada@example.com' });
+    await request(app).post('/api/bookings').send({
+      ...booking,
+      customerEmail: 'travel@example.com',
+      participants: 1,
+      customerName: 'Zoey M',
+    });
+
+    const organizerList = await request(app)
+      .get('/api/bookings')
+      .set('Cookie', `echoes_session=${organizer.body.data.token}`);
+
+    const travellerList = await request(app)
+      .get('/api/bookings')
+      .set('Cookie', `echoes_session=${traveller.body.data.token}`);
+
+    expect(organizerList.status).toBe(200);
+    expect(organizerList.body.data.bookings.length).toBeGreaterThanOrEqual(2);
+    expect(travellerList.status).toBe(200);
+    expect(travellerList.body.data.bookings.every((entry: { customerEmail: string }) => entry.customerEmail === 'traveller@example.com')).toBe(true);
+  });
+});
+
+describe('guide approvals', () => {
+  it('keeps newly submitted guide profiles pending until review', async () => {
+    const organizer = await request(app).post('/api/auth/register').send({
+      email: 'guide-owner@example.com',
+      name: 'Nneka Guide',
+      password: 'supersecretpass',
+      role: 'organizer',
+    });
+
+    const created = await request(app)
+      .post('/api/guides')
+      .set('Cookie', `echoes_session=${organizer.body.data.token}`)
+      .send({
+        name: 'Nneka Guide',
+        role: 'Heritage storyteller',
+        city: 'Lagos Island',
+        specialties: ['History', 'Food tours'],
+        bio: 'I host slow, story-led neighbourhood walks through the old city and market routes.',
+        availability: 'Fri-Sun',
+        priceFrom: '₦18,000',
+      });
+
+    expect(created.status).toBe(201);
+    expect(created.body.data.guide.status).toBe('pending');
+
+    const publicList = await request(app).get('/api/guides');
+    expect(publicList.body.data.guides.find((guide: { id: string }) => guide.id === created.body.data.guide.id)).toBeUndefined();
+
+    const queue = await request(app).get('/api/admin/guides?status=pending').set(ADMIN);
+    expect(queue.status).toBe(200);
+    expect(queue.body.data.guides.some((guide: { id: string }) => guide.id === created.body.data.guide.id)).toBe(true);
+  });
+
+  it('approves a reviewed guide and makes it public', async () => {
+    const organizer = await request(app).post('/api/auth/register').send({
+      email: 'guide-owner-2@example.com',
+      name: 'Olumide Story',
+      password: 'supersecretpass',
+      role: 'organizer',
+    });
+
+    const created = await request(app)
+      .post('/api/guides')
+      .set('Cookie', `echoes_session=${organizer.body.data.token}`)
+      .send({
+        name: 'Olumide Story',
+        role: 'Culture guide',
+        city: 'Yaba',
+        specialties: ['Art', 'Film'],
+        bio: 'I connect travellers to short, thoughtful cultural walks across the city and local creative spaces.',
+        availability: 'Wed-Mon',
+        priceFrom: '₦16,000',
+      });
+
+    const queue = await request(app).get('/api/admin/guides?status=pending').set(ADMIN);
+    const guide = queue.body.data.guides.find((item: { id: string }) => item.id === created.body.data.guide.id);
+
+    const approved = await request(app)
+      .post(`/api/admin/guides/${guide.id}/moderate`)
+      .set(ADMIN)
+      .send({ status: 'approved', moderationNote: 'Profile is complete and fits the community standard.' });
+
+    expect(approved.status).toBe(200);
+    expect(approved.body.data.guide.status).toBe('approved');
+
+    const publicList = await request(app).get('/api/guides');
+    expect(publicList.body.data.guides.some((item: { id: string }) => item.id === guide.id)).toBe(true);
+  });
 });
 
 describe('AI and routing surfaces', () => {

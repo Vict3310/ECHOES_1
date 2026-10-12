@@ -7,6 +7,7 @@ import { usePlaces } from '../lib/hooks';
 import type { AnswerResult } from '../lib/types';
 import { Chip, Notice, SectionHeading } from '../components/ui';
 import { Reveal } from '../components/layout';
+import { track } from '../lib/tracker';
 
 interface Turn {
   id: string;
@@ -45,6 +46,12 @@ export default function Assistant() {
     endRef.current?.scrollIntoView({ behavior: 'smooth', block: 'end' });
   }, [turns.length, loading]);
 
+  useEffect(() => {
+    track('ai_guide_opened', { surface: placeId ? 'place' : 'discover' });
+    // Once per visit to the page, not per render.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   async function ask(nextQuestion: string) {
     const trimmed = nextQuestion.trim();
     if (trimmed.length < 3) return;
@@ -59,7 +66,14 @@ export default function Assistant() {
       setTurns((current) =>
         current.map((item) => (item.id === turn.id ? { ...item, result } : item)),
       );
+      // Only the feature and the outcome are recorded. The question and the
+      // answer never leave the request that produced them.
+      track('ai_question_submitted', { feature: 'guide', outcome: 'ok' });
     } catch (error) {
+      track('ai_question_submitted', {
+        feature: 'guide',
+        outcome: error instanceof ApiClientError && error.status === 429 ? 'rate_limited' : 'failed',
+      });
       setTurns((current) =>
         current.map((item) =>
           item.id === turn.id

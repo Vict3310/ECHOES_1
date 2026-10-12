@@ -1,0 +1,58 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+# One run per branch: a new push supersedes the previous, in-flight run.
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    name: Typecheck, test and build
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      # The client is generated from server/prisma/schema.prisma. `npm ci` usually
+      # triggers this via the package's postinstall, but CI should not depend on
+      # that: without it the server typecheck cannot see the generated types.
+      - name: Generate Prisma client
+        run: npx prisma generate --schema server/prisma/schema.prisma
+
+      - name: Typecheck
+        run: npm run typecheck
+
+      # `lint` currently aliases the same tsc --noEmit check. It is run separately
+      # so adding a real linter later does not require editing this workflow.
+      - name: Lint
+        run: npm run lint
+
+      # Tests run entirely offline: the in-memory store is used, outbound network
+      # calls are disabled, and the mailer's development transport writes to the log.
+      - name: Test
+        run: npm test
+
+      - name: Build
+        run: npm run build
+
+      - name: Upload client build
+        uses: actions/upload-artifact@v4
+        with:
+          name: client-dist
+          path: client/dist
+          if-no-files-found: error
+          retention-days: 7

@@ -1,0 +1,21 @@
+# Keep secrets and local state out of the build context entirely.
+.env
+.env.*
+
+node_modules
+**/node_modules
+
+**/dist
+**/build
+**/coverage
+
+.git
+.github
+
+# Local database files and generated SQLite-style artefacts.
+server/prisma/*.db
+
+*.log
+.DS_Store
+**/*.tsbuildinfo
+.vite

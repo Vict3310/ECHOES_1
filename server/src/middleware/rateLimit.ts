@@ -43,6 +43,17 @@ export const paymentLimiter = limiter({
   message: 'Too many checkout attempts. Please try again shortly.',
 });
 
+/**
+ * The tracker batches, so a busy visit still sends few requests. The ceiling is
+ * generous enough not to lose real sessions and low enough that the endpoint
+ * cannot be used as a write amplifier.
+ */
+export const analyticsLimiter = limiter({
+  windowMs: 5 * 60 * 1000,
+  max: 120,
+  message: 'Too many analytics requests from this address.',
+});
+
 export const authLimiter = limiter({
   windowMs: 15 * 60 * 1000,
   max: 20,

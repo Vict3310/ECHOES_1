@@ -64,6 +64,24 @@ export const moderationSchema = z.object({
   reviewedBy: z.string().email().max(200).optional(),
 });
 
+export const guideProfileSchema = z.object({
+  name: z.string().min(2).max(120),
+  role: z.string().min(2).max(120),
+  city: z.string().min(2).max(120),
+  specialties: z.array(z.string().min(2).max(60)).max(6).default([]),
+  bio: z.string().min(20).max(800),
+  availability: z.string().min(2).max(80).nullable().optional(),
+  priceFrom: z.string().min(2).max(40).nullable().optional(),
+  // Only a path this API issued can be attached. Accepting an arbitrary URL would
+  // let a profile point at a host we do not control, and the strict pattern also
+  // rules out `javascript:` and traversal attempts.
+  avatarUrl: z
+    .string()
+    .regex(/^\/uploads\/[A-Za-z0-9-]+\.(jpg|png|gif|webp)$/, 'Attach an image uploaded to this server.')
+    .nullable()
+    .optional(),
+});
+
 export const bookingSchema = z.object({
   experienceId: z.string().min(1).max(80),
   scheduleId: z.string().min(1).max(80),
@@ -112,9 +130,77 @@ export const registerSchema = z.object({
   email: z.string().email().max(200),
   name: z.string().min(2).max(120),
   password: z.string().min(10, 'Use at least 10 characters.').max(200),
+  role: z.enum(['visitor', 'organizer']).default('visitor'),
 });
 
 export const loginSchema = z.object({
   email: z.string().email().max(200),
   password: z.string().min(1).max(200),
+});
+
+export const passwordResetRequestSchema = z.object({
+  email: z.string().email().max(200),
+});
+
+export const passwordResetConfirmSchema = z.object({
+  token: z.string().min(20).max(200),
+  // Same floor as registration: a reset must not be a way to weaken the policy.
+  password: z.string().min(10, 'Use at least 10 characters.').max(200),
+});
+
+/**
+ * Analytics beacon.
+ *
+ * Only the envelope is validated here: each event is checked against the
+ * allowlist in `domain/analytics.ts`, which knows the permitted properties per
+ * event. The cap keeps one request from becoming unbounded work.
+ */
+export const analyticsIngestSchema = z.object({
+  visitorId: z
+    .string()
+    .min(16)
+    .max(64)
+    .regex(/^[A-Za-z0-9_-]+$/, 'Visitor identifiers are random tokens, not personal data.')
+    .optional(),
+  events: z.array(z.unknown()).min(1).max(50),
+});
+
+export const analyticsOptOutSchema = z.object({
+  visitorId: z
+    .string()
+    .min(16)
+    .max(64)
+    .regex(/^[A-Za-z0-9_-]+$/, 'Visitor identifiers are random tokens, not personal data.'),
+});
+
+/** A date range as the dashboard's selector sends it. */
+export const analyticsRangeSchema = z.object({
+  preset: z.enum(['today', '7d', '30d', '90d', 'custom']).optional(),
+  from: z
+    .string()
+    .regex(/^\d{4}-\d{2}-\d{2}$/, 'Use YYYY-MM-DD.')
+    .optional(),
+  to: z
+    .string()
+    .regex(/^\d{4}-\d{2}-\d{2}$/, 'Use YYYY-MM-DD.')
+    .optional(),
+});
+
+export const adminUsersQuerySchema = z.object({
+  q: z.string().max(120).optional(),
+  role: z.enum(['visitor', 'contributor', 'organizer', 'moderator', 'admin']).optional(),
+  status: z.enum(['active', 'suspended']).optional(),
+  sort: z.enum(['createdAt', 'name', 'email', 'role']).optional(),
+  direction: z.enum(['asc', 'desc']).optional(),
+  page: z.coerce.number().int().min(1).max(10_000).optional(),
+  perPage: z.coerce.number().int().min(1).max(100).optional(),
+});
+
+export const adminUserStatusSchema = z.object({
+  status: z.enum(['active', 'suspended']),
+  reason: z.string().max(500).optional(),
+});
+
+export const analyticsExportQuerySchema = analyticsRangeSchema.extend({
+  dataset: z.enum(['overview', 'discovery', 'ai', 'users', 'audit', 'bookings']),
 });

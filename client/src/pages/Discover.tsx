@@ -1,5 +1,5 @@
-import { useMemo, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useEffect, useMemo, useState } from 'react';
+import { Link, useSearchParams } from 'react-router-dom';
 import {
   Compass,
   Crosshair,
@@ -16,14 +16,16 @@ import { categoryLabel, formatDistanceKm, PLACE_CATEGORIES } from '../lib/format
 import { usePlaces } from '../lib/hooks';
 import type { Place, RouteResult } from '../lib/types';
 import MapView from '../components/MapView';
+import { track } from '../lib/tracker';
 import { DirectionsPanel } from '../components/DirectionsPanel';
 import { CoverageGrid, CoverageLegend, KnowledgeSummary, PlaceCard, SourceList } from '../components/place';
 import { EmptyState, ErrorState, Loading, Notice, OfflineBanner, SectionHeading } from '../components/ui';
 import { Reveal } from '../components/layout';
 
 export default function Discover() {
+  const [searchParams, setSearchParams] = useSearchParams();
   const [category, setCategory] = useState('');
-  const [query, setQuery] = useState('');
+  const [query, setQuery] = useState(searchParams.get('q') ?? '');
   const [needsResearch, setNeedsResearch] = useState(false);
   const [activeId, setActiveId] = useState<string | null>(null);
   const [active, setActive] = useState<Place | null>(null);
@@ -34,11 +36,38 @@ export default function Discover() {
   const [nearbyError, setNearbyError] = useState<string | null>(null);
   const [locating, setLocating] = useState(false);
 
+  useEffect(() => {
+    const nextQuery = searchParams.get('q') ?? '';
+    setQuery((current) => (current === nextQuery ? current : nextQuery));
+  }, [searchParams]);
+
+  useEffect(() => {
+    const nextQuery = query.trim();
+    const currentQuery = searchParams.get('q') ?? '';
+    if (nextQuery === currentQuery) return;
+    if (nextQuery) {
+      setSearchParams({ q: nextQuery }, { replace: true });
+      return;
+    }
+    setSearchParams({}, { replace: true });
+  }, [query, searchParams, setSearchParams]);
+
   const { places, isLoading, isOffline, error, disclaimer, sourcesChecked, retry } = usePlaces({
     category: category || undefined,
     q: query.trim() || undefined,
     needsResearch: needsResearch || undefined,
   });
+
+  // One search event per settled query, with the number of results. Terms that
+  // found nothing are the most useful signal here, so they must not be skipped.
+  useEffect(() => {
+    const term = query.trim();
+    if (term.length < 2 || isLoading) return undefined;
+    const timer = window.setTimeout(() => {
+      track('search_performed', { query: term, resultCount: places.length, scope: 'places' });
+    }, 800);
+    return () => window.clearTimeout(timer);
+  }, [query, places.length, isLoading]);
 
   const displayed = useMemo(() => {
     if (!nearby) return places;
