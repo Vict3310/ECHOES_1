@@ -14,5 +14,6 @@ npm-debug.log*
 server/prisma/*.db
 
 # Uploaded images are runtime data, not source. Production needs object storage.
-uploads/
-server/uploads/
+# Keep the source upload service tracked; only ignore runtime data directories.
+/uploads/
+/server/uploads/
